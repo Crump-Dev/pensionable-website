@@ -1434,8 +1434,9 @@
     <!-- Black hole background -->
     <div class="black-hole-wrap" aria-hidden="true">
       <div class="black-hole-video-layer" id="bh-video-layer">
-        <video muted playsinline preload="auto" id="bh-video"
-               src="assets/202605282328.mp4">
+        <video muted playsinline preload="metadata" id="bh-video">
+          <source src="assets/202605282328-mobile.mp4" media="(max-width: 768px)" type="video/mp4" />
+          <source src="assets/202605282328.mp4" type="video/mp4" />
         </video>
       </div>
 
@@ -1844,7 +1845,8 @@
     // Generate 120 star dots on a ring band
     if (starsEl) {
       const cx = 350, cy = 350, minR = 190, maxR = 340;
-      for (let i = 0; i < 120; i++) {
+      const starCount = isMobile ? 40 : 120;
+      for (let i = 0; i < starCount; i++) {
         const angle  = Math.random() * 2 * Math.PI;
         const radius = minR + Math.random() * (maxR - minR);
         const star   = document.createElement('div');
@@ -1860,35 +1862,46 @@
     }
     setTimeout(() => starsEl && starsEl.classList.add('bh-stars-visible'), 400);
 
-    // Ping-pong playback via RAF
+    // On mobile: native loop playback (no per-frame seeking — too expensive on mobile CPUs)
+    // On desktop: ping-pong via RAF for the smooth back-and-forth effect
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
     if (video) {
-      let forward = true;
-      let raf;
-      const SPEED = 0.015; // seconds per frame step
-
-      function step() {
-        if (!video.duration) { raf = requestAnimationFrame(step); return; }
-        if (forward) {
-          video.currentTime = Math.min(video.currentTime + SPEED, video.duration);
-          if (video.currentTime >= video.duration) forward = false;
-        } else {
-          video.currentTime = Math.max(video.currentTime - SPEED, 0);
-          if (video.currentTime <= 0) forward = true;
-        }
-        raf = requestAnimationFrame(step);
-      }
-
-      const start = () => {
-        videoLayer.classList.add('loaded');
-        video.pause();
-        raf = requestAnimationFrame(step);
-      };
-
-      if (video.readyState >= 2) {
-        start();
-      } else {
-        video.addEventListener('loadeddata', start, { once: true });
+      if (isMobile) {
+        // Native play — GPU-accelerated, no JS overhead
+        video.loop = true;
+        const startMobile = () => {
+          videoLayer.classList.add('loaded');
+          video.play().catch(() => {});
+        };
+        if (video.readyState >= 2) startMobile();
+        else video.addEventListener('loadeddata', startMobile, { once: true });
         video.load();
+      } else {
+        // Desktop ping-pong via RAF
+        let forward = true, raf;
+        const SPEED = 0.015;
+
+        function step() {
+          if (!video.duration) { raf = requestAnimationFrame(step); return; }
+          if (forward) {
+            video.currentTime = Math.min(video.currentTime + SPEED, video.duration);
+            if (video.currentTime >= video.duration) forward = false;
+          } else {
+            video.currentTime = Math.max(video.currentTime - SPEED, 0);
+            if (video.currentTime <= 0) forward = true;
+          }
+          raf = requestAnimationFrame(step);
+        }
+
+        const start = () => {
+          videoLayer.classList.add('loaded');
+          video.pause();
+          raf = requestAnimationFrame(step);
+        };
+
+        if (video.readyState >= 2) start();
+        else { video.addEventListener('loadeddata', start, { once: true }); video.load(); }
       }
     }
   }());
