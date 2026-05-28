@@ -9,6 +9,7 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="canonical" href="https://pensionable.ai/trust-and-safety.html" />
+  <link rel="stylesheet" href="nav.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -37,9 +38,6 @@
       border-bottom: 1px solid var(--border);
     }
     nav::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60%; height: 1px; background: radial-gradient(ellipse at center, rgba(147,130,255,0.4) 0%, transparent 70%); pointer-events: none; }
-    .logo-hex { width: 22px; height: 22px; flex-shrink: 0; display: inline-block; vertical-align: middle; margin-right: 2px; }
-    .nav-logo { font-family: var(--font-head); font-weight: 700; font-size: 1.1rem; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
-    .nav-logo span { background: var(--accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: var(--r-pill); padding: 0.3rem 0.5rem; }
     .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; padding: 0.35rem 0.85rem; border-radius: var(--r-pill); transition: color 0.2s, background 0.2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--text); background: rgba(255,255,255,0.06); }
@@ -188,14 +186,14 @@
 <body>
 
 <nav role="navigation" aria-label="Main navigation">
-  <a href="index.html" class="nav-logo"><svg class="logo-hex" viewBox="0 0 24 24" fill="none" aria-hidden="true"><polygon points="12,1.5 21,6.5 21,17.5 12,22.5 3,17.5 3,6.5" stroke="url(#lhg)" stroke-width="2.6" stroke-linejoin="round"/><defs><linearGradient id="lhg" x1="3" y1="1.5" x2="21" y2="22.5" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#d060e8"/><stop offset="100%" stop-color="#8b2fc9"/></linearGradient></defs></svg>pensionable<span>.ai</span></a>
+  <a href="index.html" class="nav-logo"><svg class="logo-hex" viewBox="-1 -1 26 26" fill="none" aria-hidden="true"><polygon points="12,1.5 21,6.5 21,17.5 12,22.5 3,17.5 3,6.5" stroke="url(#lhg)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><defs><linearGradient id="lhg" x1="3" y1="1.5" x2="21" y2="22.5" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#b44cf0"/><stop offset="100%" stop-color="#7030c8"/></linearGradient></defs></svg><span class="logo-word"><span class="logo-text">pensionable</span><span class="logo-ai">.ai</span></span></a>
   <ul class="nav-links" role="menubar">
     <li><a href="how-it-works.html" role="menuitem">How it works</a></li>
     <li><a href="trust-and-safety.html" class="active" role="menuitem">Trust &amp; Safety</a></li>
     <li><a href="index.html#challenge" role="menuitem">Contact</a></li>
   </ul>
   <div class="nav-cta" style="display:flex;align-items:center;gap:0.75rem">
-    <a href="index.html#challenge" class="btn-primary">Request a demo</a>
+    <a href="index.html#challenge" class="btn-nav-primary">Request a demo</a>
     <button class="nav-hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav">
       <span></span><span></span><span></span>
     </button>
@@ -205,7 +203,7 @@
   <a href="how-it-works.html">How it works</a>
   <a href="trust-and-safety.html">Trust &amp; Safety</a>
   <a href="index.html#challenge">Contact</a>
-  <a href="index.html#challenge" class="btn-primary">Request a demo</a>
+  <a href="index.html#challenge" class="btn-nav-primary">Request a demo</a>
 </nav>
 
 <main>
@@ -351,7 +349,7 @@
         <h2 class="cta-headline">Questions we'd like you to ask.</h2>
         <p class="cta-body">Bring the edge cases. Bring the hard governance questions. Bring the bespoke transitional clause that has defeated three vendors. We would like you to try.</p>
         <div class="cta-btns">
-          <a href="index.html#challenge" class="btn-primary">Request a demo</a>
+          <a href="index.html#challenge" class="btn-nav-primary">Request a demo</a>
           <a href="how-it-works.html" class="btn-secondary">How it works</a>
         </div>
       </div>

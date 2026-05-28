@@ -53,6 +53,7 @@
   }
   </script>
   <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <link rel="stylesheet" href="nav.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -157,16 +158,6 @@
       width: 60%; height: 1px;
       background: radial-gradient(ellipse at center, rgba(147,130,255,0.4) 0%, transparent 70%);
       pointer-events: none;
-    }
-    .logo-hex { width: 22px; height: 22px; flex-shrink: 0; display: inline-block; vertical-align: middle; margin-right: 2px; }
-    .nav-logo {
-      font-family: var(--font-head);
-      font-weight: 700; font-size: 1.1rem;
-      color: var(--text); text-decoration: none; letter-spacing: -0.02em;
-    }
-    .nav-logo span {
-      background: var(--accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
     }
     .nav-links {
       display: flex; align-items: center; gap: 0.25rem;
@@ -1315,15 +1306,14 @@
 
 <!-- ─── NAVBAR ─── -->
 <nav role="navigation" aria-label="Main navigation">
-  <a href="/" class="nav-logo"><svg class="logo-hex" viewBox="0 0 24 24" fill="none" aria-hidden="true"><polygon points="12,1.5 21,6.5 21,17.5 12,22.5 3,17.5 3,6.5" stroke="url(#lhg)" stroke-width="2.6" stroke-linejoin="round"/><defs><linearGradient id="lhg" x1="3" y1="1.5" x2="21" y2="22.5" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#d060e8"/><stop offset="100%" stop-color="#8b2fc9"/></linearGradient></defs></svg>pensionable<span>.ai</span></a>
-  <ul class="nav-links" role="menubar">
-    <li><a href="solutions.html" role="menuitem">Solutions</a></li>
-    <li><a href="intelligence/index.html" role="menuitem">Intelligence</a></li>
-    <li><a href="trust-and-safety.html" role="menuitem">Trust &amp; Safety</a></li>
-    <li><a href="#challenge" role="menuitem">Contact</a></li>
+  <a href="/" class="nav-logo"><svg class="logo-hex" viewBox="-1 -1 26 26" fill="none" aria-hidden="true"><polygon points="12,1.5 21,6.5 21,17.5 12,22.5 3,17.5 3,6.5" stroke="url(#lhg)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><defs><linearGradient id="lhg" x1="3" y1="1.5" x2="21" y2="22.5" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#b44cf0"/><stop offset="100%" stop-color="#7030c8"/></linearGradient></defs></svg><span class="logo-word"><span class="logo-text">pensionable</span><span class="logo-ai">.ai</span></span></a>
+  <ul class="nav-links" role="list">
+    <li><a href="solutions.html">Solutions</a></li>
+    <li><a href="intelligence/index.html">Intelligence</a></li>
+    <li><a href="#challenge">Contact</a></li>
   </ul>
   <div class="nav-cta">
-    <a href="#challenge" class="btn-primary">Request a demo</a>
+    <a href="#challenge" class="btn-nav-primary">Request a demo</a>
     <button class="nav-hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav">
       <span></span><span></span><span></span>
     </button>
@@ -1334,7 +1324,7 @@
   <a href="intelligence/index.html">Intelligence</a>
   <a href="trust-and-safety.html">Trust &amp; Safety</a>
   <a href="#challenge">Contact</a>
-  <a href="#challenge" class="btn-primary">Request a demo</a>
+  <a href="#challenge" class="btn-nav-primary">Request a demo</a>
 </nav>
 
 <main id="main">
@@ -1802,7 +1792,7 @@
           Through the deed rule. The Act. The Statutory Instrument. The line of code that produced it. Bring us the edge cases that have defeated three vendors. We would like you to try.
         </p>
         <div class="challenge-ctas">
-          <a href="mailto:info@pensionable.ai?subject=Demo request" class="btn-primary">Request a demo</a>
+          <a href="mailto:info@pensionable.ai?subject=Demo request" class="btn-nav-primary">Request a demo</a>
         </div>
       </div>
     </div>
