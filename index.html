@@ -1841,8 +1841,9 @@
     const videoLayer = document.getElementById('bh-video-layer');
     const starsEl    = document.getElementById('bh-stars');
     const video      = document.getElementById('bh-video');
+    const isMobile   = window.matchMedia('(max-width: 768px)').matches;
 
-    // Generate 120 star dots on a ring band
+    // Generate star dots on a ring band
     if (starsEl) {
       const cx = 350, cy = 350, minR = 190, maxR = 340;
       const starCount = isMobile ? 40 : 120;
@@ -1861,10 +1862,6 @@
       }
     }
     setTimeout(() => starsEl && starsEl.classList.add('bh-stars-visible'), 400);
-
-    // On mobile: native loop playback (no per-frame seeking — too expensive on mobile CPUs)
-    // On desktop: ping-pong via RAF for the smooth back-and-forth effect
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
     if (video) {
       if (isMobile) {
