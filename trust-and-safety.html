@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trust &amp; Safety — pensionable.ai</title>
+  <meta name="description" content="Five structural design choices that make Diorama defensible for actuarial work, trustees, and GDPR. Not policy promises — properties of how the engine is built." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="canonical" href="https://pensionable.ai/trust-and-safety.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #030014; --surface: rgba(255,255,255,0.02); --surface-el: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08); --border-bright: rgba(255,255,255,0.14);
+      --text: #ffffff; --text-muted: rgba(239,237,253,0.7); --text-caption: rgba(239,237,253,0.4);
+      --accent: linear-gradient(90.01deg,#e59cff 0%,#ba9cff 50%,#9cb2ff 100%);
+      --accent-start: #e59cff; --accent-mid: #ba9cff; --accent-end: #9cb2ff;
+      --font-head: 'Plus Jakarta Sans', sans-serif; --font-body: 'Inter', sans-serif; --font-mono: 'JetBrains Mono', monospace;
+      --r-btn: 8px; --r-card: 12px; --r-panel: 16px; --r-pill: 999px;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.05); border-radius: 99px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.1); }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 64px;
+      background: rgba(3,0,20,0.7); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60%; height: 1px; background: radial-gradient(ellipse at center, rgba(147,130,255,0.4) 0%, transparent 70%); pointer-events: none; }
+    .logo-hex { width: 22px; height: 22px; flex-shrink: 0; display: inline-block; vertical-align: middle; margin-right: 2px; }
+    .nav-logo { font-family: var(--font-head); font-weight: 700; font-size: 1.1rem; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
+    .nav-logo span { background: var(--accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: var(--r-pill); padding: 0.3rem 0.5rem; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; padding: 0.35rem 0.85rem; border-radius: var(--r-pill); transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); background: rgba(255,255,255,0.06); }
+    .btn-primary { display: inline-flex; align-items: center; justify-content: center; background: rgba(147,130,255,0.15); border: 1px solid rgba(147,130,255,0.35); color: var(--text); text-decoration: none; font-family: var(--font-body); font-size: 0.875rem; font-weight: 500; padding: 0.5rem 1.25rem; border-radius: var(--r-btn); box-shadow: inset 0 0 12px rgba(147,130,255,0.1); transition: box-shadow 0.25s, border-color 0.25s, background 0.25s; white-space: nowrap; }
+    .btn-primary:hover { box-shadow: inset 0 0 20px rgba(147,130,255,0.25), 0 0 20px rgba(147,130,255,0.15); border-color: rgba(147,130,255,0.6); background: rgba(147,130,255,0.2); }
+    .btn-secondary { display: inline-flex; align-items: center; justify-content: center; background: transparent; border: 1px solid var(--border-bright); color: var(--text-muted); text-decoration: none; font-family: var(--font-body); font-size: 0.875rem; padding: 0.5rem 1.25rem; border-radius: var(--r-btn); transition: color 0.2s, border-color 0.2s; }
+    .btn-secondary:hover { color: var(--text); border-color: rgba(255,255,255,0.25); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text-muted); border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(3,0,20,0.97); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; z-index: 999; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--text-muted); text-decoration: none; font-size: 1rem; padding: 0.6rem 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
+    .mobile-menu a:hover { color: var(--text); }
+    .mobile-menu .btn-primary { margin-top: 0.75rem; width: 100%; }
+
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 1.5rem; }
+    .container-narrow { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
+    section { position: relative; overflow: hidden; }
+    .radial-bleed { position: absolute; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .rb-hero { width: 900px; height: 900px; background: radial-gradient(ellipse at center, rgba(113,47,255,0.22) 0%, rgba(147,130,255,0.08) 40%, transparent 70%); top: -250px; left: 50%; transform: translateX(-50%); }
+    .rb-right { width: 500px; height: 500px; background: radial-gradient(ellipse, rgba(147,130,255,0.1) 0%, transparent 70%); top: 10%; right: -150px; }
+
+    /* HERO */
+    #hero { padding: 130px 0 80px; }
+    .hero-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5rem; }
+    .badge-pill { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.35rem 0.85rem; border-radius: var(--r-pill); background: rgba(147,130,255,0.08); border: 1px solid rgba(147,130,255,0.25); color: var(--accent-mid); backdrop-filter: blur(6px); }
+    .page-headline { font-family: var(--font-head); font-weight: 700; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; letter-spacing: -0.04em; background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.7) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; max-width: 720px; }
+    .page-desc { font-size: 1.0625rem; color: var(--text-muted); max-width: 520px; line-height: 1.7; }
+
+    /* INTRO CALLOUT */
+    .callout {
+      background: rgba(147,130,255,0.06); border: 1px solid rgba(147,130,255,0.18);
+      border-radius: var(--r-panel); padding: 1.75rem 2rem;
+      margin: 4rem auto; max-width: 760px;
+    }
+    .callout p { font-size: 1.0625rem; color: var(--text-muted); line-height: 1.75; }
+    .callout strong { color: var(--text); font-weight: 500; }
+
+    /* PILLAR */
+    .pillars { display: flex; flex-direction: column; gap: 0; }
+    .pillar {
+      display: grid; grid-template-columns: 56px 1fr;
+      gap: 0 2rem; padding: 3rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+    .pillar:first-child { border-top: 1px solid var(--border); }
+    .pillar-num {
+      font-family: var(--font-mono); font-size: 0.75rem;
+      color: var(--accent-mid); padding-top: 0.25rem;
+      letter-spacing: 0.05em;
+    }
+    .pillar-body {}
+    .pillar-body h2 {
+      font-family: var(--font-head); font-weight: 700;
+      font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+      letter-spacing: -0.02em; color: var(--text);
+      margin-bottom: 0.875rem; line-height: 1.2;
+    }
+    .pillar-body p { color: var(--text-muted); font-size: 0.9375rem; line-height: 1.8; }
+    .pillar-body p + p { margin-top: 0.75rem; }
+    .pillar-body .detail-box {
+      margin-top: 1.25rem; background: rgba(255,255,255,0.025);
+      border: 1px solid var(--border); border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+    }
+    .pillar-body .detail-box p { font-size: 0.875rem; }
+    .pillar-body .tag-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+    .tag {
+      font-family: var(--font-mono); font-size: 0.6875rem;
+      color: var(--text-caption); background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border); border-radius: 4px; padding: 0.2rem 0.5rem;
+    }
+
+    /* DISTINCTION CALLOUT */
+    .distinction {
+      background: rgba(255,255,255,0.02); border: 1px solid var(--border);
+      border-left: 3px solid var(--accent-mid); border-radius: 0 10px 10px 0;
+      padding: 1rem 1.5rem; margin-top: 1.25rem;
+    }
+    .distinction p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; font-style: italic; }
+
+    /* CONTENT SECTION */
+    .content-section { padding: 6rem 0; }
+    .section-label { font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-mid); margin-bottom: 0.875rem; }
+    .section-title { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.75rem, 3vw, 2.25rem); line-height: 1.15; letter-spacing: -0.03em; background: linear-gradient(180deg,#fff 0%,rgba(255,255,255,0.7) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; }
+
+    /* ANON PIPELINE */
+    .anon-steps { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
+    .anon-step {
+      display: flex; gap: 1rem; align-items: flex-start;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; padding: 0.875rem 1rem;
+    }
+    .anon-step-num { font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-mid); min-width: 20px; margin-top: 2px; }
+    .anon-step-body strong { display: block; font-size: 0.875rem; font-weight: 500; color: var(--text); margin-bottom: 0.2rem; }
+    .anon-step-body p { font-size: 0.8125rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* DIVIDER */
+    .section-divider { border: none; border-top: 1px solid var(--border); }
+
+    /* CTA */
+    #cta { padding: 8rem 0; text-align: center; }
+    .cta-inner { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; position: relative; z-index: 1; }
+    .cta-headline { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -0.04em; background: linear-gradient(180deg,#fff 0%,rgba(255,255,255,0.7) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .cta-body { font-size: 1rem; color: var(--text-muted); max-width: 420px; line-height: 1.7; }
+    .cta-btns { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 3rem 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-logo { font-family: var(--font-head); font-weight: 700; font-size: 1rem; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
+    .footer-links { display: flex; gap: 2rem; list-style: none; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.875rem; color: var(--text-caption); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text-muted); }
+    .footer-right { font-size: 0.8125rem; color: var(--text-caption); display: flex; align-items: center; gap: 0.75rem; }
+    .live-dot { width: 7px; height: 7px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 6px #4ade80; animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(0.85)} }
+
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+    .fade-up.visible { opacity: 1; transform: none; }
+    .hero-inner > * { opacity: 0; transform: translateY(20px); animation: hero-in 0.7s cubic-bezier(0.16,1,0.3,1) forwards; }
+    .hero-inner > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero-inner > *:nth-child(2) { animation-delay: 0.18s; }
+    .hero-inner > *:nth-child(3) { animation-delay: 0.26s; }
+    @keyframes hero-in { to { opacity: 1; transform: none; } }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-cta .btn-primary { display: none; }
+      .pillar { grid-template-columns: 1fr; gap: 0.75rem; }
+      .pillar-num { font-size: 0.6875rem; }
+    }
+    @media (max-width: 480px) {
+      .page-headline { font-size: 2rem; }
+      .callout { padding: 1.25rem; }
+      .cta-btns { flex-direction: column; width: 100%; }
+      .cta-btns a { width: 100%; text-align: center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+<nav role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="nav-logo"><svg class="logo-hex" viewBox="0 0 24 24" fill="none" aria-hidden="true"><polygon points="12,1.5 21,6.5 21,17.5 12,22.5 3,17.5 3,6.5" stroke="url(#lhg)" stroke-width="2.6" stroke-linejoin="round"/><defs><linearGradient id="lhg" x1="3" y1="1.5" x2="21" y2="22.5" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#d060e8"/><stop offset="100%" stop-color="#8b2fc9"/></linearGradient></defs></svg>pensionable<span>.ai</span></a>
+  <ul class="nav-links" role="menubar">
+    <li><a href="how-it-works.html" role="menuitem">How it works</a></li>
+    <li><a href="trust-and-safety.html" class="active" role="menuitem">Trust &amp; Safety</a></li>
+    <li><a href="index.html#challenge" role="menuitem">Contact</a></li>
+  </ul>
+  <div class="nav-cta" style="display:flex;align-items:center;gap:0.75rem">
+    <a href="index.html#challenge" class="btn-primary">Request a demo</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<nav class="mobile-menu" id="mobile-nav" aria-label="Mobile navigation">
+  <a href="how-it-works.html">How it works</a>
+  <a href="trust-and-safety.html">Trust &amp; Safety</a>
+  <a href="index.html#challenge">Contact</a>
+  <a href="index.html#challenge" class="btn-primary">Request a demo</a>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="radial-bleed rb-hero" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <div class="badge-pill">Trust &amp; Safety</div>
+        <h1 class="page-headline">Five structural answers. Not policy promises.</h1>
+        <p class="page-desc">The engine is fast. The question every serious buyer asks next is: how do you make this safe for actuarial work, defensible for trustees, and compliant with GDPR?</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="callout fade-up">
+      <p>Each of the five answers below is a <strong>structural design choice</strong>, not a process commitment. They are properties of how the engine is built, not promises about how careful the team is. That distinction matters — structural properties hold under pressure; policy promises depend on the person who wrote them still being in the room.</p>
+    </div>
+  </div>
+
+  <!-- FIVE PILLARS -->
+  <section class="content-section" style="padding-top:0">
+    <div class="container-narrow">
+      <div class="pillars">
+
+        <div class="pillar fade-up">
+          <div class="pillar-num">01</div>
+          <div class="pillar-body">
+            <h2>The actuary owns the deliverable.</h2>
+            <p>The human in the loop directs the engagement throughout. They frame the brief, make every actuarial judgement call, decide which interpretive readings to adopt, and sign off the answer.</p>
+            <p>The engine and the LLMs are tools that accelerate execution and review. The actuary owns the calculation and the conclusions drawn from it. Accountability never moves.</p>
+            <div class="distinction">
+              <p>This is the difference between "an AI did this calculation" — which actuaries cannot sign off — and "AI-assisted developers built software that did this calculation" — which works the same way as every other piece of audited software.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pillar fade-up">
+          <div class="pillar-num">02</div>
+          <div class="pillar-body">
+            <h2>No LLM in the runtime path.</h2>
+            <p>Diorama is built with LLM assistance during development. The runtime is deterministic Python and Excel formulas. The same code produces the same outputs every time.</p>
+            <p>The LLM helps build the calculator. It does not enter the audit trail of any individual calculation. Once the engine is built and approved, LLMs play no further role in the money path.</p>
+            <div class="tag-row">
+              <span class="tag">deterministic Python</span>
+              <span class="tag">same inputs = same outputs</span>
+              <span class="tag">no hidden interpretation at runtime</span>
+              <span class="tag">no source-document reading at runtime</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pillar fade-up">
+          <div class="pillar-num">03</div>
+          <div class="pillar-body">
+            <h2>Every output is testable.</h2>
+            <p>The calculator's formulas are mechanical translations of the specification's rule text. A regression harness re-implements each rule in Python independently and asserts the workbook's output matches. The harness runs on every rebuild.</p>
+            <p>Any drift between rule text, workbook formula, and harness reference implementation surfaces as a test failure before anything ships. The harness is the quality gate — a structural answer to "how do we know this is right?"</p>
+            <div class="detail-box">
+              <p>400+ regression assertions cover the full benefit cascade: GMP pre- and post-1988, excess revaluation, early and late retirement factors, commutation, Finance Act 2024 lump sum regime, spouse and dependant pensions, section/category logic.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pillar fade-up">
+          <div class="pillar-num">04</div>
+          <div class="pillar-body">
+            <h2>Two independent model families review each other.</h2>
+            <p>A development LLM does the execution. A review LLM from a different model family, by a different vendor, audits the output — operating from the same source artefacts with no shared context.</p>
+            <p>The two work in tandem: the reviewer surfaces issues the execution model missed, the execution model addresses them, and successive rounds tighten the work until both converge. The execution model only ever sees the reviewer's findings as written recommendations to act on.</p>
+            <div class="distinction">
+              <p>AI-on-AI peer review is structurally analogous to human peer review. It catches the things one model alone tends to miss — including coherence errors, missing edge cases, and assumption drift across a long engagement.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pillar fade-up">
+          <div class="pillar-num">05</div>
+          <div class="pillar-body">
+            <h2>Anonymisation before any LLM access.</h2>
+            <p>For engagements where source artefacts contain personal data, anonymisation moves into the pipeline itself. The LLM-driven classification step sees only structure — sheet names, column headers, named ranges, inferred types — never cell values.</p>
+            <div class="anon-steps">
+              <div class="anon-step">
+                <span class="anon-step-num">1</span>
+                <div class="anon-step-body">
+                  <strong>Structure-only extraction</strong>
+                  <p>LLM sees only sheet names, column headers, named ranges, inferred types. Never cell values.</p>
+                </div>
+              </div>
+              <div class="anon-step">
+                <span class="anon-step-num">2</span>
+                <div class="anon-step-body">
+                  <strong>Header classification</strong>
+                  <p>Columns classified by type. PII-bearing columns identified before any data is read.</p>
+                </div>
+              </div>
+              <div class="anon-step">
+                <span class="anon-step-num">3</span>
+                <div class="anon-step-body">
+                  <strong>Human-in-the-loop confirmation</strong>
+                  <p>Classification reviewed and confirmed before substitution proceeds.</p>
+                </div>
+              </div>
+              <div class="anon-step">
+                <span class="anon-step-num">4</span>
+                <div class="anon-step-body">
+                  <strong>Deterministic substitution</strong>
+                  <p>PII values replaced with synthetic equivalents. Substitution map held locally and never transmitted.</p>
+                </div>
+              </div>
+              <div class="anon-step">
+                <span class="anon-step-num">5</span>
+                <div class="anon-step-body">
+                  <strong>Validation against known PII patterns</strong>
+                  <p>Regex-based check confirms no residual PII before LLM access is granted.</p>
+                </div>
+              </div>
+              <div class="anon-step">
+                <span class="anon-step-num">6</span>
+                <div class="anon-step-body">
+                  <strong>LLM access to anonymised artefact only</strong>
+                  <p>The audit trail is available to the client's data protection officer on request.</p>
+                </div>
+              </div>
+            </div>
+            <div class="distinction" style="margin-top:1.25rem">
+              <p>The architectural lever is separation of "knowing what to do" from "doing it." The classifier sees only metadata and cannot physically access member data. The substitution map is held locally and never transmitted.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta">
+    <div class="radial-bleed rb-hero" aria-hidden="true"></div>
+    <div class="container">
+      <div class="cta-inner fade-up">
+        <h2 class="cta-headline">Questions we'd like you to ask.</h2>
+        <p class="cta-body">Bring the edge cases. Bring the hard governance questions. Bring the bespoke transitional clause that has defeated three vendors. We would like you to try.</p>
+        <div class="cta-btns">
+          <a href="index.html#challenge" class="btn-primary">Request a demo</a>
+          <a href="how-it-works.html" class="btn-secondary">How it works</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-inner">
+      <a href="index.html" class="footer-logo">pensionable.ai</a>
+      <ul class="footer-links">
+        <li><a href="how-it-works.html">How it works</a></li>
+        <li><a href="trust-and-safety.html">Trust &amp; Safety</a></li>
+        <li><a href="index.html#challenge">Contact</a></li>
+        <li><a href="#">Privacy</a></li>
+      </ul>
+      <div class="footer-right">
+        <span>Built for the pensions industry.</span>
+        <span style="opacity:0.35">·</span>
+        <span>Dev by <a href="https://maiaa.ai" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;opacity:0.5;transition:opacity 0.2s" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='0.5'">maiaa.ai</a></span>
+        <span style="opacity:0.35">·</span>
+        <span style="display:inline-flex;align-items:center;gap:0.4rem"><span class="live-dot" aria-hidden="true"></span>System live</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
+  hamburger.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', String(open));
+  });
+  const fadeObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); } });
+  }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+</script>
+</body>
+</html>

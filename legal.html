@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legal — pensionable.ai</title>
+  <meta name="description" content="Terms of use, privacy policy, intellectual property notice, and legal information for pensionable.ai." />
+  <meta name="robots" content="noindex, follow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="canonical" href="https://pensionable.ai/legal.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #030014; --surface: rgba(255,255,255,0.02); --border: rgba(255,255,255,0.08);
+      --border-bright: rgba(255,255,255,0.14); --text: #ffffff;
+      --text-muted: rgba(239,237,253,0.7); --text-caption: rgba(239,237,253,0.4);
+      --accent: linear-gradient(90.01deg,#e59cff 0%,#ba9cff 50%,#9cb2ff 100%);
+      --accent-mid: #ba9cff; --r-btn: 8px; --r-pill: 999px;
+      --font-head: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    ::-webkit-scrollbar { width: 5px; } ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.05); border-radius: 99px; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 64px; background: rgba(3,0,20,0.75); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .logo-hex { width: 22px; height: 22px; flex-shrink: 0; display: inline-block; vertical-align: middle; margin-right: 2px; }
+    .nav-logo { font-family: var(--font-head); font-weight: 700; font-size: 1.1rem; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
+    .nav-logo span { background: var(--accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .nav-back { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.875rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: var(--text); }
+    .nav-back svg { width: 14px; height: 14px; }
+
+    /* LAYOUT */
+    .container { max-width: 760px; margin: 0 auto; padding: 0 2rem; }
+    main { padding: 120px 0 6rem; }
+
+    /* HEADER */
+    .page-header { margin-bottom: 4rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+    .page-eyebrow { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-mid); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; }
+    .page-title { font-family: var(--font-head); font-weight: 800; font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.1; letter-spacing: -0.03em; }
+    .page-updated { font-size: 0.8125rem; color: var(--text-caption); font-family: var(--font-mono); margin-top: 1rem; }
+
+    /* TOC */
+    .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 3rem; }
+    .toc-title { font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-caption); margin-bottom: 1rem; }
+    .toc ol { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+    .toc a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+    .toc a:hover { color: var(--accent-mid); }
+
+    /* SECTIONS */
+    .legal-section { margin-bottom: 3.5rem; }
+    .legal-section h2 { font-family: var(--font-head); font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1.25rem; padding-top: 0.5rem; color: var(--text); }
+    .legal-section p { color: var(--text-muted); margin-bottom: 1rem; font-size: 0.9375rem; }
+    .legal-section p:last-child { margin-bottom: 0; }
+    .legal-section ul { color: var(--text-muted); font-size: 0.9375rem; padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+    .legal-section ul li { padding-left: 0.25rem; }
+    .legal-section a { color: var(--accent-mid); text-decoration: none; }
+    .legal-section a:hover { text-decoration: underline; }
+    .legal-section strong { color: var(--text); font-weight: 600; }
+
+    /* DIVIDER */
+    hr { border: none; border-top: 1px solid var(--border); margin: 3.5rem 0; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 2rem 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-logo { font-family: var(--font-head); font-weight: 700; font-size: 1rem; color: var(--text); text-decoration: none; }
+    .footer-logo span { background: var(--accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .footer-copy { font-size: 0.8125rem; color: var(--text-caption); }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 1rem; }
+      .container { padding: 0 1rem; }
+      main { padding: 100px 0 4rem; }
+      .toc { padding: 1.25rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo"><svg class="logo-hex" viewBox="0 0 24 24" fill="none" aria-hidden="true"><polygon points="12,1.5 21,6.5 21,17.5 12,22.5 3,17.5 3,6.5" stroke="url(#lhg)" stroke-width="2.6" stroke-linejoin="round"/><defs><linearGradient id="lhg" x1="3" y1="1.5" x2="21" y2="22.5" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#d060e8"/><stop offset="100%" stop-color="#8b2fc9"/></linearGradient></defs></svg>pensionable<span>.ai</span></a>
+    <a href="index.html" class="nav-back">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 8H3M7 4L3 8l4 4"/></svg>
+      Back to site
+    </a>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <header class="page-header">
+        <p class="page-eyebrow">Legal</p>
+        <h1 class="page-title">Terms, Privacy &amp; Legal Notices</h1>
+        <p class="page-updated">Last updated: 28 May 2026</p>
+      </header>
+
+      <nav class="toc" aria-label="Page contents">
+        <p class="toc-title">Contents</p>
+        <ol>
+          <li><a href="#terms">1. Terms of Use</a></li>
+          <li><a href="#ip">2. Intellectual Property</a></li>
+          <li><a href="#privacy">3. Privacy &amp; Data</a></li>
+          <li><a href="#disclaimer">4. Disclaimer &amp; Limitation of Liability</a></li>
+          <li><a href="#confidentiality">5. Confidentiality</a></li>
+          <li><a href="#governing">6. Governing Law</a></li>
+          <li><a href="#contact">7. Contact</a></li>
+        </ol>
+      </nav>
+
+      <section class="legal-section" id="terms">
+        <h2>1. Terms of Use</h2>
+        <p>By accessing or using the pensionable.ai website (the <strong>"Site"</strong>), you agree to be bound by these terms. If you do not agree, please do not use the Site.</p>
+        <p>The Site and its contents are provided for informational purposes only. Nothing on this Site constitutes financial, actuarial, legal, or regulatory advice. pensionable.ai does not accept liability for any decisions made in reliance on information published here.</p>
+        <p>We reserve the right to modify, suspend, or discontinue any part of the Site at any time without notice.</p>
+      </section>
+
+      <hr />
+
+      <section class="legal-section" id="ip">
+        <h2>2. Intellectual Property</h2>
+        <p><strong>© 2026 pensionable.ai. All rights reserved.</strong></p>
+        <p>All content on this Site — including but not limited to text, graphics, logos, user interface elements, design, code, and software — is the exclusive property of pensionable.ai or its licensors and is protected by applicable intellectual property laws.</p>
+        <p>The Diorama platform, its underlying architecture, algorithms, and outputs are proprietary. No licence, right, or interest in any intellectual property is granted by virtue of accessing this Site.</p>
+        <p>You may not:</p>
+        <ul>
+          <li>Copy, reproduce, or distribute any part of this Site without prior written consent</li>
+          <li>Reverse engineer, decompile, or attempt to derive source code from any software</li>
+          <li>Use our brand name, logo, or trademarks without express written permission</li>
+          <li>Frame or mirror any portion of this Site on another website</li>
+        </ul>
+      </section>
+
+      <hr />
+
+      <section class="legal-section" id="privacy">
+        <h2>3. Privacy &amp; Data</h2>
+        <p>pensionable.ai takes data privacy seriously. We collect only the information necessary to operate the Site and respond to enquiries.</p>
+        <p><strong>Information we may collect:</strong></p>
+        <ul>
+          <li>Contact details you submit via enquiry or demo request forms</li>
+          <li>Usage data collected anonymously via analytics (page views, session duration)</li>
+          <li>Technical data such as browser type and IP address for security purposes</li>
+        </ul>
+        <p><strong>How we use it:</strong> We use your information solely to respond to enquiries, improve the Site, and where you have given consent, to send relevant communications. We do not sell, rent, or share your personal data with third parties for marketing purposes.</p>
+        <p><strong>Data retention:</strong> We retain personal data only for as long as necessary for the purposes described above, or as required by applicable law.</p>
+        <p><strong>Your rights:</strong> Under UK GDPR, you have the right to access, rectify, or erase your personal data, and to object to or restrict processing. To exercise these rights, contact us at <a href="mailto:privacy@pensionable.ai">privacy@pensionable.ai</a>.</p>
+        <p>This Site may contain links to third-party websites. We are not responsible for the privacy practices of those sites.</p>
+      </section>
+
+      <hr />
+
+      <section class="legal-section" id="disclaimer">
+        <h2>4. Disclaimer &amp; Limitation of Liability</h2>
+        <p>The Site is provided on an <strong>"as is"</strong> and <strong>"as available"</strong> basis without warranties of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
+        <p>pensionable.ai makes no representations or warranties about the accuracy, completeness, or suitability of any information on the Site for any purpose.</p>
+        <p>To the fullest extent permitted by law, pensionable.ai shall not be liable for any direct, indirect, incidental, consequential, or punitive damages arising out of your use of, or inability to use, the Site or its contents.</p>
+        <p>Nothing in these terms limits or excludes liability for death or personal injury caused by negligence, fraud, or any other liability that cannot lawfully be excluded.</p>
+      </section>
+
+      <hr />
+
+      <section class="legal-section" id="confidentiality">
+        <h2>5. Confidentiality</h2>
+        <p>Any client work, scheme data, governing documents, or calculations processed by Diorama are treated as strictly confidential. pensionable.ai operates under non-disclosure obligations with all clients and does not share, disclose, or use client data for any purpose other than delivering the agreed services.</p>
+        <p>No client scheme data, member records, or proprietary scheme information is used to train models, benchmark outputs, or inform work for other clients.</p>
+      </section>
+
+      <hr />
+
+      <section class="legal-section" id="governing">
+        <h2>6. Governing Law</h2>
+        <p>These terms are governed by and construed in accordance with the laws of England and Wales. Any disputes arising in connection with these terms shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
+        <p>pensionable.ai is a company registered in England and Wales.</p>
+      </section>
+
+      <hr />
+
+      <section class="legal-section" id="contact">
+        <h2>7. Contact</h2>
+        <p>For any legal queries, data protection requests, or intellectual property concerns, please contact:</p>
+        <p>
+          <strong>pensionable.ai</strong><br />
+          <a href="mailto:legal@pensionable.ai">legal@pensionable.ai</a>
+        </p>
+        <p>For general enquiries: <a href="mailto:hello@pensionable.ai">hello@pensionable.ai</a></p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="index.html" class="footer-logo">pensionable<span>.ai</span></a>
+        <p class="footer-copy">&copy; 2026 pensionable.ai. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

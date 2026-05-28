@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solutions — pensionable.ai</title>
+  <meta name="description" content="AI-powered pension solutions — calculations, documentation & communications, and intelligent processing. Mathematical certainty across your operations." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Solutions — pensionable.ai" />
+  <meta property="og:description" content="Three capabilities that cover every aspect of pension operations — calculations, communications, and processing." />
+  <meta property="og:url" content="https://pensionable.ai/solutions.html" />
+  <meta property="og:image" content="https://pensionable.ai/og-image.png" />
+  <meta property="og:site_name" content="pensionable.ai" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Solutions — pensionable.ai" />
+  <meta name="twitter:description" content="Three capabilities that cover every aspect of pension operations — calculations, communications, and processing." />
+  <meta name="twitter:image" content="https://pensionable.ai/og-image.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="canonical" href="https://pensionable.ai/solutions.html" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Solutions — pensionable.ai",
+    "description": "AI-powered pension solutions — calculations, documentation & communications, and intelligent processing.",
+    "url": "https://pensionable.ai/solutions.html",
+    "publisher": { "@type": "Organization", "name": "pensionable.ai", "url": "https://pensionable.ai" },
+    "mainEntity": {
+      "@type": "Service",
+      "name": "Diorama Pension Intelligence Platform",
+      "provider": { "@type": "Organization", "name": "pensionable.ai" },
+      "serviceType": "Pension Calculation and Administration",
+      "areaServed": "GB",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Diorama Capabilities",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pension Calculations", "description": "AI-driven scheme rule encoding and benefit calculation engine." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Documentation & Communications", "description": "Multi-channel member communications across web, mobile, and print." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Processing Automation", "description": "Automated email triage, bulk workflows, and member query handling." } }
+        ]
+      }
+    }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #030014;
+      --surface:      rgba(255,255,255,0.02);
+      --surface-el:   rgba(255,255,255,0.04);
+      --border:       rgba(255,255,255,0.08);
+      --border-bright:rgba(255,255,255,0.14);
+      --text:         #ffffff;
+      --text-muted:   rgba(239,237,253,0.7);
+      --text-caption: rgba(239,237,253,0.4);
+      --accent:       linear-gradient(90.01deg, #e59cff 0%, #ba9cff 50%, #9cb2ff 100%);
+      --accent-start: #e59cff;
+      --accent-mid:   #ba9cff;
+      --accent-end:   #9cb2ff;
+      --glow:         rgba(147,130,255,0.3);
+      --purple:       #9382ff;
+      --r-btn:        8px;
+      --r-card:       12px;
+      --r-panel:      16px;
+      --r-pill:       999px;
+      --font-head:    'Plus Jakarta Sans', sans-serif;
+      --font-body:    'Inter', sans-serif;
+      --font-mono:    'JetBrains Mono', monospace;
+
+      --f1:  0.25rem;
+      --f2:  0.5rem;
+      --f3:  0.75rem;
+      --f5:  1.25rem;
+      --f8:  2rem;
+      --f13: 3.25rem;
+      --f21: 5.25rem;
+      --f34: 8.5rem;
+
+      --t-xs:   0.618rem;
+      --t-sm:   0.764rem;
+      --t-base: 1rem;
+      --t-md:   1.25rem;
+      --t-lg:   1.618rem;
+      --t-xl:   2.618rem;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.05); border-radius: 99px; }
+
+    .skip-link {
+      position: absolute; top: -100%; left: 1rem;
+      background: var(--purple); color: #fff; padding: 0.5rem 1rem;
+      border-radius: var(--r-btn); z-index: 10000;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 64px;
+      background: rgba(3,0,20,0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav::after {
+      content: '';
+      position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 60%; height: 1px;
+      background: radial-gradient(ellipse at center, rgba(147,130,255,0.4) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .logo-hex { width: 22px; height: 22px; flex-shrink: 0; display: inline-block; vertical-align: middle; margin-right: 2px; }
+    .nav-logo {
+      font-family: var(--font-head); font-weight: 700; font-size: 1.1rem;
+      color: var(--text); text-decoration: none; letter-spacing: -0.02em;
+    }
+    .nav-logo span {
+      background: var(--accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 0.25rem; list-style: none;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+      border-radius: var(--r-pill); padding: 0.3rem 0.5rem;
+    }
+    .nav-links a {
+      color: var(--text-muted); text-decoration: none;
+      font-size: 0.875rem; font-weight: 400;
+      padding: 0.35rem 0.85rem; border-radius: var(--r-pill);
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--text); background: rgba(255,255,255,0.06); }
+    .nav-cta { display: flex; align-items: center; gap: 0.75rem; }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: rgba(147,130,255,0.15); border: 1px solid rgba(147,130,255,0.35);
+      color: var(--text); text-decoration: none;
+      font-family: var(--font-body); font-size: 0.875rem; font-weight: 500;
+      padding: 0.5rem 1.25rem; border-radius: var(--r-btn); cursor: pointer;
+      box-shadow: inset 0 0 12px rgba(147,130,255,0.1);
+      transition: box-shadow 0.25s, border-color 0.25s, background 0.25s;
+      white-space: nowrap;
+    }
+    .btn-primary:hover {
+      box-shadow: inset 0 0 20px rgba(147,130,255,0.25), 0 0 20px rgba(147,130,255,0.15);
+      border-color: rgba(147,130,255,0.6); background: rgba(147,130,255,0.2);
+    }
+    .nav-hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--text-muted); border-radius: 2px;
+    }
+    .mobile-menu {
+      display: none; position: fixed; top: 64px; left: 0; right: 0;
+      background: rgba(3,0,20,0.97); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; z-index: 999;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: var(--text-muted); text-decoration: none; font-size: 1rem;
+      padding: 0.6rem 0; border-bottom: 1px solid var(--border); transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--text); }
+    .mobile-menu .btn-primary { margin-top: 0.75rem; width: 100%; }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 var(--f8); }
+    .grad-text {
+      background: var(--accent);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: var(--f5); margin-bottom: var(--f13);
+    }
+    .badge-pill {
+      display: inline-flex; align-items: center; gap: var(--f3);
+      font-size: var(--t-sm); font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;
+      padding: var(--f2) var(--f5); border-radius: var(--r-pill);
+      background: rgba(147,130,255,0.08); border: 1px solid rgba(147,130,255,0.25);
+      color: var(--accent-mid); backdrop-filter: blur(6px);
+    }
+    .section-title {
+      font-family: var(--font-head); font-weight: 700;
+      font-size: clamp(var(--t-lg), 4vw, var(--t-xl));
+      line-height: 1.15; letter-spacing: -0.03em;
+      background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .section-desc {
+      font-size: var(--t-base); color: var(--text-muted); max-width: 560px; line-height: 1.7;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      padding: 160px 0 var(--f21);
+      position: relative; overflow: hidden; text-align: center;
+    }
+    #hero .container { position: relative; z-index: 1; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: var(--f3);
+      font-size: var(--t-sm); font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;
+      padding: var(--f2) var(--f5); border-radius: var(--r-pill);
+      background: rgba(147,130,255,0.08); border: 1px solid rgba(147,130,255,0.25);
+      color: var(--accent-mid); margin-bottom: var(--f8);
+    }
+    .hero-headline {
+      font-family: var(--font-head); font-weight: 800;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 1.08; letter-spacing: -0.04em;
+      margin-bottom: var(--f8);
+    }
+    .hero-desc {
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      color: var(--text-muted); max-width: 560px;
+      margin: 0 auto; line-height: 1.7;
+    }
+
+    /* Radial glow behind hero */
+    .hero-glow {
+      position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 900px; border-radius: 50%;
+      background: radial-gradient(ellipse at center,
+        rgba(113,47,255,0.22) 0%, rgba(147,130,255,0.08) 40%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── AUDIENCE ── */
+    #audience {
+      padding: var(--f34) 0;
+      border-top: 1px solid var(--border);
+    }
+    .audience-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: var(--f8); margin-top: var(--f13);
+    }
+    .audience-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-panel);
+      padding: var(--f8);
+      display: flex; flex-direction: column; gap: var(--f5);
+      position: relative; overflow: hidden;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .audience-card:hover {
+      border-color: rgba(147,130,255,0.2);
+      box-shadow: 0 8px 40px rgba(113,47,255,0.12);
+    }
+    .audience-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(147,130,255,0.3), transparent);
+    }
+    .audience-icon {
+      width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
+      background: rgba(147,130,255,0.1); border: 1px solid rgba(147,130,255,0.2);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .audience-icon svg { width: 20px; height: 20px; color: var(--accent-mid); }
+    .audience-card h3 {
+      font-family: var(--font-head); font-size: 1.15rem; font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .audience-card p { font-size: 0.9375rem; color: var(--text-muted); line-height: 1.7; }
+
+    /* ── SOLUTIONS ── */
+    #solutions {
+      padding: var(--f34) 0;
+      border-top: 1px solid var(--border);
+    }
+    .solutions-stack {
+      display: flex; flex-direction: column; gap: var(--f13);
+      margin-top: var(--f13);
+    }
+    .solution-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: var(--f21); align-items: start;
+      padding: var(--f13);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-panel);
+      position: relative; overflow: hidden;
+      transition: border-color 0.25s;
+    }
+    .solution-row:hover { border-color: rgba(147,130,255,0.2); }
+    .solution-row::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(147,130,255,0.35), transparent);
+    }
+    .solution-number {
+      font-family: var(--font-mono); font-size: var(--t-sm);
+      color: var(--accent-mid); letter-spacing: 0.1em; margin-bottom: var(--f5);
+    }
+    .solution-row h3 {
+      font-family: var(--font-head); font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+      font-weight: 700; letter-spacing: -0.03em; line-height: 1.2;
+      margin-bottom: var(--f5);
+    }
+    .solution-row > .sol-left > p {
+      font-size: 0.9375rem; color: var(--text-muted); line-height: 1.8;
+      margin-bottom: var(--f8);
+    }
+    .sol-features {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: var(--f3) var(--f5); list-style: none;
+    }
+    .sol-features li {
+      display: flex; align-items: center; gap: var(--f3);
+      font-size: var(--t-sm); font-family: var(--font-mono);
+      color: var(--text-muted);
+    }
+    .sol-features li::before {
+      content: '';
+      width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0;
+      background: var(--accent-mid); box-shadow: 0 0 6px var(--accent-mid);
+    }
+    .sol-cta {
+      margin-top: var(--f8);
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.875rem; font-weight: 500;
+      color: var(--accent-mid); text-decoration: none;
+      transition: gap 0.2s;
+    }
+    .sol-cta svg { width: 14px; height: 14px; transition: transform 0.2s; }
+    .sol-cta:hover { gap: 0.75rem; }
+    .sol-cta:hover svg { transform: translateX(3px); }
+
+    /* Visual accent panel on right */
+    .sol-visual {
+      display: flex; flex-direction: column; justify-content: center;
+      gap: var(--f5);
+      background: rgba(147,130,255,0.04);
+      border: 1px solid rgba(147,130,255,0.1);
+      border-radius: calc(var(--r-panel) - 4px);
+      padding: var(--f8);
+      min-height: 260px;
+    }
+    .sol-visual-item {
+      display: flex; align-items: center; gap: var(--f5);
+      padding: var(--f3) var(--f5);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      font-family: var(--font-mono); font-size: var(--t-sm); color: var(--text-muted);
+    }
+    .sol-visual-item .dot {
+      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+    }
+    .dot-green  { background: #4ade80; box-shadow: 0 0 8px #4ade8066; }
+    .dot-purple { background: var(--accent-mid); box-shadow: 0 0 8px rgba(186,156,255,0.4); }
+    .dot-yellow { background: #fde047; box-shadow: 0 0 8px #fde04766; }
+    .dot-blue   { background: #93c5fd; box-shadow: 0 0 8px #93c5fd66; }
+    .sol-visual-label {
+      font-family: var(--font-mono); font-size: var(--t-xs);
+      color: var(--text-caption); letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: var(--f3);
+    }
+
+    /* ── CTA SECTION ── */
+    #cta {
+      padding: var(--f34) 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .cta-inner {
+      display: flex; flex-direction: column; align-items: center; gap: var(--f8);
+      max-width: 640px; margin: 0 auto;
+    }
+    .cta-headline {
+      font-family: var(--font-head); font-weight: 700;
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      line-height: 1.15; letter-spacing: -0.03em;
+    }
+    .cta-desc { font-size: var(--t-base); color: var(--text-muted); line-height: 1.7; }
+    .cta-actions { display: flex; gap: var(--f5); flex-wrap: wrap; justify-content: center; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: var(--f13) 0;
+    }
+    .footer-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: var(--f8);
+    }
+    .footer-logo {
+      font-family: var(--font-head); font-weight: 700; font-size: 1rem;
+      color: var(--text); text-decoration: none; letter-spacing: -0.02em;
+    }
+    .footer-logo span {
+      background: var(--accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .footer-links {
+      display: flex; align-items: center; gap: var(--f8); list-style: none;
+    }
+    .footer-links a {
+      color: var(--text-caption); text-decoration: none;
+      font-size: 0.875rem; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--text-muted); }
+    .footer-copy { font-size: 0.8125rem; color: var(--text-caption); }
+
+    /* ── FADE-UP ── */
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .audience-grid { grid-template-columns: repeat(2, 1fr); }
+      .solution-row { grid-template-columns: 1fr; gap: var(--f8); }
+      .sol-visual { min-height: auto; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-cta .btn-primary { display: none; }
+      .audience-grid { grid-template-columns: 1fr; }
+      .hero-headline { font-size: clamp(1.8rem, 7vw, 2.6rem); }
+      .solution-row { padding: var(--f8) var(--f5); }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .footer-links { flex-wrap: wrap; }
+    }
+    @media (max-width: 480px) {
+      .sol-features { grid-template-columns: 1fr; }
+      .cta-actions { flex-direction: column; width: 100%; }
+      .cta-actions a { width: 100%; text-align: center; }
+      .hero-headline { font-size: clamp(1.6rem, 7vw, 2rem); }
+      .solution-number { font-size: 0.65rem; }
+      .solution-row h3 { font-size: 1.3rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav aria-label="Main navigation">
+    <a href="index.html" class="nav-logo"><svg class="logo-hex" viewBox="0 0 24 24" fill="none" aria-hidden="true"><polygon points="12,1.5 21,6.5 21,17.5 12,22.5 3,17.5 3,6.5" stroke="url(#lhg)" stroke-width="2.6" stroke-linejoin="round"/><defs><linearGradient id="lhg" x1="3" y1="1.5" x2="21" y2="22.5" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#d060e8"/><stop offset="100%" stop-color="#8b2fc9"/></linearGradient></defs></svg>pensionable<span>.ai</span></a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="solutions.html" aria-current="page">Solutions</a></li>
+      <li><a href="index.html#paradigm">About</a></li>
+      <li><a href="index.html#challenge">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="index.html#challenge" class="btn-primary">Request Access</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <nav class="mobile-menu" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="solutions.html" aria-current="page">Solutions</a>
+    <a href="index.html#paradigm">About</a>
+    <a href="index.html#challenge">Contact</a>
+    <a href="index.html#challenge" class="btn-primary">Request Access</a>
+  </nav>
+
+  <main id="main">
+
+    <!-- ── HERO ── -->
+    <section id="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-eyebrow">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--accent-mid);box-shadow:0 0 6px var(--accent-mid);display:inline-block;flex-shrink:0"></span>
+          Our Solutions
+        </div>
+        <h1 class="hero-headline">
+          Three capabilities.<br>
+          <span class="grad-text">Complete coverage.</span>
+        </h1>
+        <p class="hero-desc">
+          Every pension operation breaks down into calculations, communications, and processing. We automate all three — with mathematical certainty at every step.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── AUDIENCE ── -->
+    <section id="audience" aria-labelledby="audience-title">
+      <div class="container">
+        <div class="section-header fade-up">
+          <div class="badge-pill">Built For</div>
+          <h2 id="audience-title" class="section-title">Who We Work With</h2>
+          <p class="section-desc">Whether you run the scheme, govern it, or administer it on behalf of others — we deliver the certainty you need.</p>
+        </div>
+
+        <div class="audience-grid">
+          <div class="audience-card fade-up">
+            <div class="audience-icon">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="10" cy="7" r="3"/><path d="M4 18c0-3.3 2.7-6 6-6s6 2.7 6 6"/>
+              </svg>
+            </div>
+            <h3>Schemes</h3>
+            <p>Accurate calculations, compliant communications, and automated processing — giving your members the service they deserve and your operations the efficiency they need.</p>
+          </div>
+          <div class="audience-card fade-up" style="transition-delay:0.1s">
+            <div class="audience-icon">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M10 2l2 5h5l-4 3 1.5 5L10 12l-4.5 3L7 10 3 7h5z"/>
+              </svg>
+            </div>
+            <h3>Trustees</h3>
+            <p>Complete confidence that every calculation is correct, every communication is accurate, and every process is auditable. The oversight you need without the operational burden.</p>
+          </div>
+          <div class="audience-card fade-up" style="transition-delay:0.2s">
+            <div class="audience-icon">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="5" width="16" height="12" rx="2"/><path d="M6 5V4a2 2 0 0 1 4 0v1M14 5V4a2 2 0 0 0-4 0"/>
+              </svg>
+            </div>
+            <h3>Outsourcers</h3>
+            <p>Scale your administration capacity without scaling your headcount. Automated calculations, processing, and communications that let you take on more schemes and deliver better results.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SOLUTIONS ── -->
+    <section id="solutions" aria-labelledby="solutions-title">
+      <div class="container">
+        <div class="section-header fade-up">
+          <div class="badge-pill">What We Do</div>
+          <h2 id="solutions-title" class="section-title">Three Capabilities.<br>Complete Coverage.</h2>
+          <p class="section-desc">Every pension operation breaks down into calculations, communications, and processing. We automate all three.</p>
+        </div>
+
+        <div class="solutions-stack">
+
+          <!-- Calculations -->
+          <div class="solution-row fade-up">
+            <div class="sol-left">
+              <p class="solution-number">01 — Calculations</p>
+              <h3>Mathematical precision.<br>Every time.</h3>
+              <p>Our AI converts complex scheme rules into mathematically precise executable code. One interpretation of the rules, applied consistently across every calculation — whether that's pension risk transfer valuations, ISP benefit statements, GMP rectification, or any other scheme-specific computation. The same engine handles them all.</p>
+              <ul class="sol-features">
+                <li>Scheme Rule Encoding</li>
+                <li>Benefit Valuations</li>
+                <li>Ambiguity Resolution</li>
+                <li>Comprehensive Test Data</li>
+                <li>Full Audit Trail</li>
+                <li>PRT, ISP, GMP &amp; Beyond</li>
+              </ul>
+              <a href="index.html#challenge" class="sol-cta">
+                Start a Conversation
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+              </a>
+            </div>
+            <div class="sol-visual" aria-hidden="true">
+              <p class="sol-visual-label">Diorama · Live output</p>
+              <div class="sol-visual-item"><span class="dot dot-green"></span>member.pension.base_amount — £12,840.00 p.a.</div>
+              <div class="sol-visual-item"><span class="dot dot-green"></span>member.revaluation.excess_cpi — 3.20%</div>
+              <div class="sol-visual-item"><span class="dot dot-green"></span>member.gmp.post_1988 — £4,118.60 p.a.</div>
+              <div class="sol-visual-item"><span class="dot dot-green"></span>member.commutation.lump_sum — £48,240.00</div>
+              <div class="sol-visual-item"><span class="dot dot-yellow"></span>member.early_retirement.factor — 0.8840</div>
+            </div>
+          </div>
+
+          <!-- Documentation & Communications -->
+          <div class="solution-row fade-up">
+            <div class="sol-left">
+              <p class="solution-number">02 — Documentation &amp; Communications</p>
+              <h3>Every channel.<br>Every member.</h3>
+              <p>We rework legacy documentation logic and build new systems that deliver communications across every channel your members use — web portals, mobile apps, and paper. Whether it's modernising decades-old letter templates or creating entirely new digital experiences, the output is accurate, consistent, and compliant.</p>
+              <ul class="sol-features">
+                <li>Legacy Logic Rework</li>
+                <li>Web Portal Delivery</li>
+                <li>Mobile App Integration</li>
+                <li>Print &amp; Paper Output</li>
+                <li>Member Statements</li>
+                <li>Regulatory Compliance</li>
+              </ul>
+              <a href="index.html#challenge" class="sol-cta">
+                Start a Conversation
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+              </a>
+            </div>
+            <div class="sol-visual" aria-hidden="true">
+              <p class="sol-visual-label">Output channels</p>
+              <div class="sol-visual-item"><span class="dot dot-purple"></span>Web portal — member self-service</div>
+              <div class="sol-visual-item"><span class="dot dot-purple"></span>Mobile app — push &amp; in-app</div>
+              <div class="sol-visual-item"><span class="dot dot-purple"></span>Print — A4 statements &amp; letters</div>
+              <div class="sol-visual-item"><span class="dot dot-purple"></span>Regulatory — TPR, HMRC formats</div>
+              <div class="sol-visual-item"><span class="dot dot-green"></span>Compliance — all outputs verified</div>
+            </div>
+          </div>
+
+          <!-- Processing -->
+          <div class="solution-row fade-up">
+            <div class="sol-left">
+              <p class="solution-number">03 — Processing</p>
+              <h3>Automate volume.<br>Focus on judgement.</h3>
+              <p>Automate everything from email triage and member queries to bulk calculation workflows and everything in between. Intelligent processing that handles the volume so your team can focus on the exceptions that genuinely need human judgement.</p>
+              <ul class="sol-features">
+                <li>Email Triage &amp; Routing</li>
+                <li>Bulk Calculation Workflows</li>
+                <li>Member Query Handling</li>
+                <li>Exception Management</li>
+                <li>SLA Tracking &amp; Reporting</li>
+                <li>End-to-End Automation</li>
+              </ul>
+              <a href="index.html#challenge" class="sol-cta">
+                Start a Conversation
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+              </a>
+            </div>
+            <div class="sol-visual" aria-hidden="true">
+              <p class="sol-visual-label">Processing pipeline · live</p>
+              <div class="sol-visual-item"><span class="dot dot-blue"></span>Email triage — 1,240 routed today</div>
+              <div class="sol-visual-item"><span class="dot dot-blue"></span>Bulk calcs — 8,320 processed</div>
+              <div class="sol-visual-item"><span class="dot dot-blue"></span>Member queries — avg 2.1s response</div>
+              <div class="sol-visual-item"><span class="dot dot-yellow"></span>Exceptions flagged — 14 for review</div>
+              <div class="sol-visual-item"><span class="dot dot-green"></span>SLA compliance — 99.4%</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <section id="cta">
+      <div class="container">
+        <div class="cta-inner fade-up">
+          <h2 class="cta-headline">Want to see it<br><span class="grad-text">in action?</span></h2>
+          <p class="cta-desc">We'll walk you through how pensionable.ai addresses your specific challenges. No commitment required.</p>
+          <div class="cta-actions">
+            <a href="index.html#challenge" class="btn-primary">Schedule a Demo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="index.html" class="footer-logo">pensionable<span>.ai</span></a>
+        <ul class="footer-links" role="list">
+          <li><a href="solutions.html">Solutions</a></li>
+          <li><a href="intelligence/index.html">Intelligence</a></li>
+          <li><a href="index.html#challenge">Contact</a></li>
+          <li><a href="legal.html">Legal</a></li>
+        </ul>
+        <p class="footer-copy">&copy; 2026 pensionable.ai. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    hamburger.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', String(open));
+    });
+
+    // Fade-up on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

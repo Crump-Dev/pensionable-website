@@ -1,0 +1,23 @@
+.DS_Store
+assets/.DS_Store
+.claude/
+CLAUDE.md
+# Internal documents
+assets/*.pdf
+assets/*.html
+# Reference/scratch HTML files
+pensionable_ai.html
+reflect_app.html
+# Internal skill files
+skill files/
+# Screenshots (dev artifacts) — but keep brand assets
+*.png
+!og-image.png
+!apple-touch-icon.png
+temporary screenshots/
+screenshot-*.png
+crop-*.png bh-*.png v2-*.png v3-*.png
+node-graph*.png radar.png globe*.png entropy*.png
+frame*.png hero-*.png mobile*.png sec-*.png
+source-*.png table-*.png reflect*.png full-page.png
+about-*.png nodegraph*.png ng.png pensionable-*.png

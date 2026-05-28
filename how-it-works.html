@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How it works — pensionable.ai</title>
+  <meta name="description" content="How Diorama turns unstructured pension scheme material into a working, auditable calculation engine. The five-stage pipeline explained." />
+  <link rel="canonical" href="https://pensionable.ai/how-it-works.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #030014; --surface: rgba(255,255,255,0.02); --surface-el: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08); --border-bright: rgba(255,255,255,0.14);
+      --text: #ffffff; --text-muted: rgba(239,237,253,0.7); --text-caption: rgba(239,237,253,0.4);
+      --accent: linear-gradient(90.01deg,#e59cff 0%,#ba9cff 50%,#9cb2ff 100%);
+      --accent-start: #e59cff; --accent-mid: #ba9cff; --accent-end: #9cb2ff;
+      --purple: #9382ff;
+      --font-head: 'Plus Jakarta Sans', sans-serif; --font-body: 'Inter', sans-serif; --font-mono: 'JetBrains Mono', monospace;
+      --r-btn: 8px; --r-card: 12px; --r-panel: 16px; --r-pill: 999px;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.05); border-radius: 99px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.1); }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 64px;
+      background: rgba(3,0,20,0.7); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav::after {
+      content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 60%; height: 1px;
+      background: radial-gradient(ellipse at center, rgba(147,130,255,0.4) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .nav-logo { font-family: var(--font-head); font-weight: 700; font-size: 1.1rem; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
+    .nav-logo span { background: var(--accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: var(--r-pill); padding: 0.3rem 0.5rem; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; padding: 0.35rem 0.85rem; border-radius: var(--r-pill); transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); background: rgba(255,255,255,0.06); }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: rgba(147,130,255,0.15); border: 1px solid rgba(147,130,255,0.35);
+      color: var(--text); text-decoration: none; font-family: var(--font-body);
+      font-size: 0.875rem; font-weight: 500; padding: 0.5rem 1.25rem; border-radius: var(--r-btn);
+      box-shadow: inset 0 0 12px rgba(147,130,255,0.1);
+      transition: box-shadow 0.25s, border-color 0.25s, background 0.25s; white-space: nowrap;
+    }
+    .btn-primary:hover { box-shadow: inset 0 0 20px rgba(147,130,255,0.25), 0 0 20px rgba(147,130,255,0.15); border-color: rgba(147,130,255,0.6); background: rgba(147,130,255,0.2); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text-muted); border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(3,0,20,0.97); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; z-index: 999; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--text-muted); text-decoration: none; font-size: 1rem; padding: 0.6rem 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
+    .mobile-menu a:hover { color: var(--text); }
+    .mobile-menu .btn-primary { margin-top: 0.75rem; width: 100%; }
+
+    /* LAYOUT */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 1.5rem; }
+    section { position: relative; overflow: hidden; }
+    .radial-bleed { position: absolute; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .rb-hero { width: 900px; height: 900px; background: radial-gradient(ellipse at center, rgba(113,47,255,0.22) 0%, rgba(147,130,255,0.08) 40%, transparent 70%); top: -250px; left: 50%; transform: translateX(-50%); }
+    .rb-left { width: 500px; height: 500px; background: radial-gradient(ellipse, rgba(147,130,255,0.1) 0%, transparent 70%); top: 10%; left: -150px; }
+    .rb-right { width: 500px; height: 500px; background: radial-gradient(ellipse, rgba(147,130,255,0.1) 0%, transparent 70%); top: 10%; right: -150px; }
+
+    /* HERO */
+    #hero { padding: 130px 0 80px; }
+    .hero-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5rem; }
+    .badge-pill {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;
+      padding: 0.35rem 0.85rem; border-radius: var(--r-pill);
+      background: rgba(147,130,255,0.08); border: 1px solid rgba(147,130,255,0.25);
+      color: var(--accent-mid); backdrop-filter: blur(6px);
+    }
+    .page-headline {
+      font-family: var(--font-head); font-weight: 700;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.1; letter-spacing: -0.04em;
+      background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      max-width: 720px;
+    }
+    .page-desc { font-size: 1.0625rem; color: var(--text-muted); max-width: 520px; line-height: 1.7; }
+
+    /* CONTENT */
+    .content-section { padding: 6rem 0; }
+    .content-section + .content-section { padding-top: 0; }
+
+    /* SECTION LABEL */
+    .section-label {
+      font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--accent-mid); margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: var(--font-head); font-weight: 700;
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      line-height: 1.15; letter-spacing: -0.03em;
+      background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 1rem;
+    }
+    .body-text { color: var(--text-muted); line-height: 1.8; font-size: 1rem; }
+    .body-text + .body-text { margin-top: 0.875rem; }
+
+    /* TWO COL */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .two-col.reverse { direction: rtl; }
+    .two-col.reverse > * { direction: ltr; }
+
+    /* OLD VS NEW */
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .compare-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--r-card); padding: 1.75rem;
+    }
+    .compare-card.new { border-color: rgba(147,130,255,0.2); background: rgba(147,130,255,0.04); }
+    .compare-card h3 {
+      font-family: var(--font-head); font-size: 0.8125rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1.25rem;
+    }
+    .compare-card.new h3 { color: var(--accent-mid); }
+    .compare-card.old h3 { color: var(--text-caption); }
+    .compare-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .compare-list li {
+      font-family: var(--font-mono); font-size: 0.8125rem;
+      color: var(--text-muted); display: flex; align-items: baseline; gap: 0.5rem;
+    }
+    .compare-list li::before { content: '→'; color: var(--text-caption); flex-shrink: 0; }
+    .compare-card.new .compare-list li::before { color: var(--accent-mid); }
+
+    /* STAGES */
+    .stages { display: flex; flex-direction: column; gap: 0; position: relative; }
+    .stages::before {
+      content: ''; position: absolute; left: 19px; top: 0; bottom: 0; width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(147,130,255,0.2) 10%, rgba(147,130,255,0.2) 90%, transparent);
+    }
+    .stage { display: flex; gap: 1.5rem; padding: 2rem 0; }
+    .stage + .stage { border-top: 1px solid var(--border); }
+    .stage-num {
+      width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+      background: rgba(147,130,255,0.1); border: 1px solid rgba(147,130,255,0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-mid);
+      position: relative; z-index: 1;
+    }
+    .stage-body {}
+    .stage-body h3 {
+      font-family: var(--font-head); font-size: 1.0625rem; font-weight: 600;
+      color: var(--text); margin-bottom: 0.5rem; letter-spacing: -0.01em;
+    }
+    .stage-body p { color: var(--text-muted); font-size: 0.9375rem; line-height: 1.7; }
+    .stage-body .stage-detail {
+      margin-top: 0.875rem; display: flex; flex-wrap: wrap; gap: 0.4rem;
+    }
+    .stage-tag {
+      font-family: var(--font-mono); font-size: 0.6875rem;
+      color: var(--text-caption); background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border); border-radius: 4px;
+      padding: 0.2rem 0.5rem;
+    }
+
+    /* ARTEFACTS */
+    .artefact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .artefact-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--r-card); padding: 1.5rem;
+      position: relative; overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .artefact-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(147,130,255,0.4), transparent);
+    }
+    .artefact-card:hover { border-color: rgba(147,130,255,0.2); transform: translateY(-2px); }
+    .artefact-icon { font-family: var(--font-mono); font-size: 1.25rem; color: var(--accent-mid); margin-bottom: 0.75rem; }
+    .artefact-card h3 { font-family: var(--font-head); font-size: 0.9375rem; font-weight: 600; color: var(--text); margin-bottom: 0.4rem; }
+    .artefact-card p { font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* DIVIDER */
+    .section-divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    /* CTA */
+    #cta { padding: 8rem 0; text-align: center; }
+    .cta-inner { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; position: relative; z-index: 1; }
+    .cta-headline {
+      font-family: var(--font-head); font-weight: 700;
+      font-size: clamp(1.75rem, 4vw, 3rem);
+      line-height: 1.1; letter-spacing: -0.04em;
+      background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .cta-body { font-size: 1rem; color: var(--text-muted); max-width: 420px; line-height: 1.7; }
+    .cta-btns { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+    .btn-secondary {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: transparent; border: 1px solid var(--border-bright);
+      color: var(--text-muted); text-decoration: none; font-family: var(--font-body);
+      font-size: 0.875rem; font-weight: 400; padding: 0.5rem 1.25rem; border-radius: var(--r-btn);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-secondary:hover { color: var(--text); border-color: rgba(255,255,255,0.25); }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 3rem 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-logo { font-family: var(--font-head); font-weight: 700; font-size: 1rem; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
+    .footer-links { display: flex; gap: 2rem; list-style: none; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.875rem; color: var(--text-caption); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text-muted); }
+    .footer-right { font-size: 0.8125rem; color: var(--text-caption); display: flex; align-items: center; gap: 0.75rem; }
+    .live-dot { width: 7px; height: 7px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 6px #4ade80; animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(0.85)} }
+
+    /* ANIMATIONS */
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+    .fade-up.visible { opacity: 1; transform: none; }
+    .hero-inner > * { opacity: 0; transform: translateY(20px); animation: hero-in 0.7s cubic-bezier(0.16,1,0.3,1) forwards; }
+    .hero-inner > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero-inner > *:nth-child(2) { animation-delay: 0.18s; }
+    .hero-inner > *:nth-child(3) { animation-delay: 0.26s; }
+    @keyframes hero-in { to { opacity: 1; transform: none; } }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .two-col { grid-template-columns: 1fr; gap: 3rem; }
+      .two-col.reverse { direction: ltr; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .artefact-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-cta .btn-primary { display: none; }
+      .artefact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .page-headline { font-size: 2rem; }
+      .cta-btns { flex-direction: column; width: 100%; }
+      .cta-btns a { width: 100%; text-align: center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+<nav role="navigation" aria-label="Main navigation">
+  <a href="index.html" class="nav-logo">pensionable<span>.ai</span></a>
+  <ul class="nav-links" role="menubar">
+    <li><a href="how-it-works.html" class="active" role="menuitem">How it works</a></li>
+    <li><a href="trust-and-safety.html" role="menuitem">Trust &amp; Safety</a></li>
+    <li><a href="index.html#challenge" role="menuitem">Contact</a></li>
+  </ul>
+  <div class="nav-cta" style="display:flex;align-items:center;gap:0.75rem">
+    <a href="index.html#challenge" class="btn-primary">Request a demo</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<nav class="mobile-menu" id="mobile-nav" aria-label="Mobile navigation">
+  <a href="how-it-works.html">How it works</a>
+  <a href="trust-and-safety.html">Trust &amp; Safety</a>
+  <a href="index.html#challenge">Contact</a>
+  <a href="index.html#challenge" class="btn-primary">Request a demo</a>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="radial-bleed rb-hero" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <div class="badge-pill">How it works</div>
+        <h1 class="page-headline">Every assumption explicit. Every calculation testable.</h1>
+        <p class="page-desc">How Diorama turns a pile of pension documents into a working, auditable calculation engine — and why no existing platform can do the same.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="content-section">
+    <div class="radial-bleed rb-left" aria-hidden="true"></div>
+    <div class="container">
+      <div class="two-col fade-up">
+        <div>
+          <p class="section-label">The problem</p>
+          <h2 class="section-title">Most platforms solve the wrong thing.</h2>
+          <p class="body-text">Standard pension platforms make one promise: bring your scheme, configure the tables, map the fields, and fit the rest into their model.</p>
+          <p class="body-text">That works for the parts that are already standardised. It fails for the parts that actually matter: interpreting messy rules, reconciling conflicting source material, squeezing unusual benefit structures into someone else's abstraction.</p>
+          <p class="body-text">The hard work doesn't disappear. It moves into awkward, expensive corners — bespoke patches, manual overrides, undocumented workarounds that no one can audit.</p>
+        </div>
+        <div class="compare-grid">
+          <div class="compare-card old">
+            <h3>The old world</h3>
+            <ul class="compare-list">
+              <li>Humans interpret everything</li>
+              <li>Developers bespoke around it</li>
+              <li>Schema-driven configuration</li>
+              <li>Exceptions become patches</li>
+              <li>Audit is an afterthought</li>
+              <li>Cost resets per scheme</li>
+            </ul>
+          </div>
+          <div class="compare-card new">
+            <h3>Diorama</h3>
+            <ul class="compare-list">
+              <li>Engine-assisted extraction</li>
+              <li>Structured rule basis</li>
+              <li>Generated scheme logic</li>
+              <li>Deterministic compute</li>
+              <li>Audit trail by design</li>
+              <li>Cost drops per scheme</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- THE PIPELINE -->
+  <section class="content-section">
+    <div class="radial-bleed rb-right" aria-hidden="true"></div>
+    <div class="container">
+      <div class="fade-up" style="max-width:640px;margin-bottom:3.5rem">
+        <p class="section-label">The pipeline</p>
+        <h2 class="section-title">Five stages from mess to engine.</h2>
+        <p class="body-text">The route to an auditable pension calculation engine is not obvious. A general-purpose AI tool won't give you one. A platform you can buy off the shelf won't either. Diorama exists because of a specific combination of domain knowledge, engineering discipline, and frontier model fluency.</p>
+      </div>
+      <div class="stages fade-up">
+
+        <div class="stage">
+          <div class="stage-num">01</div>
+          <div class="stage-body">
+            <h3>Devour the evidence pack</h3>
+            <p>Diorama takes the messy estate as input. Not a clean export. The actual documents as they exist: contradictory, incomplete, structured for humans rather than machines.</p>
+            <div class="stage-detail">
+              <span class="stage-tag">trust deeds</span>
+              <span class="stage-tag">amendments</span>
+              <span class="stage-tag">member guides</span>
+              <span class="stage-tag">factor tables</span>
+              <span class="stage-tag">worked examples</span>
+              <span class="stage-tag">prior calculations</span>
+              <span class="stage-tag">reconciliation notes</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stage">
+          <div class="stage-num">02</div>
+          <div class="stage-body">
+            <h3>Convert mess into candidate structure</h3>
+            <p>Frontier models read the prose, tables, matrices, and documentary fragments and produce structured candidates: typed rule proposals, factor table extracts, methodology choices, provenance back to source. This is where LLMs matter. They cut the manual labour of turning pension text into something an engine can work with.</p>
+            <div class="stage-detail">
+              <span class="stage-tag">rule areas</span>
+              <span class="stage-tag">field values</span>
+              <span class="stage-tag">factor references</span>
+              <span class="stage-tag">date conventions</span>
+              <span class="stage-tag">methodology choices</span>
+              <span class="stage-tag">known exclusions</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stage">
+          <div class="stage-num">03</div>
+          <div class="stage-body">
+            <h3>Constrain and validate with engine knowledge</h3>
+            <p>The raw model output is not the final answer. Diorama already knows what coherent pension logic looks like. It subjects extracted candidates to strong checks: required fields, coherent date logic, valid factor coverage, explicit methodology choices, contradictions across source material. Frontier models provide speed. The engine provides discipline.</p>
+          </div>
+        </div>
+
+        <div class="stage">
+          <div class="stage-num">04</div>
+          <div class="stage-body">
+            <h3>Create the exact scheme logic</h3>
+            <p>Once the basis is explicit and approved, Diorama creates the scheme-specific functionality: the structured calculation basis, validation rules, factor-table bindings, projection logic, calculation code path, test fixtures, reconciliation harness, and audit output. This is the part standard systems cannot do — they ask the team to adapt the scheme to the product. Diorama adapts itself to the scheme.</p>
+          </div>
+        </div>
+
+        <div class="stage">
+          <div class="stage-num">05</div>
+          <div class="stage-body">
+            <h3>Produce deterministic results</h3>
+            <p>After the scheme logic exists, the runtime is deliberately boring. No source-document reading. No hidden interpretation. No runtime guesswork. No LLM in the money path. Structured inputs, deterministic compute, replay against examples, auditable outputs. That is how you get both speed and control.</p>
+            <div class="stage-detail">
+              <span class="stage-tag">deterministic Python</span>
+              <span class="stage-tag">Excel proformas</span>
+              <span class="stage-tag">400+ regression assertions</span>
+              <span class="stage-tag">clickable audit trail</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- WHAT YOU RECEIVE -->
+  <section class="content-section">
+    <div class="container">
+      <div class="fade-up" style="max-width:640px;margin-bottom:3rem">
+        <p class="section-label">What you receive</p>
+        <h2 class="section-title">Artefacts, not a platform.</h2>
+        <p class="body-text">You are not migrating into Diorama. The output lands in your existing codebase, in your existing conventions. Your team owns it from day one and makes subsequent changes using skills they already have.</p>
+      </div>
+      <div class="artefact-grid fade-up">
+        <div class="artefact-card">
+          <div class="artefact-icon">.py</div>
+          <h3>Python modules</h3>
+          <p>Calculation logic in your existing code conventions. Readable, maintainable, testable by your in-house team.</p>
+        </div>
+        <div class="artefact-card">
+          <div class="artefact-icon">.xlsx</div>
+          <h3>Excel proformas</h3>
+          <p>Workbook outputs matching the format your actuaries and trustees already use for review and sign-off.</p>
+        </div>
+        <div class="artefact-card">
+          <div class="artefact-icon">test_</div>
+          <h3>Regression harness</h3>
+          <p>400+ assertions that re-implement each rule independently. Run on every rebuild. Drift surfaces before anything ships.</p>
+        </div>
+        <div class="artefact-card">
+          <div class="artefact-icon">⊕</div>
+          <h3>Clickable audit trail</h3>
+          <p>Every figure on every page links to the deed rule and statutory source that authorises it.</p>
+        </div>
+        <div class="artefact-card">
+          <div class="artefact-icon">§</div>
+          <h3>Structured rule basis</h3>
+          <p>The typed rule objects, factor table extracts, and methodology choices that form the approved scope of the engine.</p>
+        </div>
+        <div class="artefact-card">
+          <div class="artefact-icon">↻</div>
+          <h3>Calculation pack</h3>
+          <p>The same document your actuaries use for sign-off is what your engineering team uses for development.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta">
+    <div class="radial-bleed rb-hero" aria-hidden="true"></div>
+    <div class="container">
+      <div class="cta-inner fade-up">
+        <h2 class="cta-headline">See it on a real scheme.</h2>
+        <p class="cta-body">Pick any figure on the audit trail and follow it back through the deed, the Act, the workbook cell, the line of code. We would like you to try.</p>
+        <div class="cta-btns">
+          <a href="index.html#challenge" class="btn-primary">Request a demo</a>
+          <a href="trust-and-safety.html" class="btn-secondary">Trust &amp; Safety</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-inner">
+      <a href="index.html" class="footer-logo">pensionable.ai</a>
+      <ul class="footer-links">
+        <li><a href="how-it-works.html">How it works</a></li>
+        <li><a href="trust-and-safety.html">Trust &amp; Safety</a></li>
+        <li><a href="index.html#challenge">Contact</a></li>
+        <li><a href="#">Privacy</a></li>
+      </ul>
+      <div class="footer-right">
+        <span>Built for the pensions industry.</span>
+        <span style="opacity:0.35">·</span>
+        <span>Dev by <a href="https://maiaa.ai" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;opacity:0.5;transition:opacity 0.2s" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='0.5'">maiaa.ai</a></span>
+        <span style="opacity:0.35">·</span>
+        <span style="display:inline-flex;align-items:center;gap:0.4rem"><span class="live-dot" aria-hidden="true"></span>System live</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
+  hamburger.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', String(open));
+  });
+  const fadeObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); } });
+  }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+name: Generate Intelligence Articles
+
+on:
+  # Run every Monday at 08:00 UTC
+  schedule:
+    - cron: '0 8 * * 1'
+
+  # Allow manual trigger from the GitHub Actions tab
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (generate but do not push)'
+        required: false
+        default: 'false'
+        type: boolean
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # needed to push commits
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # No pip install needed — script uses stdlib only
+
+      - name: Run generator
+        env:
+          GIT_USER_EMAIL: intelligence-bot@pensionable.ai
+          GIT_USER_NAME: Intelligence Bot
+        run: |
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            python tools/generate_intelligence.py --dry-run
+          else
+            python tools/generate_intelligence.py
+          fi
+
+      # Vercel picks up the push automatically via its GitHub integration

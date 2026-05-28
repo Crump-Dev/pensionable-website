@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pension Intelligence — pensionable.ai</title>
+  <meta name="description" content="Real-time analysis of UK pension data — TPR press releases, PPF funding indices, ONS inflation figures, and Bank of England rate moves. The numbers that matter, when they drop." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Pension Intelligence — pensionable.ai" />
+  <meta property="og:description" content="Real-time analysis of UK pension data. TPR, PPF, ONS and Bank of England updates with scheme-level context." />
+  <meta property="og:url" content="https://pensionable.ai/intelligence/" />
+  <meta property="og:image" content="https://pensionable.ai/og-image.png" />
+  <meta property="og:site_name" content="pensionable.ai" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pension Intelligence — pensionable.ai" />
+  <meta name="twitter:description" content="Real-time analysis of UK pension data. TPR, PPF, ONS and Bank of England updates with scheme-level context." />
+  <meta name="twitter:image" content="https://pensionable.ai/og-image.png" />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="canonical" href="https://pensionable.ai/intelligence/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="intelligence.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Pension Intelligence",
+    "description": "Real-time analysis of UK pension data from pensionable.ai",
+    "url": "https://pensionable.ai/intelligence/",
+    "publisher": { "@type": "Organization", "name": "pensionable.ai", "url": "https://pensionable.ai" }
+  }
+  </script>
+  <style>
+    #hero { padding: 140px 0 var(--f21); text-align: center; position: relative; overflow: hidden; }
+    .hero-glow { position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(113,47,255,0.18) 0%, transparent 65%); pointer-events: none; }
+    #hero .container { position: relative; z-index: 1; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: var(--t-sm); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-mid); margin-bottom: var(--f8); }
+    .hero-eyebrow span { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-mid); box-shadow: 0 0 6px var(--accent-mid); display: inline-block; animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(0.85)} }
+    .hero-headline { font-family: var(--font-head); font-weight: 800; font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.08; letter-spacing: -0.04em; margin-bottom: var(--f5); }
+    .hero-desc { font-size: clamp(1rem, 1.5vw, 1.15rem); color: var(--text-muted); max-width: 540px; margin: 0 auto; line-height: 1.7; }
+
+    /* filters */
+    #filters { padding: var(--f8) 0 0; }
+    .filter-row { display: flex; align-items: center; gap: var(--f3); flex-wrap: wrap; }
+    .filter-btn {
+      font-size: var(--t-sm); font-family: var(--font-mono); font-weight: 500;
+      padding: 0.35rem 0.9rem; border-radius: var(--r-pill); border: 1px solid var(--border);
+      background: transparent; color: var(--text-muted); cursor: pointer;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .filter-btn:hover { color: var(--text); border-color: var(--border-bright); }
+    .filter-btn.active { color: var(--accent-mid); border-color: rgba(186,156,255,0.4); background: rgba(186,156,255,0.08); }
+
+    /* grid */
+    #grid { padding: var(--f13) 0; }
+    .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--f5); }
+    .article-card {
+      display: flex; flex-direction: column; gap: var(--f5);
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--r-card); padding: var(--f8);
+      text-decoration: none; color: inherit;
+      position: relative; overflow: hidden;
+      transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+    }
+    .article-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(147,130,255,0.2), transparent); }
+    .article-card:hover { border-color: rgba(147,130,255,0.25); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(113,47,255,0.12); }
+    .card-meta { display: flex; align-items: center; justify-content: space-between; }
+    .card-date { font-family: var(--font-mono); font-size: var(--t-sm); color: var(--text-caption); }
+    .card-title { font-family: var(--font-head); font-size: 0.9375rem; font-weight: 600; line-height: 1.4; letter-spacing: -0.01em; color: var(--text); flex: 1; }
+    .card-stat { font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: var(--accent-mid); letter-spacing: -0.03em; margin-top: auto; }
+    .card-read { display: flex; align-items: center; gap: 0.4rem; font-size: var(--t-sm); color: var(--text-caption); margin-top: auto; font-family: var(--font-mono); transition: color 0.2s; }
+    .article-card:hover .card-read { color: var(--accent-mid); }
+    .card-read svg { width: 12px; height: 12px; transition: transform 0.2s; }
+    .article-card:hover .card-read svg { transform: translateX(2px); }
+
+    /* hidden via filter */
+    .article-card.hidden { display: none; }
+
+    /* email signup */
+    #signup { padding: var(--f34) 0; border-top: 1px solid var(--border); text-align: center; }
+    .signup-inner { max-width: 580px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: var(--f8); }
+    .signup-headline { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.2; letter-spacing: -0.03em; }
+    .signup-desc { color: var(--text-muted); font-size: var(--t-base); line-height: 1.7; }
+
+    @media (max-width: 900px) { .articles-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) {
+      .hero-headline { font-size: clamp(1.8rem, 7vw, 2.6rem); }
+      .filter-row { gap: var(--f2); }
+      .filter-btn { font-size: 0.65rem; padding: 0.3rem 0.65rem; }
+      #signup { padding: var(--f21) 0; }
+    }
+    @media (max-width: 600px) {
+      .articles-grid { grid-template-columns: 1fr; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="../index.html" class="nav-logo"><svg class="logo-hex" viewBox="0 0 24 24" fill="none" aria-hidden="true"><polygon points="12,1.5 21,6.5 21,17.5 12,22.5 3,17.5 3,6.5" stroke="url(#lhg)" stroke-width="2.6" stroke-linejoin="round"/><defs><linearGradient id="lhg" x1="3" y1="1.5" x2="21" y2="22.5" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#d060e8"/><stop offset="100%" stop-color="#8b2fc9"/></linearGradient></defs></svg>pensionable<span>.ai</span></a>
+    <ul class="nav-links" role="list">
+      <li><a href="../solutions.html">Solutions</a></li>
+      <li><a href="index.html" aria-current="page">Intelligence</a></li>
+      <li><a href="../index.html#paradigm">About</a></li>
+      <li><a href="../index.html#challenge">Contact</a></li>
+    </ul>
+    <div class="nav-cta"><a href="../index.html#challenge" class="btn-primary">Request Access</a></div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <nav class="mobile-menu" id="mobile-nav">
+    <a href="../solutions.html">Solutions</a>
+    <a href="index.html" aria-current="page">Intelligence</a>
+    <a href="../index.html#paradigm">About</a>
+    <a href="../index.html#challenge">Contact</a>
+    <a href="../index.html#challenge" class="btn-primary">Request Access</a>
+  </nav>
+
+  <main id="main">
+    <section id="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container">
+        <p class="hero-eyebrow"><span></span>Live data feed</p>
+        <h1 class="hero-headline">Pension <span class="grad-text">Intelligence</span></h1>
+        <p class="hero-desc">Real-time analysis of UK pension data. TPR, PPF, ONS and Bank of England updates — with context for what they mean for your scheme.</p>
+      </div>
+    </section>
+
+    <section id="filters">
+      <div class="container">
+        <div class="filter-row" role="group" aria-label="Filter articles by source">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="tpr">TPR</button>
+          <button class="filter-btn" data-filter="ppf">PPF</button>
+          <button class="filter-btn" data-filter="ons">ONS</button>
+          <button class="filter-btn" data-filter="boe">Bank of England</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="grid">
+      <div class="container">
+        <div class="articles-grid" id="articles-grid">
+          <!-- ARTICLES_START -->
+          <a href="boe-2026-01-31-bankrate_375.html" class="article-card fade-up" data-source="boe">
+            <div class="card-meta"><span class="tag tag-boe">BoE</span><span class="card-date">31 January 2026</span></div>
+            <p class="card-title">Bank Rate Cut: 3.75%</p>
+            <p class="card-stat">3.75%</p>
+            <span class="card-read">Read analysis <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </a>
+
+          <a href="tpr-2026-05-tpr_tpr-clarifies-expectations.html" class="article-card fade-up" data-source="tpr">
+            <div class="card-meta"><span class="tag tag-tpr">TPR</span><span class="card-date">20 May 2026</span></div>
+            <p class="card-title">TPR clarifies expectations for responsible use of AI in workplace pensions</p>
+            <span class="card-read">Read analysis <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </a>
+
+          <a href="tpr-2026-05-tpr_db-hybrid-schemes-act-now-.html" class="article-card fade-up" data-source="tpr" style="transition-delay:0.05s">
+            <div class="card-meta"><span class="tag tag-tpr">TPR</span><span class="card-date">14 May 2026</span></div>
+            <p class="card-title">DB and hybrid schemes urged to act now to get their value data ready for dashboards</p>
+            <span class="card-read">Read analysis <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </a>
+
+          <a href="tpr-2026-05-tpr_tpr-pushes-for-clear-endga.html" class="article-card fade-up" data-source="tpr" style="transition-delay:0.1s">
+            <div class="card-meta"><span class="tag tag-tpr">TPR</span><span class="card-date">06 May 2026</span></div>
+            <p class="card-title">TPR pushes for clear endgame planning as DB schemes remain in surplus</p>
+            <span class="card-read">Read analysis <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </a>
+
+          <a href="ppf7800-2026-05-ppf7800_may_2026.html" class="article-card fade-up" data-source="ppf" style="transition-delay:0.15s">
+            <div class="card-meta"><span class="tag tag-ppf">PPF</span><span class="card-date">01 May 2026</span></div>
+            <p class="card-title">PPF 7800 Index: May 2026</p>
+            <p class="card-stat">131.4%</p>
+            <span class="card-read">Read analysis <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </a>
+
+          <a href="tpr-2026-05-tpr_new-tpr-code-for-cdc-schem.html" class="article-card fade-up" data-source="tpr" style="transition-delay:0.2s">
+            <div class="card-meta"><span class="tag tag-tpr">TPR</span><span class="card-date">29 April 2026</span></div>
+            <p class="card-title">New TPR code for CDC schemes</p>
+            <span class="card-read">Read analysis <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </a>
+
+          <a href="tpr-2026-04-tpr_fraud-minister-calls-on-tr.html" class="article-card fade-up" data-source="tpr" style="transition-delay:0.25s">
+            <div class="card-meta"><span class="tag tag-tpr">TPR</span><span class="card-date">16 April 2026</span></div>
+            <p class="card-title">Fraud Minister calls on trustees to use every touchpoint to protect savers from pension scams</p>
+            <span class="card-read">Read analysis <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </a>
+
+          <a href="ppf7800-2026-04-ppf7800_april_2026.html" class="article-card fade-up" data-source="ppf">
+            <div class="card-meta"><span class="tag tag-ppf">PPF</span><span class="card-date">01 April 2026</span></div>
+            <p class="card-title">PPF 7800 Index: April 2026</p>
+            <p class="card-stat">130.8%</p>
+            <span class="card-read">Read analysis <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </a>
+
+          <a href="tpr-2026-03-tpr_innovate-to-deliver-in-the.html" class="article-card fade-up" data-source="tpr" style="transition-delay:0.05s">
+            <div class="card-meta"><span class="tag tag-tpr">TPR</span><span class="card-date">20 March 2026</span></div>
+            <p class="card-title">Innovate to deliver in the new pensions era – Nausicaa Delfas</p>
+            <span class="card-read">Read analysis <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </a>
+
+          <a href="tpr-2026-03-tpr_master-trusts-dominate-as-.html" class="article-card fade-up" data-source="tpr" style="transition-delay:0.1s">
+            <div class="card-meta"><span class="tag tag-tpr">TPR</span><span class="card-date">17 March 2026</span></div>
+            <p class="card-title">Master Trusts dominate as smaller schemes continue to exit the defined contribution (DC) market</p>
+            <span class="card-read">Read analysis <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </a>
+
+          <a href="tpr-2026-03-tpr_tpr-urges-vigilance-after-.html" class="article-card fade-up" data-source="tpr" style="transition-delay:0.15s">
+            <div class="card-meta"><span class="tag tag-tpr">TPR</span><span class="card-date">11 March 2026</span></div>
+            <p class="card-title">TPR urges vigilance after rise in impersonation fraud against pension savers</p>
+            <span class="card-read">Read analysis <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </a>
+
+          <a href="tpr-2026-03-tpr_master-trusts-prepare-for-.html" class="article-card fade-up" data-source="tpr" style="transition-delay:0.2s">
+            <div class="card-meta"><span class="tag tag-tpr">TPR</span><span class="card-date">09 March 2026</span></div>
+            <p class="card-title">Master trusts: prepare for future scale requirements now</p>
+            <span class="card-read">Read analysis <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </a>
+
+          <a href="tpr-2026-03-tpr_new-data-signals-landmark-.html" class="article-card fade-up" data-source="tpr" style="transition-delay:0.25s">
+            <div class="card-meta"><span class="tag tag-tpr">TPR</span><span class="card-date">05 March 2026</span></div>
+            <p class="card-title">New data signals landmark shift from savings system to pensions system</p>
+            <span class="card-read">Read analysis <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </a>
+
+          <a href="ppf7800-2026-03-ppf7800_march_2026.html" class="article-card fade-up" data-source="ppf">
+            <div class="card-meta"><span class="tag tag-ppf">PPF</span><span class="card-date">01 March 2026</span></div>
+            <p class="card-title">PPF 7800 Index: March 2026</p>
+            <p class="card-stat">131.0%</p>
+            <span class="card-read">Read analysis <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </a>
+
+          <a href="cpih-2026-03-v67_jan-26.html" class="article-card fade-up" data-source="ons" style="transition-delay:0.05s">
+            <div class="card-meta"><span class="tag tag-ons">ONS</span><span class="card-date">18 February 2026</span></div>
+            <p class="card-title">CPIH Update: January 2026</p>
+            <p class="card-stat">3.2%</p>
+            <span class="card-read">Read analysis <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </a>
+
+          <a href="tpr-2026-03-tpr_ben-gunnee-to-lead-tprs-ma.html" class="article-card fade-up" data-source="tpr" style="transition-delay:0.1s">
+            <div class="card-meta"><span class="tag tag-tpr">TPR</span><span class="card-date">18 February 2026</span></div>
+            <p class="card-title">Ben Gunnee to lead TPR's Market Oversight Division</p>
+            <span class="card-read">Read analysis <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </a>
+
+          <a href="tpr-2026-03-tpr_tpr-appoints-richard-knox.html" class="article-card fade-up" data-source="tpr" style="transition-delay:0.15s">
+            <div class="card-meta"><span class="tag tag-tpr">TPR</span><span class="card-date">15 January 2026</span></div>
+            <p class="card-title">Richard Knox appointed as Executive Director, Strategy, Policy and Analysis</p>
+            <span class="card-read">Read analysis <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </a>
+
+          <a href="tpr-2026-03-tpr_pension-value-to-be-put-un.html" class="article-card fade-up" data-source="tpr" style="transition-delay:0.2s">
+            <div class="card-meta"><span class="tag tag-tpr">TPR</span><span class="card-date">08 January 2026</span></div>
+            <p class="card-title">Pension value to be put under the spotlight</p>
+            <span class="card-read">Read analysis <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </a>
+
+          <a href="gilts-2026-03-bankrate_2025-12-18_3.75.html" class="article-card fade-up" data-source="boe" style="transition-delay:0.25s">
+            <div class="card-meta"><span class="tag tag-boe">Bank of England</span><span class="card-date">18 Dec 2025</span></div>
+            <p class="card-title">Bank Rate Cut: 3.75%</p>
+            <p class="card-stat">3.75%</p>
+            <span class="card-read">Read analysis <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="signup">
+      <div class="container">
+        <div class="signup-inner fade-up">
+          <h2 class="signup-headline">Want these insights<br><span class="grad-text">in your inbox?</span></h2>
+          <p class="signup-desc">We're building a weekly briefing for pension professionals. UK pension data, regulatory updates, and scheme-level context — delivered when it matters.</p>
+          <a href="../index.html#challenge" class="btn-primary">Register Interest</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="../index.html" class="footer-logo">pensionable<span>.ai</span></a>
+        <ul class="footer-links" role="list">
+          <li><a href="../solutions.html">Solutions</a></li>
+          <li><a href="index.html">Intelligence</a></li>
+          <li><a href="../index.html#challenge">Contact</a></li>
+          <li><a href="../legal.html">Legal</a></li>
+        </ul>
+        <p class="footer-copy">&copy; 2026 pensionable.ai. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    hamburger.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', String(open));
+    });
+
+    // Filter
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        document.querySelectorAll('.article-card').forEach(card => {
+          card.classList.toggle('hidden', f !== 'all' && card.dataset.source !== f);
+        });
+      });
+    });
+
+    // Fade up
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
