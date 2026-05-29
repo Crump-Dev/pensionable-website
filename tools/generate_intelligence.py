@@ -294,7 +294,7 @@ TPR_COMMENTARY = [
     ("dashboard", "dashboard", "Pensions dashboards represent one of the most data-intensive requirements the industry has faced. Schemes that have not yet audited their member data for accuracy and completeness are running out of time. The data quality bar is higher than most legacy systems were designed to meet."),
     ("fraud", "scam", "Pension scams remain a serious threat to member outcomes. Trustees have both a regulatory obligation and practical opportunity to embed scam warnings into every member communication. Schemes that treat this as a compliance checkbox rather than a genuine safeguard are missing the point."),
     ("surplus", "endgame", "With aggregate DB funding at historic highs, TPR is right to push for endgame clarity. Schemes in surplus face a genuine strategic choice between buyout, run-on, and superfund transfer. Trustees without a documented endgame strategy are increasingly out of step with regulatory expectations."),
-    ("CDC", "cdc", "CDC schemes represent a meaningful middle ground between DB and DC — offering member income stability without the balance sheet risk of a guaranteed benefit. The regulatory framework provides the governance structure that large employers and master trusts need to move forward."),
+    ("CDC", "cdc", "CDC schemes represent a meaningful middle ground between DB and DC, offering member income stability without the balance sheet risk of a guaranteed benefit. The regulatory framework provides the governance structure that large employers and master trusts need to move forward."),
     ("master trust", "scale", "The consolidation of DC into large master trusts is accelerating. Smaller schemes increasingly lack the scale to deliver competitive member outcomes and meet the regulatory cost-of-governance bar. Trustees of sub-scale DC schemes should be reviewing whether consolidation is in members' best interests."),
     ("value", "vfm", "Value for money assessment is moving from voluntary best-practice to regulatory expectation. Schemes that cannot demonstrate value across costs, net returns, and services will face increasing scrutiny. The data infrastructure required to answer these questions accurately is non-trivial."),
 ]
@@ -425,7 +425,7 @@ def fetch_ppf(manifest):
                          f"funding ratio of <strong>{ratio}</strong>.</p>\n            "
                          f"<p>With aggregate DB funding at historically strong levels, many schemes "
                          f"are now positioned to consider full buyout or run-off. Trustees should be "
-                         f"actively engaging with insurers — surplus positions create negotiating "
+                         f"actively engaging with insurers, as surplus positions create negotiating "
                          f"leverage that may not persist.</p>"),
         "stats":        [{"label": "Funding Ratio", "value": ratio},
                          {"label": "Surplus", "value": surplus}],
