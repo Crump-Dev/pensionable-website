@@ -1343,7 +1343,7 @@
         <p class="hero-sub">The pension calc engine the industry thought couldn&rsquo;t exist.</p>
 
         <p class="hero-desc">
-          Drop in the deed. Get out a working, auditable engine. Days, not years.
+          Drop in your deed, your notes, your workbooks — in any mix, in any order. Diorama returns a full auditable calculation engine and scheme guide, in days and weeks, not months and years.
         </p>
 
 
@@ -1359,7 +1359,7 @@
           <div class="frame-body">
             <div class="audit-header">
               <span class="audit-title">Client Pension Scheme · Benefit Cascade Audit</span>
-              <span class="audit-badge">&#10003; 400 assertions passing</span>
+              <span class="audit-badge">&#10003; All assertions passing</span>
             </div>
             <div class="audit-table-inner">
             <div class="audit-row header" aria-hidden="true">
@@ -1478,7 +1478,7 @@
     <div class="container">
       <div class="proof-inner">
         <p class="proof-lead">
-          Live pension schemes rebuilt from governing documents alone. No access to the incumbent platform required.
+          We have built pension scheme engines from governing documents alone — no access to the incumbent platform required. We typically return a richer, clearer and more accurate scheme document than we received.
         </p>
         <span class="proof-tag">System live</span>
       </div>
@@ -1616,7 +1616,7 @@
             </svg>
           </div>
           <h3>Your code, your conventions</h3>
-          <p>Python modules, Excel proformas, regression harnesses — in your existing conventions. Your team owns it from day one. No platform migration, no lock-in.</p>
+          <p>Code modules, Excel proformas, regression harnesses — in your existing conventions. Your team owns it from day one. No platform migration, no lock-in.</p>
         </div>
       </div>
     </div>
@@ -1643,22 +1643,14 @@
     <div class="container">
       <div class="section-header fade-up">
         <div class="badge-pill">Proof, not promise</div>
-        <h2 id="halcyon-title" class="section-title">We have already done this.</h2>
+        <h2 id="halcyon-title" class="section-title">The method has been proven. The rollouts are underway.</h2>
       </div>
       <div class="scroll-container">
       <div class="halcyon-panel" id="halcyon-panel">
         <p class="halcyon-quote">
-          A rebuild that has typically taken nine to twelve months arrives in days. From governing documents alone. No access to the incumbent platform required.
+          Take the complication, stress and time constraints out of your pension calculation migrations, audits, pricing projects and scheme documentation — immediately.
         </p>
         <div class="stats-row">
-          <div class="stat">
-            <span class="stat-num" data-target="3" data-suffix="×">0×</span>
-            <span class="stat-label">Length of working specification vs. source documentation</span>
-          </div>
-          <div class="stat">
-            <span class="stat-num" data-target="400" data-suffix="">0</span>
-            <span class="stat-label">Regression assertions run on every rebuild</span>
-          </div>
           <div class="stat">
             <span class="stat-num" data-target="0" data-suffix="">0</span>
             <span class="stat-label">LLMs in the runtime calculation path</span>
@@ -1676,30 +1668,27 @@
       <div class="two-col reverse">
 
         <!-- Terminal visual LEFT -->
-        <div class="terminal fade-up" role="img" aria-label="Diorama regression test output showing 400 passing assertions">
+        <div class="terminal fade-up" role="img" aria-label="Diorama regression test output">
           <div class="terminal-bar">
             <span class="frame-dot r" aria-hidden="true"></span>
             <span class="frame-dot y" aria-hidden="true"></span>
             <span class="frame-dot g" aria-hidden="true"></span>
-            <span class="frame-title">diorama / regression / run_harness.py</span>
+            <span class="frame-title">diorama / regression / run_harness</span>
           </div>
           <div class="terminal-body">
-            <span class="t-line"><span class="t-prompt">$ </span><span class="t-cmd">python -m pytest tests/regression/ -v --tb=short</span></span>
+            <span class="t-line"><span class="t-prompt">$ </span><span class="t-cmd">diorama run regression --scheme scheme-001 --report html</span></span>
             <span class="t-line t-info">&nbsp;</span>
-            <span class="t-line t-info">platform darwin -- Python 3.12.3</span>
-            <span class="t-line t-info">collected <span class="t-num">400</span> items</span>
+            <span class="t-line t-info">Loading scheme modules...</span>
             <span class="t-line t-info">&nbsp;</span>
-            <span class="t-line"><span class="t-pass">PASSED</span> <span class="t-dim">tests/regression/</span>test_gmp_pre88.py::<span class="t-cmd">test_gmp_weekly_earnings_cap</span></span>
-            <span class="t-line"><span class="t-pass">PASSED</span> <span class="t-dim">tests/regression/</span>test_gmp_pre88.py::<span class="t-cmd">test_gmp_revaluation_fixed_rate</span></span>
-            <span class="t-line"><span class="t-pass">PASSED</span> <span class="t-dim">tests/regression/</span>test_excess_revaluation.py::<span class="t-cmd">test_cpi_cap_3pct</span></span>
-            <span class="t-line"><span class="t-pass">PASSED</span> <span class="t-dim">tests/regression/</span>test_early_retirement.py::<span class="t-cmd">test_erf_table_lookup_58</span></span>
-            <span class="t-line"><span class="t-pass">PASSED</span> <span class="t-dim">tests/regression/</span>test_commutation.py::<span class="t-cmd">test_lump_sum_fa2024_regime</span></span>
-            <span class="t-line"><span class="t-pass">PASSED</span> <span class="t-dim">tests/regression/</span>test_spouse_pension.py::<span class="t-cmd">test_contingent_rule_31_2c</span></span>
-            <span class="t-line"><span class="t-pass">PASSED</span> <span class="t-dim">tests/regression/</span>test_tranche_order.py::<span class="t-cmd">test_section_category_logic</span></span>
+            <span class="t-line"><span class="t-pass">PASS</span> <span class="t-dim">modules/</span><span class="t-cmd">gmp_pre88</span> <span class="t-dim">— weekly earnings cap</span></span>
+            <span class="t-line"><span class="t-pass">PASS</span> <span class="t-dim">modules/</span><span class="t-cmd">gmp_pre88</span> <span class="t-dim">— revaluation fixed rate</span></span>
+            <span class="t-line"><span class="t-pass">PASS</span> <span class="t-dim">modules/</span><span class="t-cmd">excess_revaluation</span> <span class="t-dim">— CPI cap 3%</span></span>
+            <span class="t-line"><span class="t-pass">PASS</span> <span class="t-dim">modules/</span><span class="t-cmd">early_retirement</span> <span class="t-dim">— ERF table lookup age 58</span></span>
+            <span class="t-line"><span class="t-pass">PASS</span> <span class="t-dim">modules/</span><span class="t-cmd">commutation</span> <span class="t-dim">— lump sum FA2024 regime</span></span>
+            <span class="t-line"><span class="t-pass">PASS</span> <span class="t-dim">modules/</span><span class="t-cmd">spouse_pension</span> <span class="t-dim">— contingent rule 31(2)(c)</span></span>
+            <span class="t-line"><span class="t-pass">PASS</span> <span class="t-dim">modules/</span><span class="t-cmd">tranche_order</span> <span class="t-dim">— section category logic</span></span>
             <span class="t-line t-info">&nbsp;</span>
-            <span class="t-line t-info"><span class="t-dim">... 393 more passing ...</span></span>
-            <span class="t-line t-info">&nbsp;</span>
-            <span class="t-line"><span class="t-pass">========================= <span class="t-num">400</span> passed in 4.23s =========================</span></span>
+            <span class="t-line"><span class="t-pass">All modules passing · Report saved → scheme-001-regression.html</span></span>
             <span class="t-line t-info">&nbsp;</span>
             <span class="t-line"><span class="t-prompt">$ </span><span class="t-blink"></span></span>
           </div>
@@ -1716,7 +1705,7 @@
             <div class="trust-item" data-glow>
               <span class="trust-num">01</span>
               <div class="trust-item-body">
-                <strong>The actuary owns the deliverable</strong>
+                <strong>The scheme and their advisors retain ownership of the deliverable</strong>
                 <p>Every interpretive call and sign-off stays with the actuary. The engine accelerates; it does not decide.</p>
               </div>
             </div>
@@ -1724,21 +1713,21 @@
               <span class="trust-num">02</span>
               <div class="trust-item-body">
                 <strong>No LLM in the runtime path</strong>
-                <p>Deterministic Python throughout. The LLM builds the calculator. It never enters a live calculation.</p>
+                <p>Deterministic code throughout. The LLM builds the calculator. It never enters a live calculation.</p>
               </div>
             </div>
             <div class="trust-item" data-glow>
               <span class="trust-num">03</span>
               <div class="trust-item-body">
-                <strong>Every output testable</strong>
-                <p>400 regression assertions run on every rebuild. Drift surfaces as a test failure before anything ships.</p>
+                <strong>Every output regression tested</strong>
+                <p>Every rebuild is fully regression tested and documented in easy-to-read reports, delivered as documents or self-contained websites.</p>
               </div>
             </div>
             <div class="trust-item" data-glow>
               <span class="trust-num">04</span>
               <div class="trust-item-body">
-                <strong>Two independent model families reviewing each other</strong>
-                <p>One model executes. A second, from a different vendor, audits with no shared context. Structurally analogous to human peer review.</p>
+                <strong>Two independent model families reviewing each other — orchestrated by a highly experienced human DB analyst</strong>
+                <p>One model executes. A second, from a different vendor, audits with no shared context. A senior DB analyst orchestrates both. Structurally analogous to peer review, with human expertise at the centre.</p>
               </div>
             </div>
             <div class="trust-item" data-glow>
@@ -1765,7 +1754,7 @@
           <span class="dot" aria-hidden="true"></span>
           About
         </div>
-        <h2 id="about-title" class="about-headline fade-up">Based in the UK. 50+ years of domain expertise,<br>now supercharged by AI.</h2>
+        <h2 id="about-title" class="about-headline fade-up">Based in the UK. Decades of DB pensions expertise,<br>now supercharged by AI.</h2>
         <p class="about-sub fade-up">Pensionable exists to solve the global pensions industry's hardest problems — the ones everyone else said couldn't be done.</p>
       </div>
     </div>
