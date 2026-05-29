@@ -863,6 +863,35 @@
 
     /* ─── PROOF POINT / HALCYON ─── */
     #halcyon { padding: var(--f8) 0 var(--f34); }
+    .proof-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: var(--f5); margin-top: var(--f13);
+    }
+    .proof-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--r-card); padding: var(--f8);
+      display: flex; flex-direction: column; gap: var(--f5);
+      position: relative; overflow: hidden;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .proof-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(147,130,255,0.25), transparent);
+    }
+    .proof-card:hover {
+      border-color: rgba(147,130,255,0.2);
+      box-shadow: 0 8px 32px rgba(113,47,255,0.1);
+    }
+    .proof-card-type {
+      font-family: var(--font-mono); font-size: var(--t-sm);
+      color: var(--accent-mid); letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .proof-card-body {
+      font-size: 0.9375rem; color: var(--text-muted); line-height: 1.75;
+    }
+    @media (max-width: 900px) { .proof-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .proof-grid { grid-template-columns: 1fr; } }
 
     /* Container scroll wrapper — mirrors ContainerScroll */
     .scroll-container {
@@ -1643,20 +1672,41 @@
     <div class="container">
       <div class="section-header fade-up">
         <div class="badge-pill">Proof, not promise</div>
-        <h2 id="halcyon-title" class="section-title">The method has been proven. The rollouts are underway.</h2>
+        <h2 id="halcyon-title" class="section-title">The method has been proven.<br>The rollouts are underway.</h2>
       </div>
-      <div class="scroll-container">
-      <div class="halcyon-panel" id="halcyon-panel">
-        <p class="halcyon-quote">
-          Take the complication, stress and time constraints out of your pension calculation migrations, audits, pricing projects and scheme documentation — immediately.
-        </p>
-        <div class="stats-row">
-          <div class="stat">
-            <span class="stat-num" data-target="0" data-suffix="">0</span>
-            <span class="stat-label">LLMs in the runtime calculation path</span>
-          </div>
+
+      <div class="proof-grid fade-up">
+
+        <div class="proof-card">
+          <p class="proof-card-type">GMP Rectification</p>
+          <p class="proof-card-body">Pre-97 and post-97 GMP calculations, equalisation methodologies, and conversion exercises — fully encoded from scheme rules and HMRC guidance, with every figure traceable to the authority that permits it.</p>
         </div>
-      </div>
+
+        <div class="proof-card">
+          <p class="proof-card-type">Pension Risk Transfer</p>
+          <p class="proof-card-body">PRT valuation engines built to insurance-grade precision. Consistent benefit calculations across the full membership, ready for insurer submission without manual recalculation.</p>
+        </div>
+
+        <div class="proof-card">
+          <p class="proof-card-type">Individual Scheme Projects</p>
+          <p class="proof-card-body">ISP benefit statements, early retirement exercises, deferred benefit calculations, and bespoke scheme-specific computations — each one produced from the scheme's own governing documents.</p>
+        </div>
+
+        <div class="proof-card">
+          <p class="proof-card-type">Platform Migrations</p>
+          <p class="proof-card-body">Full scheme rebuilds ahead of platform change or consolidation. The new engine is validated against the old platform's outputs before a single member record moves.</p>
+        </div>
+
+        <div class="proof-card">
+          <p class="proof-card-type">Scheme Audits</p>
+          <p class="proof-card-body">Independent recalculation of scheme benefits to surface discrepancies between what the rules say and what the platform has been paying. Every variance documented, every source cited.</p>
+        </div>
+
+        <div class="proof-card">
+          <p class="proof-card-type">Scheme Documentation</p>
+          <p class="proof-card-body">Plain-language scheme guides produced alongside the calculation engine — written for trustees, advisors, and administrators. Clearer and more complete than the documents we started with.</p>
+        </div>
+
       </div>
     </div>
   </section>
