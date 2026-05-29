@@ -351,7 +351,7 @@
       /* Singularity at 48% of 760px = 365px from wrap top.
          Hero text ends ~420px from section top (after 130px padding).
          top = 420 - 365 = 55px puts singularity right at the text/frame boundary */
-      top: 220px;
+      top: 217px;
       height: 760px;
       pointer-events: none;
       z-index: 0;
@@ -1245,6 +1245,7 @@
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
       .nav-cta .btn-primary { display: none; }
+      .nav-cta .btn-nav-primary { font-size: 0.72rem; padding: 0.3rem 0.75rem; margin-right: -13px; }
 
       /* Hero */
       #hero { padding: var(--f34) 0 var(--f21); min-height: auto; }
@@ -1254,7 +1255,7 @@
         margin-top: calc(var(--f8) + 45px);
         perspective: none;
       }
-      .black-hole-wrap { top: calc(220px + 65px); }
+      .black-hole-wrap { top: calc(220px + 44px); }
       .hero-frame { transform: none; backdrop-filter: blur(12px); }
       .frame-body { padding: 0.75rem; overflow-x: auto; -webkit-overflow-scrolling: touch; }
       .audit-table-inner { min-width: 520px; width: max-content; }
