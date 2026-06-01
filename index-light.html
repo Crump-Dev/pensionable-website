@@ -217,6 +217,15 @@
     .mobile-menu a:hover { color: #1e293b; }
     .mobile-menu .btn-primary { margin-top: 0.75rem; width: 100%; }
 
+    /* ─── LOGO OVERRIDES (light theme) ─── */
+    .nav-logo { color: var(--text); }
+    .nav-logo .logo-text { color: var(--text); -webkit-text-fill-color: unset; }
+    .nav-logo .logo-ai {
+      background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
     /* ─── GRADIENT TEXT UTILITY ─── */
     .grad-text {
       background: var(--accent);
@@ -1175,7 +1184,7 @@
 
 <!-- ─── NAVBAR ─── -->
 <nav role="navigation" aria-label="Main navigation">
-  <a href="/" class="nav-logo"><svg class="logo-hex" viewBox="-1 -1 26 26" fill="none" aria-hidden="true"><polygon points="12,1.5 21,6.5 21,17.5 12,22.5 3,17.5 3,6.5" stroke="url(#lhg)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><defs><linearGradient id="lhg" x1="3" y1="1.5" x2="21" y2="22.5" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#b44cf0"/><stop offset="100%" stop-color="#7030c8"/></linearGradient></defs></svg><span class="logo-word"><span class="logo-text">pensionable</span><span class="logo-ai">.ai</span></span></a>
+  <a href="/" class="nav-logo"><svg class="logo-hex" viewBox="-1 -1 26 26" fill="none" aria-hidden="true"><polygon points="12,1.5 21,6.5 21,17.5 12,22.5 3,17.5 3,6.5" stroke="url(#lhg)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><defs><linearGradient id="lhg" x1="3" y1="1.5" x2="21" y2="22.5" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#1d4ed8"/></linearGradient></defs></svg><span class="logo-word"><span class="logo-text">pensionable</span><span class="logo-ai">.ai</span></span></a>
   <ul class="nav-links" role="list">
     <li><a href="solutions.html">Solutions</a></li>
     <li><a href="intelligence/index.html">Intelligence</a></li>
@@ -1442,7 +1451,7 @@
               <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
             </filter>
             <!-- Gradient lines -->
-            <linearGradient id="ng-lg0" x1="460" y1="280" x2="460" y2="65"  gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"/><stop offset="100%" stop-color="#ba9cff" stop-opacity="0.85"/></linearGradient>
+            <linearGradient id="ng-lg0" x1="460" y1="280" x2="460" y2="65"  gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"/><stop offset="100%" stop-color="#60a5fa" stop-opacity="0.85"/></linearGradient>
             <linearGradient id="ng-lg1" x1="460" y1="280" x2="647" y2="170" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"/><stop offset="100%" stop-color="#86efac" stop-opacity="0.85"/></linearGradient>
             <linearGradient id="ng-lg2" x1="460" y1="280" x2="647" y2="390" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"/><stop offset="100%" stop-color="#fde047" stop-opacity="0.85"/></linearGradient>
             <linearGradient id="ng-lg3" x1="460" y1="280" x2="460" y2="495" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"/><stop offset="100%" stop-color="#f9a8d4" stop-opacity="0.85"/></linearGradient>
@@ -1479,7 +1488,7 @@
           <line x1="460" y1="280" x2="273" y2="170" stroke="url(#ng-lg5)" stroke-width="1.8" filter="url(#ng-line-glow)"/>
 
           <!-- Outer node halos -->
-          <circle cx="460" cy="65"  r="14" fill="#ba9cff" opacity="0.18" filter="url(#ng-dot-glow)"/>
+          <circle cx="460" cy="65"  r="14" fill="#60a5fa" opacity="0.18" filter="url(#ng-dot-glow)"/>
           <circle cx="647" cy="170" r="14" fill="#86efac" opacity="0.18" filter="url(#ng-dot-glow)"/>
           <circle cx="647" cy="390" r="14" fill="#fde047" opacity="0.18" filter="url(#ng-dot-glow)"/>
           <circle cx="460" cy="495" r="14" fill="#f9a8d4" opacity="0.18" filter="url(#ng-dot-glow)"/>
@@ -1487,7 +1496,7 @@
           <circle cx="273" cy="170" r="14" fill="#6ee7b7" opacity="0.18" filter="url(#ng-dot-glow)"/>
 
           <!-- Outer node dots -->
-          <circle cx="460" cy="65"  r="5" fill="#ba9cff" filter="url(#ng-dot-glow)"/>
+          <circle cx="460" cy="65"  r="5" fill="#60a5fa" filter="url(#ng-dot-glow)"/>
           <circle cx="647" cy="170" r="5" fill="#86efac" filter="url(#ng-dot-glow)"/>
           <circle cx="647" cy="390" r="5" fill="#fde047" filter="url(#ng-dot-glow)"/>
           <circle cx="460" cy="495" r="5" fill="#f9a8d4" filter="url(#ng-dot-glow)"/>
@@ -1496,7 +1505,7 @@
 
           <!-- Centre orb -->
           <circle cx="460" cy="280" r="44" fill="url(#ng-orb)" filter="url(#ng-orb-glow)" opacity="0.85"/>
-          <circle cx="460" cy="280" r="44" fill="none" stroke="rgba(200,170,255,0.5)" stroke-width="1"/>
+          <circle cx="460" cy="280" r="44" fill="none" stroke="rgba(147,197,253,0.5)" stroke-width="1"/>
         </svg>
 
         <div class="ng-center">
@@ -1504,7 +1513,7 @@
         </div>
 
         <!-- node positions recalculated for 920×560, cx=460 cy=280, r=215 -->
-        <div class="ng-node" style="--nf:#ba9cff;--nc:rgba(186,156,255,0.45);--ns:rgba(186,156,255,0.25); left:50%;    top:11.6%">
+        <div class="ng-node" style="--nf:#60a5fa;--nc:rgba(96,165,250,0.45);--ns:rgba(96,165,250,0.25); left:50%;    top:11.6%">
           <span class="ng-node-card">GMP Rectification</span>
         </div>
         <div class="ng-node" style="--nf:#86efac;--nc:rgba(134,239,172,0.45);--ns:rgba(134,239,172,0.25); left:70.3%;  top:30.4%">
@@ -1772,12 +1781,12 @@
     // Symmetric pairs: 2@15°, 2@35°, 2@65°, 1@90°
     // Left side mirrors: 180-ang; ordered left→right for sweep hit order
     const nodeData = [
-      { label: 'Trust Deed',         sub: 'source document', col: '#ba9cff', icon: 'M3 2h7l3 3v9H3V2zM10 2v3h3M5 7h6M5 10h4',         ang: 15  },
+      { label: 'Trust Deed',         sub: 'source document', col: '#60a5fa', icon: 'M3 2h7l3 3v9H3V2zM10 2v3h3M5 7h6M5 10h4',         ang: 15  },
       { label: 'Factor Tables',      sub: 'data tables',     col: '#86efac', icon: 'M2 2h12v12H2zM2 6h12M2 10h12M6 2v12M10 2v12',        ang: 35  },
       { label: 'Scheme Rules',       sub: 'rule set',        col: '#fde047', icon: 'M8 2l1.5 3 3.5.5-2.5 2.5.6 3.5L8 10l-3.1 1.5.6-3.5L3 5.5l3.5-.5L8 2z', ang: 55  },
       { label: 'Member Data',        sub: 'member records',  col: '#f9a8d4', icon: 'M8 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM2 14c0-3 2.7-5 6-5s6 2 6 5',         ang: 90  },
       { label: 'Calculations',       sub: 'benefit engine',  col: '#93c5fd', icon: 'M2 2h12v12H2zM5 8h6M8 5v6',                          ang: 125 },
-      { label: 'Audit Trail',        sub: 'verification',    col: '#a78bfa', icon: 'M2 4h12M2 8h8M2 12h5M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM12 10v2l1 1',   ang: 145 },
+      { label: 'Audit Trail',        sub: 'verification',    col: '#7dd3fc', icon: 'M2 4h12M2 8h8M2 12h5M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM12 10v2l1 1',   ang: 145 },
       { label: 'Benefit Statements', sub: 'output comms',    col: '#6ee7b7', icon: 'M3 2h7l3 3v9H3V2zM10 2v3h3M5 7h6M5 10h6M5 13h3',    ang: 165 },
     ];
 
