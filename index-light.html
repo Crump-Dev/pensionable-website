@@ -542,7 +542,7 @@
     .rnode-pill {
       display: flex; align-items: center; gap: 0.45rem;
       padding: 0.4rem 0.8rem; border-radius: 999px;
-      border: 1px solid var(--nc); background: var(--nb);
+      border: 1px solid var(--nc); background: rgba(255,255,255,0.85);
       color: var(--nf); font-family: var(--font-mono); font-size: 0.72rem;
       white-space: nowrap; backdrop-filter: blur(8px);
       box-shadow: 0 0 0 0 var(--ns);
@@ -556,7 +556,7 @@
     .rnode-pill svg { width: 13px; height: 13px; flex-shrink: 0; }
     .rnode-sub {
       font-size: 0.62rem; font-family: var(--font-mono);
-      color: rgba(147,130,255,0.45); transition: color 0.4s;
+      color: rgba(37,99,235,0.4); transition: color 0.4s;
     }
     .rnode.lit .rnode-sub { color: var(--nf); opacity: 0.7; }
 
@@ -1894,14 +1894,14 @@
     const bx = bg.getContext('2d');
     bx.scale(dpr, dpr);
 
-    bx.fillStyle = '#030014';
+    bx.fillStyle = '#ffffff';
     bx.fillRect(0, 0, W, H);
 
     // Rings
     [0.28, 0.50, 0.72, 0.92].forEach((rf, ri) => {
       bx.beginPath();
       bx.arc(ox, oy, maxR * rf, Math.PI, 2 * Math.PI, false);
-      bx.strokeStyle = `rgba(147,130,255,${[0.40,0.20,0.09,0.03][ri]})`;
+      bx.strokeStyle = `rgba(37,99,235,${[0.18,0.09,0.04,0.02][ri]})`;
       bx.lineWidth = 0.8;
       bx.stroke();
     });
@@ -1910,31 +1910,31 @@
     for (let d = 0; d <= 180; d += 20) {
       const pt = arcPt(d, maxR);
       bx.beginPath(); bx.moveTo(ox, oy); bx.lineTo(pt.x, pt.y);
-      bx.strokeStyle = 'rgba(147,130,255,0.07)';
+      bx.strokeStyle = 'rgba(37,99,235,0.07)';
       bx.lineWidth = 0.6; bx.stroke();
     }
 
     // Baseline
     bx.beginPath(); bx.moveTo(ox - maxR, oy); bx.lineTo(ox + maxR, oy);
-    bx.strokeStyle = 'rgba(147,130,255,0.18)'; bx.lineWidth = 0.8; bx.stroke();
+    bx.strokeStyle = 'rgba(37,99,235,0.18)'; bx.lineWidth = 0.8; bx.stroke();
 
     // Vignette
     const vigGrad = bx.createRadialGradient(ox, oy, maxR * 0.30, ox, oy, maxR * 1.08);
-    vigGrad.addColorStop(0,    'rgba(3,0,20,0)');
-    vigGrad.addColorStop(0.55, 'rgba(3,0,20,0)');
-    vigGrad.addColorStop(1,    'rgba(3,0,20,0.88)');
+    vigGrad.addColorStop(0,    'rgba(255,255,255,0)');
+    vigGrad.addColorStop(0.55, 'rgba(255,255,255,0)');
+    vigGrad.addColorStop(1,    'rgba(255,255,255,0.92)');
     bx.fillStyle = vigGrad; bx.fillRect(0, 0, W, H);
 
     // Orb (static — drawn onto bg so we stamp it each frame without shadow)
     const orbGrad = bx.createRadialGradient(ox, oy, 0, ox, oy, ORB_R);
-    orbGrad.addColorStop(0,    'rgba(210,195,255,1)');
-    orbGrad.addColorStop(0.38, 'rgba(147,100,255,0.96)');
-    orbGrad.addColorStop(0.75, 'rgba(80,30,190,0.70)');
-    orbGrad.addColorStop(1,    'rgba(50,10,120,0)');
+    orbGrad.addColorStop(0,    'rgba(147,197,253,1)');
+    orbGrad.addColorStop(0.38, 'rgba(37,99,235,0.96)');
+    orbGrad.addColorStop(0.75, 'rgba(29,78,216,0.70)');
+    orbGrad.addColorStop(1,    'rgba(15,23,42,0)');
     bx.beginPath(); bx.arc(ox, oy, ORB_R, 0, Math.PI * 2);
     bx.fillStyle = orbGrad; bx.fill();
     bx.beginPath(); bx.arc(ox, oy, ORB_R, 0, Math.PI * 2);
-    bx.strokeStyle = 'rgba(186,156,255,0.45)'; bx.lineWidth = 1; bx.stroke();
+    bx.strokeStyle = 'rgba(37,99,235,0.6)'; bx.lineWidth = 1; bx.stroke();
     bx.fillStyle = 'rgba(255,255,255,0.94)';
     bx.font = '600 8.5px "Space Mono",monospace';
     bx.textAlign = 'center'; bx.textBaseline = 'middle';
@@ -1976,20 +1976,20 @@
         ctx.beginPath();
         ctx.moveTo(ox, oy);
         ctx.lineTo(trailPt.x, trailPt.y);
-        ctx.strokeStyle = `rgba(147,130,255,${alpha.toFixed(3)})`;
+        ctx.strokeStyle = `rgba(37,99,235,${alpha.toFixed(3)})`;
         ctx.lineWidth = 1;
         ctx.stroke();
       }
 
       // Bright needle
       ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(tip.x, tip.y);
-      ctx.strokeStyle = 'rgba(210,185,255,0.92)'; ctx.lineWidth = 1.5; ctx.stroke();
+      ctx.strokeStyle = 'rgba(29,78,216,0.92)'; ctx.lineWidth = 1.5; ctx.stroke();
 
       // Tip dot — stacked circles for fake glow
       ctx.beginPath(); ctx.arc(tip.x, tip.y, 7, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(186,156,255,0.15)'; ctx.fill();
+      ctx.fillStyle = 'rgba(37,99,235,0.15)'; ctx.fill();
       ctx.beginPath(); ctx.arc(tip.x, tip.y, 3, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(230,210,255,1)'; ctx.fill();
+      ctx.fillStyle = 'rgba(59,130,246,1)'; ctx.fill();
 
       // Node dots + ping rings
       NODES.forEach((n, i) => {
