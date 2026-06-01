@@ -974,6 +974,7 @@
       padding: var(--f34) 0 0;
       position: relative; overflow: hidden;
       text-align: center;
+      background: #f8fafc;
     }
     .about-inner {
       display: flex; flex-direction: column; align-items: center;
@@ -984,12 +985,12 @@
       font-size: clamp(2rem, 4vw, 3rem);
       line-height: 1.1; letter-spacing: -0.03em;
       max-width: 760px;
-      background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.75) 100%);
+      background: linear-gradient(180deg, #1e293b 0%, #475569 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
     }
     .about-sub {
-      font-size: 1.0625rem; color: var(--text-muted);
+      font-size: 1.0625rem; color: #64748b;
       max-width: 580px; line-height: 1.75;
     }
     /* Two faint vertical flanking lines */
@@ -1004,10 +1005,10 @@
       content: ''; display: block; width: 1px; height: 100%;
     }
     .about-lines::before {
-      background: linear-gradient(to bottom, transparent, rgba(243,238,255,0.12));
+      background: linear-gradient(to bottom, transparent, rgba(37,99,235,0.1));
     }
     .about-lines::after {
-      background: linear-gradient(to top, transparent, rgba(243,238,255,0.12));
+      background: linear-gradient(to top, transparent, rgba(37,99,235,0.1));
     }
     /* Globe container — bottom half of section */
     .about-globe {
@@ -2130,7 +2131,7 @@
         if (!p) return;
         ctx.beginPath();
         ctx.arc(p[0], p[1], 1.4, 0, 2 * Math.PI);
-        ctx.fillStyle = 'rgba(186,156,255,0.75)';
+        ctx.fillStyle = 'rgba(37,99,235,0.6)';
         ctx.fill();
       });
     }
