@@ -733,16 +733,13 @@
     .ng-center-pill {
       display: inline-flex; align-items: center;
       padding: 0.6rem 1.6rem; border-radius: 999px;
-      background: rgba(113,47,255,0.18);
-      border: 1px solid rgba(186,156,255,0.55);
-      color: #fff;
+      background: #1e293b;
+      border: 1px solid #1e293b;
+      color: #ffffff;
       font-family: var(--font-head); font-size: 1rem; font-weight: 700;
       letter-spacing: -0.02em;
       backdrop-filter: blur(12px);
-      box-shadow:
-        0 0 40px rgba(113,47,255,0.4),
-        0 0 80px rgba(113,47,255,0.15),
-        inset 0 1px 0 rgba(255,255,255,0.15);
+      box-shadow: 0 0 24px rgba(30,41,59,0.2), 0 0 60px rgba(30,41,59,0.08);
       white-space: nowrap;
     }
     .ng-node {
@@ -751,14 +748,14 @@
     .ng-node-card {
       display: inline-flex; align-items: center;
       padding: 0.55rem 1.1rem; border-radius: 10px;
-      background: rgba(255,255,255,0.035);
-      border: 1px solid var(--nc);
+      background: rgba(255,255,255,0.9);
       color: var(--nf);
+      border: 1px solid var(--nc);
       font-family: var(--font-head); font-size: 0.875rem; font-weight: 600;
       letter-spacing: -0.01em;
       white-space: nowrap;
       backdrop-filter: blur(10px);
-      box-shadow: 0 0 22px var(--ns), inset 0 1px 0 rgba(255,255,255,0.07);
+      box-shadow: 0 0 16px var(--ns), 0 2px 8px rgba(0,20,60,0.06);
     }
     @media (max-width: 640px) {
       .ng-node-card { font-size: 0.65rem; padding: 0.35rem 0.65rem; border-radius: 7px; }
@@ -1506,23 +1503,23 @@
               <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
             </filter>
             <!-- Gradient lines -->
-            <linearGradient id="ng-lg0" x1="460" y1="280" x2="460" y2="65"  gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#9382ff" stop-opacity="0.3"/><stop offset="100%" stop-color="#ba9cff" stop-opacity="0.85"/></linearGradient>
-            <linearGradient id="ng-lg1" x1="460" y1="280" x2="647" y2="170" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#9382ff" stop-opacity="0.3"/><stop offset="100%" stop-color="#86efac" stop-opacity="0.85"/></linearGradient>
-            <linearGradient id="ng-lg2" x1="460" y1="280" x2="647" y2="390" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#9382ff" stop-opacity="0.3"/><stop offset="100%" stop-color="#fde047" stop-opacity="0.85"/></linearGradient>
-            <linearGradient id="ng-lg3" x1="460" y1="280" x2="460" y2="495" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#9382ff" stop-opacity="0.3"/><stop offset="100%" stop-color="#f9a8d4" stop-opacity="0.85"/></linearGradient>
-            <linearGradient id="ng-lg4" x1="460" y1="280" x2="273" y2="390" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#9382ff" stop-opacity="0.3"/><stop offset="100%" stop-color="#93c5fd" stop-opacity="0.85"/></linearGradient>
-            <linearGradient id="ng-lg5" x1="460" y1="280" x2="273" y2="170" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#9382ff" stop-opacity="0.3"/><stop offset="100%" stop-color="#6ee7b7" stop-opacity="0.85"/></linearGradient>
+            <linearGradient id="ng-lg0" x1="460" y1="280" x2="460" y2="65"  gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"/><stop offset="100%" stop-color="#ba9cff" stop-opacity="0.85"/></linearGradient>
+            <linearGradient id="ng-lg1" x1="460" y1="280" x2="647" y2="170" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"/><stop offset="100%" stop-color="#86efac" stop-opacity="0.85"/></linearGradient>
+            <linearGradient id="ng-lg2" x1="460" y1="280" x2="647" y2="390" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"/><stop offset="100%" stop-color="#fde047" stop-opacity="0.85"/></linearGradient>
+            <linearGradient id="ng-lg3" x1="460" y1="280" x2="460" y2="495" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"/><stop offset="100%" stop-color="#f9a8d4" stop-opacity="0.85"/></linearGradient>
+            <linearGradient id="ng-lg4" x1="460" y1="280" x2="273" y2="390" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"/><stop offset="100%" stop-color="#93c5fd" stop-opacity="0.85"/></linearGradient>
+            <linearGradient id="ng-lg5" x1="460" y1="280" x2="273" y2="170" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"/><stop offset="100%" stop-color="#6ee7b7" stop-opacity="0.85"/></linearGradient>
             <!-- Center nebula -->
             <radialGradient id="ng-nebula" cx="460" cy="280" r="240" gradientUnits="userSpaceOnUse">
-              <stop offset="0%"   stop-color="#6020d0" stop-opacity="0.22"/>
-              <stop offset="45%"  stop-color="#3a10a0" stop-opacity="0.08"/>
-              <stop offset="100%" stop-color="#030014" stop-opacity="0"/>
+              <stop offset="0%"   stop-color="#dbeafe" stop-opacity="0.7"/>
+              <stop offset="45%"  stop-color="#eff6ff" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
             </radialGradient>
             <!-- Center orb -->
             <radialGradient id="ng-orb" cx="460" cy="268" r="44" gradientUnits="userSpaceOnUse">
-              <stop offset="0%"   stop-color="#d4b8ff"/>
-              <stop offset="42%"  stop-color="#8040e0"/>
-              <stop offset="100%" stop-color="#3010a0" stop-opacity="0.7"/>
+              <stop offset="0%"   stop-color="#93c5fd"/>
+              <stop offset="42%"  stop-color="#2563eb"/>
+              <stop offset="100%" stop-color="#1d4ed8" stop-opacity="0.8"/>
             </radialGradient>
           </defs>
 
@@ -1530,9 +1527,9 @@
           <circle cx="460" cy="280" r="240" fill="url(#ng-nebula)"/>
 
           <!-- Orbital rings -->
-          <circle cx="460" cy="280" r="96"  fill="none" stroke="rgba(147,130,255,0.14)" stroke-width="0.8"/>
-          <circle cx="460" cy="280" r="155" fill="none" stroke="rgba(147,130,255,0.08)" stroke-width="0.8" stroke-dasharray="4 6"/>
-          <circle cx="460" cy="280" r="215" fill="none" stroke="rgba(147,130,255,0.05)" stroke-width="0.8"/>
+          <circle cx="460" cy="280" r="96"  fill="none" stroke="rgba(37,99,235,0.12)" stroke-width="0.8"/>
+          <circle cx="460" cy="280" r="155" fill="none" stroke="rgba(37,99,235,0.07)" stroke-width="0.8" stroke-dasharray="4 6"/>
+          <circle cx="460" cy="280" r="215" fill="none" stroke="rgba(37,99,235,0.04)" stroke-width="0.8"/>
 
           <!-- Glowing gradient spokes -->
           <line x1="460" y1="280" x2="460" y2="65"  stroke="url(#ng-lg0)" stroke-width="1.8" filter="url(#ng-line-glow)"/>
