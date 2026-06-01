@@ -908,67 +908,6 @@
     }
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-    /* ─── AURORA BACKGROUND ─── */
-    .aurora-bg {
-      position: absolute; inset: 0; overflow: hidden;
-      pointer-events: none; z-index: 0;
-    }
-    .aurora-pulse {
-      position: absolute; inset: 0; opacity: 0.5;
-      background-image:
-        radial-gradient(circle, rgba(113,47,255,0.22) 0%, transparent 70%),
-        radial-gradient(circle, rgba(147,130,255,0.15) 0%, transparent 70%);
-      background-size: 100% 100%;
-      animation: aurora-pulse 10s ease-in-out infinite;
-    }
-    @keyframes aurora-pulse {
-      0%,100% { opacity: 0.45; transform: scale(1); }
-      50%      { opacity: 0.65; transform: scale(1.06); }
-    }
-    .aurora-blob {
-      position: absolute; border-radius: 50%;
-      filter: blur(80px); mix-blend-mode: screen;
-    }
-    .aurora-blob-1 {
-      width: 55%; height: 55%; top: -15%; left: -15%;
-      background: rgba(113,47,255,0.45);
-      animation: blob1 30s ease-in-out infinite alternate;
-    }
-    .aurora-blob-2 {
-      width: 55%; height: 55%; bottom: -15%; right: -15%;
-      background: rgba(186,156,255,0.35);
-      animation: blob2 40s ease-in-out infinite alternate;
-    }
-    .aurora-blob-3 {
-      width: 40%; height: 40%; top: 30%; left: 30%;
-      background: rgba(156,178,255,0.3);
-      animation: blob3 50s ease-in-out infinite alternate;
-    }
-    @keyframes blob1 {
-      from { transform: translate(-40px,-15px) scale(1); }
-      to   { transform: translate(50px, 20px) scale(1.2); }
-    }
-    @keyframes blob2 {
-      from { transform: translate(40px, 18px) scale(1); }
-      to   { transform: translate(-50px,-22px) scale(1.3); }
-    }
-    @keyframes blob3 {
-      from { transform: translate(18px,-28px) rotate(0deg) scale(1); }
-      to   { transform: translate(-22px,30px) rotate(180deg) scale(1.15); }
-    }
-    .aurora-stars { position: absolute; inset: 0; }
-    .aurora-star {
-      position: absolute; width: 2px; height: 2px;
-      background: #fff; border-radius: 50%;
-      animation: twinkle var(--dur,3s) ease-in-out infinite;
-      animation-delay: var(--delay,0s);
-    }
-    @keyframes twinkle {
-      0%,100% { opacity: 0; }
-      50%      { opacity: var(--peak,0.6); }
-    }
-
-    /* ─── CHALLENGE CTA ─── */
     /* ─── ABOUT / GLOBE ─── */
     #about {
       padding: var(--f34) 0 0;
@@ -1039,6 +978,8 @@
 
     #challenge {
       padding: var(--f34) 0;
+      background: #eff6ff;
+      border-top: 1px solid #dbeafe;
     }
     .challenge-inner {
       display: flex; flex-direction: column; align-items: center;
@@ -1048,12 +989,12 @@
       font-family: var(--font-head); font-weight: 700;
       font-size: clamp(2rem, 5vw, 3.5rem);
       line-height: 1.1; letter-spacing: -0.04em;
-      background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+      background: linear-gradient(180deg, #1e293b 0%, #334155 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
     }
     .challenge-body {
-      font-size: 1.0625rem; color: var(--text-muted);
+      font-size: 1.0625rem; color: #64748b;
       max-width: 520px; line-height: 1.75;
     }
     .challenge-ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
@@ -1062,7 +1003,8 @@
 
     /* ─── FOOTER ─── */
     footer {
-      border-top: 1px solid var(--border);
+      background: #ffffff;
+      border-top: 1px solid #e2e8f0;
       padding: var(--f13) 0;
     }
     .footer-inner {
@@ -1071,18 +1013,18 @@
     }
     .footer-logo {
       font-family: var(--font-head); font-weight: 700; font-size: 1rem;
-      color: var(--text); text-decoration: none; letter-spacing: -0.02em;
+      color: #1e293b; text-decoration: none; letter-spacing: -0.02em;
     }
     .footer-links {
       display: flex; gap: 2rem; list-style: none; flex-wrap: wrap;
     }
     .footer-links a {
-      font-size: 0.875rem; color: var(--text-caption); text-decoration: none;
+      font-size: 0.875rem; color: #94a3b8; text-decoration: none;
       transition: color 0.2s;
     }
-    .footer-links a:hover { color: var(--text-muted); }
+    .footer-links a:hover { color: #64748b; }
     .footer-right {
-      font-size: 0.8125rem; color: var(--text-caption);
+      font-size: 0.8125rem; color: #94a3b8;
       display: flex; align-items: center; gap: 0.75rem;
     }
     .system-live {
@@ -1090,8 +1032,8 @@
     }
     .live-dot {
       width: 7px; height: 7px; border-radius: 50%;
-      background: #4ade80;
-      box-shadow: 0 0 6px #4ade80;
+      background: #16a34a;
+      box-shadow: 0 0 6px #16a34a;
       animation: pulse-dot 2s ease-in-out infinite;
     }
 
@@ -1682,13 +1624,6 @@
 
   <!-- ─── CHALLENGE CTA ─── -->
   <section id="challenge" aria-labelledby="challenge-title">
-    <div class="aurora-bg" aria-hidden="true">
-      <div class="aurora-pulse"></div>
-      <div class="aurora-blob aurora-blob-1"></div>
-      <div class="aurora-blob aurora-blob-2"></div>
-      <div class="aurora-blob aurora-blob-3"></div>
-      <div class="aurora-stars" id="aurora-stars"></div>
-    </div>
     <div class="container">
       <div class="challenge-inner fade-up">
         <div class="badge-pill">Come challenge us</div>
@@ -1798,22 +1733,6 @@
     });
   }, { threshold: 0.3 });
   document.querySelectorAll('.stats-row').forEach(el => statsObserver.observe(el));
-
-  // Aurora stars
-  (function() {
-    const container = document.getElementById('aurora-stars');
-    if (!container) return;
-    for (let i = 0; i < 80; i++) {
-      const s = document.createElement('div');
-      s.className = 'aurora-star';
-      s.style.left  = (Math.random() * 100) + '%';
-      s.style.top   = (Math.random() * 100) + '%';
-      s.style.setProperty('--dur',   (Math.random() * 3 + 2).toFixed(1) + 's');
-      s.style.setProperty('--delay', (Math.random() * 5).toFixed(1) + 's');
-      s.style.setProperty('--peak',  (Math.random() * 0.7 + 0.1).toFixed(2));
-      container.appendChild(s);
-    }
-  })();
 
   // Spotlight card — track pointer position on all [data-glow] elements
   document.addEventListener('pointermove', (e) => {
