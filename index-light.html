@@ -496,6 +496,7 @@
       padding: var(--f21) 0;
       position: relative; overflow: hidden;
       text-align: center;
+      background: #ffffff;
     }
 
     /* ─── PARADIGM SHIFT ─── */
@@ -664,24 +665,18 @@
     }
 
     .feature-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: rgba(0,20,60,0.02);
+      border: 1px solid #e2e8f0;
       border-radius: var(--r-card);
       padding: var(--f8);
       display: flex; flex-direction: column; gap: var(--f5);
       position: relative; overflow: hidden;
       transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
-      background-image: radial-gradient(
-        var(--spotlight-size) var(--spotlight-size) at
-        calc(var(--x, -999) * 1px) calc(var(--y, -999) * 1px),
-        hsl(var(--hue, 270) 100% 70% / var(--bg-spot-opacity)), transparent
-      );
-      background-attachment: fixed;
     }
     .feature-card:hover {
       transform: translateY(-2px);
-      border-color: rgba(147,130,255,0.2);
-      box-shadow: 0 8px 40px rgba(113,47,255,0.15);
+      border-color: rgba(37,99,235,0.2);
+      box-shadow: 0 8px 40px rgba(37,99,235,0.08);
     }
 
     .trust-item {
@@ -696,17 +691,17 @@
     .trust-item:hover { border-color: #cbd5e1; }
     .feature-icon {
       width: 40px; height: 40px; border-radius: 10px;
-      background: rgba(147,130,255,0.1);
-      border: 1px solid rgba(147,130,255,0.2);
+      background: rgba(37,99,235,0.06);
+      border: 1px solid rgba(37,99,235,0.15);
       display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
     .feature-icon svg { width: 18px; height: 18px; }
     .feature-card h3 {
       font-family: var(--font-head); font-size: 1.0625rem; font-weight: 600;
-      color: var(--text); line-height: 1.3; letter-spacing: -0.01em;
+      color: #1e293b; line-height: 1.3; letter-spacing: -0.01em;
     }
     .feature-card p {
-      font-size: 0.9375rem; color: var(--text-muted); line-height: 1.7;
+      font-size: 0.9375rem; color: #64748b; line-height: 1.7;
     }
 
     /* ─── NODE GRAPH ─── */
@@ -758,13 +753,19 @@
     }
 
     /* ─── PROOF POINT / HALCYON ─── */
-    #halcyon { padding: var(--f8) 0 var(--f34); }
+    #halcyon { padding: var(--f8) 0 var(--f34); background: #ffffff; }
+    #halcyon .section-title {
+      background: linear-gradient(180deg, #1e293b 0%, #475569 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
     .proof-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: var(--f5); margin-top: var(--f13);
     }
     .proof-card {
-      background: var(--surface); border: 1px solid var(--border);
+      background: #ffffff; border: 1px solid #e2e8f0;
       border-radius: var(--r-card); padding: var(--f8);
       display: flex; flex-direction: column; gap: var(--f5);
       position: relative; overflow: hidden;
@@ -772,19 +773,19 @@
     }
     .proof-card::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(147,130,255,0.25), transparent);
+      background: linear-gradient(90deg, transparent, rgba(37,99,235,0.15), transparent);
     }
     .proof-card:hover {
-      border-color: rgba(147,130,255,0.2);
-      box-shadow: 0 8px 32px rgba(113,47,255,0.1);
+      border-color: rgba(37,99,235,0.2);
+      box-shadow: 0 8px 32px rgba(37,99,235,0.08);
     }
     .proof-card-type {
       font-family: var(--font-mono); font-size: var(--t-sm);
-      color: var(--accent-mid); letter-spacing: 0.03em;
+      color: #2563eb; letter-spacing: 0.03em;
       text-transform: uppercase;
     }
     .proof-card-body {
-      font-size: 0.9375rem; color: var(--text-muted); line-height: 1.75;
+      font-size: 0.9375rem; color: #64748b; line-height: 1.75;
     }
     @media (max-width: 900px) { .proof-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 600px) { .proof-grid { grid-template-columns: 1fr; } }
@@ -795,8 +796,8 @@
       perspective-origin: 50% 30%;
     }
     .halcyon-panel {
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
       border-radius: var(--r-panel);
       padding: var(--f13);
       position: relative; overflow: hidden;
@@ -808,7 +809,7 @@
         0 9px 20px #0000004a,
         0 37px 37px #00000042,
         0 84px 50px #00000026,
-        0 0 80px rgba(113,47,255,0.12);
+        0 0 80px rgba(37,99,235,0.06);
       transition: transform 0.1s linear, box-shadow 0.1s linear;
       will-change: transform;
     }
@@ -822,20 +823,20 @@
     .halcyon-quote {
       font-family: var(--font-head); font-size: clamp(var(--t-base), 2.5vw, var(--t-lg));
       font-weight: 500; line-height: 1.5; letter-spacing: -0.02em;
-      color: var(--text); max-width: 780px;
+      color: #1e293b; max-width: 780px;
       margin: 0 auto var(--f8);
       text-align: center; position: relative; z-index: 1;
     }
     .halcyon-quote::before {
       content: '\201C';
       font-size: 5rem; line-height: 0; vertical-align: -1.5rem;
-      color: rgba(147,130,255,0.2);
+      color: rgba(37,99,235,0.15);
       font-family: Georgia, serif;
       margin-right: 0.2rem;
     }
     .halcyon-source {
       text-align: center; font-size: var(--t-sm);
-      color: var(--text-caption); font-family: var(--font-mono);
+      color: #94a3b8; font-family: var(--font-mono);
       letter-spacing: 0.04em; text-transform: uppercase;
       margin-bottom: var(--f13); position: relative; z-index: 1;
     }
@@ -851,12 +852,12 @@
     .stat-num {
       font-family: var(--font-head); font-size: clamp(2.5rem, 5vw, 3.5rem);
       font-weight: 700; letter-spacing: -0.04em;
-      background: var(--accent);
+      background: linear-gradient(90.01deg, #3b82f6 0%, #2563eb 50%, #1d4ed8 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text; line-height: 1;
     }
     .stat-label {
-      font-size: 0.875rem; color: var(--text-muted); max-width: 200px; line-height: 1.5;
+      font-size: 0.875rem; color: #64748b; max-width: 200px; line-height: 1.5;
     }
 
     /* ─── TRUST & SAFETY ─── */
