@@ -448,8 +448,9 @@
     /* ─── SOCIAL PROOF STRIP ─── */
     #proof {
       padding: var(--f13) 0 var(--f21);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
     }
     .entropy-wrap {
       margin-top: 3rem;
@@ -464,7 +465,7 @@
       display: flex; justify-content: space-between;
       width: 100%; max-width: 700px;
       font-family: var(--font-mono); font-size: 0.6875rem;
-      color: var(--text-caption); text-transform: uppercase; letter-spacing: 0.08em;
+      color: #94a3b8; text-transform: uppercase; letter-spacing: 0.08em;
     }
     .proof-inner {
       display: flex; flex-direction: column; align-items: center;
@@ -474,18 +475,19 @@
       font-size: 0.9375rem; color: var(--text-muted);
       max-width: 680px; line-height: 1.7;
     }
-    .proof-lead strong { color: var(--text); font-weight: 500; }
+    .proof-lead strong { color: #1e293b; font-weight: 500; }
     .proof-tag {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      font-size: 0.8125rem; color: var(--text-caption);
-      border: 1px solid var(--border); border-radius: var(--r-pill);
+      font-size: 0.8125rem; color: #94a3b8;
+      background: #ffffff;
+      border: 1px solid #e2e8f0; border-radius: var(--r-pill);
       padding: 0.35rem 0.85rem;
     }
     .proof-tag::before {
       content: '';
       width: 6px; height: 6px; border-radius: 50%;
-      background: #4ade80;
-      box-shadow: 0 0 6px #4ade80;
+      background: #16a34a;
+      box-shadow: 0 0 6px #16a34a;
       animation: pulse-dot 2s ease-in-out infinite;
     }
 
@@ -499,6 +501,7 @@
     /* ─── PARADIGM SHIFT ─── */
     #paradigm {
       padding: var(--f34) 0;
+      background: #ffffff;
     }
     .two-col {
       display: grid; grid-template-columns: 1fr 1fr;
@@ -509,11 +512,11 @@
     .col-text { display: flex; flex-direction: column; gap: var(--f5); }
     .col-text .section-header { align-items: flex-start; text-align: left; margin-bottom: 0; }
     .col-text .section-title { font-size: clamp(1.75rem, 3vw, 2.375rem); }
-    .col-text p { color: var(--text-muted); line-height: 1.8; font-size: 1rem; }
+    .col-text p { color: #64748b; line-height: 1.8; font-size: 1rem; }
     .learn-more {
       display: inline-flex; align-items: center; gap: 0.5rem;
       font-size: 0.875rem; font-weight: 500;
-      color: var(--accent-mid); text-decoration: none;
+      color: #2563eb; text-decoration: none;
       transition: gap 0.2s, opacity 0.2s;
     }
     .learn-more svg { width: 14px; height: 14px; transition: transform 0.2s; }
@@ -559,12 +562,12 @@
 
     /* Pipeline diagram */
     .pipeline {
-      background: rgba(255,255,255,0.025);
-      border: 1px solid var(--border);
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
       border-radius: var(--r-panel);
       padding: 2rem 1.5rem;
       position: relative; overflow: hidden;
-      box-shadow: 0 0 40px rgba(113,47,255,0.08);
+      box-shadow: 0 0 40px rgba(37,99,235,0.04);
     }
     .pipeline-steps {
       display: flex; flex-direction: column; gap: 0;
@@ -581,26 +584,26 @@
     }
     .step-icon {
       width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0;
-      background: rgba(147,130,255,0.1);
-      border: 1px solid rgba(147,130,255,0.2);
+      background: rgba(37,99,235,0.06);
+      border: 1px solid rgba(37,99,235,0.15);
       display: flex; align-items: center; justify-content: center;
     }
     .step-icon svg { width: 16px; height: 16px; }
     .step-label { flex: 1; }
     .step-label strong {
-      display: block; font-size: 0.875rem; font-weight: 500; color: var(--text);
+      display: block; font-size: 0.875rem; font-weight: 500; color: #1e293b;
       font-family: var(--font-body);
     }
     .step-label span {
-      font-size: 0.75rem; color: var(--text-caption); font-family: var(--font-mono);
+      font-size: 0.75rem; color: #94a3b8; font-family: var(--font-mono);
     }
     .step-arrow {
-      color: var(--accent-mid); font-size: 1rem; font-family: var(--font-mono);
+      color: #2563eb; font-size: 1rem; font-family: var(--font-mono);
       opacity: 0.6;
     }
     .pipeline-connector {
       position: absolute; left: 2.75rem; top: 0; bottom: 0; width: 1px;
-      background: linear-gradient(to bottom, transparent, rgba(147,130,255,0.2) 20%, rgba(147,130,255,0.2) 80%, transparent);
+      background: linear-gradient(to bottom, transparent, rgba(37,99,235,0.2) 20%, rgba(37,99,235,0.2) 80%, transparent);
       pointer-events: none;
     }
 
@@ -2175,7 +2178,7 @@
     ctx.scale(dpr, dpr);
     const H = SIZE / 2;
     const W = SIZE;
-    const COLOR = '#ba9cff';
+    const COLOR = '#2563eb';
 
     class Particle {
       constructor(x, y, order) {
