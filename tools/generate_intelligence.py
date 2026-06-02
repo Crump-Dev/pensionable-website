@@ -125,6 +125,7 @@ def build_article_html(a):
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../nav.css" />
   <link rel="stylesheet" href="intelligence.css" />
   <script type="application/ld+json">
   {{
@@ -178,24 +179,25 @@ def build_article_html(a):
   <a href="#main" class="skip-link">Skip to content</a>
 
   <nav class="site-nav" aria-label="Main navigation">
-    <a href="../index.html" class="nav-logo">pensionable<span>.ai</span></a>
+    <a href="../index.html" class="nav-logo"><svg class="logo-hex" viewBox="-1 -1 26 26" fill="none" aria-hidden="true"><polygon points="12,1.5 21,6.5 21,17.5 12,22.5 3,17.5 3,6.5" stroke="url(#lhg)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><defs><linearGradient id="lhg" x1="3" y1="1.5" x2="21" y2="22.5" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#1d4ed8"/></linearGradient></defs></svg><span class="logo-word"><span class="logo-text">PensionAble</span><span class="logo-ai">.ai</span></span></a>
     <ul class="nav-links" role="list">
       <li><a href="../solutions.html">Solutions</a></li>
-      <li><a href="index.html">Intelligence</a></li>
-      <li><a href="../index.html#paradigm">About</a></li>
+      <li><a href="index.html" aria-current="page">Intelligence</a></li>
       <li><a href="../index.html#challenge">Contact</a></li>
     </ul>
-    <div class="nav-cta"><a href="../index.html#challenge" class="btn-primary">Request Access</a></div>
-    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-cta">
+      <a href="../index.html#challenge" class="btn-nav-primary">Request a demo</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
-  <nav class="mobile-menu" id="mobile-nav">
+  <div id="mobile-nav">
     <a href="../solutions.html">Solutions</a>
     <a href="index.html">Intelligence</a>
     <a href="../index.html#challenge">Contact</a>
-    <a href="../index.html#challenge" class="btn-primary">Request Access</a>
-  </nav>
+    <a href="../index.html#challenge" class="btn-nav-primary">Request a demo</a>
+  </div>
 
   <main id="main">
     <div class="article-wrap">
@@ -240,13 +242,13 @@ def build_article_html(a):
   <footer>
     <div class="container">
       <div class="footer-inner">
-        <a href="../index.html" class="footer-logo">pensionable<span>.ai</span></a>
+        <a href="../index.html" class="footer-logo">PensionAble.ai</a>
         <ul class="footer-links" role="list">
           <li><a href="../solutions.html">Solutions</a></li>
           <li><a href="index.html">Intelligence</a></li>
           <li><a href="../index.html#challenge">Contact</a></li>
         </ul>
-        <p class="footer-copy">&copy; 2025 pensionable.ai</p>
+        <p class="footer-copy">&copy; 2026 PensionAble.ai</p>
       </div>
     </div>
   </footer>
