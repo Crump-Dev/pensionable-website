@@ -35,9 +35,22 @@
   }
   </script>
   <style>
-    #hero { padding: 140px 0 var(--f21); text-align: center; position: relative; overflow: hidden; }
-    .hero-glow { position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(113,47,255,0.18) 0%, transparent 65%); pointer-events: none; }
-    #hero .container { position: relative; z-index: 1; }
+    #hero { padding: 140px 0 var(--f21); text-align: center; position: relative; overflow: hidden; background: #ffffff; }
+    .hero-aurora {
+      pointer-events: none; position: absolute; inset: -80px; z-index: 0;
+      background-image:
+        repeating-linear-gradient(100deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.9) 7%, transparent 10%, transparent 12%, rgba(255,255,255,0.9) 16%),
+        repeating-linear-gradient(100deg, #60a5fa 10%, #818cf8 15%, #93c5fd 20%, #c4b5fd 25%, #60a5fa 30%);
+      background-size: 300% 100%, 200% 100%;
+      background-position: 50% 50%, 50% 50%;
+      filter: blur(16px); opacity: 0.65;
+      animation: aurora 55s linear infinite;
+      -webkit-mask-image: radial-gradient(ellipse 100% 65% at 50% -5%, black 0%, transparent 75%);
+      mask-image: radial-gradient(ellipse 100% 65% at 50% -5%, black 0%, transparent 75%);
+    }
+    @keyframes aurora { from { background-position: 50% 50%, 50% 50%; } to { background-position: 350% 50%, 350% 50%; } }
+    .hero-glow { position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(37,99,235,0.07) 0%, transparent 65%); pointer-events: none; }
+    #hero .container { position: relative; z-index: 2; }
     .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: var(--t-sm); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-mid); margin-bottom: var(--f8); }
     .hero-eyebrow span { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-mid); box-shadow: 0 0 6px var(--accent-mid); display: inline-block; animation: pulse 2s ease-in-out infinite; }
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(0.85)} }
@@ -54,7 +67,7 @@
       transition: color 0.2s, border-color 0.2s, background 0.2s;
     }
     .filter-btn:hover { color: var(--text); border-color: var(--border-bright); }
-    .filter-btn.active { color: var(--accent-mid); border-color: rgba(186,156,255,0.4); background: rgba(186,156,255,0.08); }
+    .filter-btn.active { color: var(--accent-mid); border-color: rgba(37,99,235,0.35); background: rgba(37,99,235,0.06); }
 
     /* grid */
     #grid { padding: var(--f13) 0; }
@@ -67,8 +80,8 @@
       position: relative; overflow: hidden;
       transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s;
     }
-    .article-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(147,130,255,0.2), transparent); }
-    .article-card:hover { border-color: rgba(147,130,255,0.25); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(113,47,255,0.12); }
+    .article-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(37,99,235,0.15), transparent); }
+    .article-card:hover { border-color: rgba(37,99,235,0.18); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(37,99,235,0.1); }
     .card-meta { display: flex; align-items: center; justify-content: space-between; }
     .card-date { font-family: var(--font-mono); font-size: var(--t-sm); color: var(--text-caption); }
     .card-title { font-family: var(--font-head); font-size: 0.9375rem; font-weight: 600; line-height: 1.4; letter-spacing: -0.01em; color: var(--text); flex: 1; }
@@ -104,13 +117,13 @@
   <a href="#main" class="skip-link">Skip to content</a>
 
   <nav class="site-nav" aria-label="Main navigation">
-    <a href="../index.html" class="nav-logo"><svg class="logo-hex" viewBox="-1 -1 26 26" fill="none" aria-hidden="true"><polygon points="12,1.5 21,6.5 21,17.5 12,22.5 3,17.5 3,6.5" stroke="url(#lhg)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><defs><linearGradient id="lhg" x1="3" y1="1.5" x2="21" y2="22.5" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#b44cf0"/><stop offset="100%" stop-color="#7030c8"/></linearGradient></defs></svg><span class="logo-word"><span class="logo-text">pensionable</span><span class="logo-ai">.ai</span></span></a>
+    <a href="../index-light.html" class="nav-logo"><svg class="logo-hex" viewBox="-1 -1 26 26" fill="none" aria-hidden="true"><polygon points="12,1.5 21,6.5 21,17.5 12,22.5 3,17.5 3,6.5" stroke="url(#lhg)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><defs><linearGradient id="lhg" x1="3" y1="1.5" x2="21" y2="22.5" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#1d4ed8"/></linearGradient></defs></svg><span class="logo-word"><span class="logo-text">pensionable</span><span class="logo-ai">.ai</span></span></a>
     <ul class="nav-links" role="list">
       <li><a href="../solutions.html">Solutions</a></li>
       <li><a href="index.html" aria-current="page">Intelligence</a></li>
-      <li><a href="../index.html#challenge">Contact</a></li>
+      <li><a href="../index-light.html#challenge">Contact</a></li>
     </ul>
-    <div class="nav-cta"><a href="../index.html#challenge" class="btn-nav-primary">Request a demo</a></div>
+    <div class="nav-cta"><a href="../index-light.html#challenge" class="btn-nav-primary">Request a demo</a></div>
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
       <span></span><span></span><span></span>
     </button>
@@ -118,13 +131,14 @@
   <nav class="mobile-menu" id="mobile-nav">
     <a href="../solutions.html">Solutions</a>
     <a href="index.html" aria-current="page">Intelligence</a>
-    <a href="../index.html#paradigm">About</a>
-    <a href="../index.html#challenge">Contact</a>
-    <a href="../index.html#challenge" class="btn-nav-primary">Request a demo</a>
+    <a href="../index-light.html#paradigm">About</a>
+    <a href="../index-light.html#challenge">Contact</a>
+    <a href="../index-light.html#challenge" class="btn-nav-primary">Request a demo</a>
   </nav>
 
   <main id="main">
     <section id="hero">
+      <div class="hero-aurora" aria-hidden="true"></div>
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="container">
         <p class="hero-eyebrow"><span></span>Live data feed</p>
@@ -285,7 +299,7 @@
         <div class="signup-inner fade-up">
           <h2 class="signup-headline">Want these insights<br><span class="grad-text">in your inbox?</span></h2>
           <p class="signup-desc">We're building a weekly briefing for pension professionals. UK pension data, regulatory updates, and scheme-level context — delivered when it matters.</p>
-          <a href="../index.html#challenge" class="btn-primary">Register Interest</a>
+          <a href="../index-light.html#challenge" class="btn-primary">Register Interest</a>
         </div>
       </div>
     </section>
@@ -294,11 +308,11 @@
   <footer>
     <div class="container">
       <div class="footer-inner">
-        <a href="../index.html" class="footer-logo">pensionable<span>.ai</span></a>
+        <a href="../index-light.html" class="footer-logo">pensionable<span>.ai</span></a>
         <ul class="footer-links" role="list">
           <li><a href="../solutions.html">Solutions</a></li>
           <li><a href="index.html">Intelligence</a></li>
-          <li><a href="../index.html#challenge">Contact</a></li>
+          <li><a href="../index-light.html#challenge">Contact</a></li>
           <li><a href="../legal.html">Legal</a></li>
         </ul>
         <p class="footer-copy">&copy; 2026 pensionable.ai. All rights reserved.</p>
