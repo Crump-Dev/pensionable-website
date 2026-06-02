@@ -65,19 +65,20 @@
     .container-narrow { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
     section { position: relative; overflow: hidden; }
     .radial-bleed { position: absolute; border-radius: 50%; pointer-events: none; z-index: 0; }
-    .rb-hero { width: 900px; height: 900px; background: radial-gradient(ellipse at center, rgba(113,47,255,0.22) 0%, rgba(147,130,255,0.08) 40%, transparent 70%); top: -250px; left: 50%; transform: translateX(-50%); }
-    .rb-right { width: 500px; height: 500px; background: radial-gradient(ellipse, rgba(147,130,255,0.1) 0%, transparent 70%); top: 10%; right: -150px; }
+    .rb-hero { width: 900px; height: 900px; background: radial-gradient(ellipse at center, rgba(37,99,235,0.07) 0%, rgba(37,99,235,0.03) 40%, transparent 70%); top: -250px; left: 50%; transform: translateX(-50%); }
+    .rb-right { width: 500px; height: 500px; background: radial-gradient(ellipse, rgba(37,99,235,0.05) 0%, transparent 70%); top: 10%; right: -150px; }
 
     /* HERO */
     #hero { padding: 130px 0 80px; }
     .hero-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5rem; }
-    .badge-pill { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.35rem 0.85rem; border-radius: var(--r-pill); background: rgba(147,130,255,0.08); border: 1px solid rgba(147,130,255,0.25); color: var(--accent-mid); backdrop-filter: blur(6px); }
-    .page-headline { font-family: var(--font-head); font-weight: 700; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; letter-spacing: -0.04em; background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.7) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; max-width: 720px; }
+    .badge-pill { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.35rem 0.85rem; border-radius: var(--r-pill); background: rgba(37,99,235,0.06); border: 1px solid rgba(37,99,235,0.2); color: var(--accent-mid); }
+    .page-headline { font-family: var(--font-head); font-weight: 700; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; letter-spacing: -0.04em; color: #1e293b !important; -webkit-text-fill-color: #1e293b !important; background: none !important; -webkit-background-clip: unset !important; background-clip: unset !important; max-width: 720px; }
+    h1.page-headline { color: #1e293b !important; -webkit-text-fill-color: #1e293b !important; }
     .page-desc { font-size: 1.0625rem; color: var(--text-muted); max-width: 520px; line-height: 1.7; }
 
     /* INTRO CALLOUT */
     .callout {
-      background: rgba(147,130,255,0.06); border: 1px solid rgba(147,130,255,0.18);
+      background: rgba(37,99,235,0.04); border: 1px solid rgba(37,99,235,0.12);
       border-radius: var(--r-panel); padding: 1.75rem 2rem;
       margin: 4rem auto; max-width: 760px;
     }
@@ -167,7 +168,8 @@
 
     .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1); }
     .fade-up.visible { opacity: 1; transform: none; }
-    .hero-inner > * { opacity: 0; transform: translateY(20px); animation: hero-in 0.7s cubic-bezier(0.16,1,0.3,1) forwards; }
+    .hero-inner > * { opacity: 1; transform: none; }
+    @keyframes hero-in { to { opacity: 1; transform: none; } }
     .hero-inner > *:nth-child(1) { animation-delay: 0.1s; }
     .hero-inner > *:nth-child(2) { animation-delay: 0.18s; }
     .hero-inner > *:nth-child(3) { animation-delay: 0.26s; }
@@ -193,8 +195,8 @@
 <nav role="navigation" aria-label="Main navigation">
   <a href="index.html" class="nav-logo"><svg class="logo-hex" viewBox="-1 -1 26 26" fill="none" aria-hidden="true"><polygon points="12,1.5 21,6.5 21,17.5 12,22.5 3,17.5 3,6.5" stroke="url(#lhg)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><defs><linearGradient id="lhg" x1="3" y1="1.5" x2="21" y2="22.5" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#1d4ed8"/></linearGradient></defs></svg><span class="logo-word"><span class="logo-text">PensionAble</span><span class="logo-ai">.ai</span></span></a>
   <ul class="nav-links" role="menubar">
-    <li><a href="how-it-works.html" role="menuitem">How it works</a></li>
-    <li><a href="trust-and-safety.html" class="active" role="menuitem">Trust &amp; Safety</a></li>
+    <li><a href="solutions.html" role="menuitem">Solutions</a></li>
+    <li><a href="intelligence/index.html" role="menuitem">Intelligence</a></li>
     <li><a href="index.html#challenge" role="menuitem">Contact</a></li>
   </ul>
   <div class="nav-cta" style="display:flex;align-items:center;gap:0.75rem">
@@ -205,8 +207,8 @@
   </div>
 </nav>
 <div id="mobile-nav" aria-label="Mobile navigation">
-  <a href="how-it-works.html">How it works</a>
-  <a href="trust-and-safety.html">Trust &amp; Safety</a>
+  <a href="solutions.html">Solutions</a>
+  <a href="intelligence/index.html">Intelligence</a>
   <a href="index.html#challenge">Contact</a>
   <a href="index.html#challenge" class="btn-nav-primary">Request a demo</a>
 </div>
@@ -219,7 +221,7 @@
     <div class="container">
       <div class="hero-inner">
         <div class="badge-pill">Trust &amp; Safety</div>
-        <h1 class="page-headline">Some standards we adhere to.</h1>
+        <h1 class="page-headline" style="color:#1e293b;-webkit-text-fill-color:#1e293b;background:none;">Some standards we adhere to.</h1>
         <p class="page-desc">The engine is fast. The question every serious buyer asks next is: how do you make this safe for actuarial work, defensible for trustees, and compliant with GDPR?</p>
       </div>
     </div>

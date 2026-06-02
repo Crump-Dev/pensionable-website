@@ -50,8 +50,9 @@
     .page-title { font-family: var(--font-head); font-weight: 800; font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.1; letter-spacing: -0.03em; }
     .page-updated { font-size: 0.8125rem; color: var(--text-caption); font-family: var(--font-mono); margin-top: 1rem; }
 
-    /* TOC */
-    .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 3rem; }
+    /* TOC — reset nav.css fixed positioning */
+    nav.toc { position: static !important; height: auto !important; background: var(--surface) !important; border: 1px solid var(--border) !important; border-bottom: 1px solid var(--border) !important; backdrop-filter: none !important; padding: 1.5rem 2rem !important; border-radius: 12px; margin-bottom: 3rem; display: block !important; z-index: auto !important; }
+    nav.toc::after { display: none !important; }
     .toc-title { font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-caption); margin-bottom: 1rem; }
     .toc ol { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
     .toc a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
