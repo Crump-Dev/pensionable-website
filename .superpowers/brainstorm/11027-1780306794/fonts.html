@@ -1,0 +1,75 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Libre+Baskerville:wght@700&family=DM+Serif+Display&family=Syne:wght@700;800&family=Inter:wght@400;500&display=swap');
+.preview { background:#ffffff; border:1px solid #e2e8f0; border-radius:10px; padding:22px 24px; }
+.preview .badge { font-family:system-ui; font-size:9px; color:#94a3b8; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:10px; display:flex; align-items:center; gap:5px }
+.preview .badge::before { content:''; width:5px; height:5px; border-radius:50%; background:#1d4ed8; display:inline-block }
+.preview .body-text { font-family:'Inter',system-ui; font-size:11px; color:#64748b; margin-top:6px; line-height:1.5 }
+.preview .sub { font-family:'Inter',system-ui; font-size:10px; color:#94a3b8; margin-top:4px }
+</style>
+
+<h2>Which font pairing feels right?</h2>
+<p class="subtitle">Heading font is the big decision — body stays Inter in all cases</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="jakarta" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="preview">
+        <div class="badge">Diorama</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:26px; font-weight:800; color:#1e293b; letter-spacing:-0.04em; line-height:1.05">Calcs solved with <span style="color:#1d4ed8">Diorama.</span></div>
+        <div class="body-text">The pension calc engine the industry thought couldn't exist.</div>
+        <div class="sub" style="margin-top:8px">Plus Jakarta Sans — same as dark version</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Keep Plus Jakarta Sans</h3>
+      <p>Consistent with the dark site. Geometric, modern, slightly technical. Safe and clean on white.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="baskerville" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="preview">
+        <div class="badge">Diorama</div>
+        <div style="font-family:'Libre Baskerville',serif; font-size:24px; font-weight:700; color:#1e293b; letter-spacing:-0.02em; line-height:1.1">Calcs solved with <span style="color:#1d4ed8">Diorama.</span></div>
+        <div class="body-text">The pension calc engine the industry thought couldn't exist.</div>
+        <div class="sub" style="margin-top:8px">Libre Baskerville — classic serif heading</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Libre Baskerville</h3>
+      <p>Traditional serif heading, very institutional and trustworthy. Feels like a law firm or private bank. Completely different mood to the dark version.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="dm-serif" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="preview">
+        <div class="badge">Diorama</div>
+        <div style="font-family:'DM Serif Display',serif; font-size:26px; font-weight:400; color:#1e293b; letter-spacing:-0.01em; line-height:1.08">Calcs solved with <span style="color:#1d4ed8">Diorama.</span></div>
+        <div class="body-text">The pension calc engine the industry thought couldn't exist.</div>
+        <div class="sub" style="margin-top:8px">DM Serif Display — elegant editorial serif</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>DM Serif Display</h3>
+      <p>Elegant, slightly editorial. Sits between institutional and premium tech. Works beautifully large on white.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="syne" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="preview">
+        <div class="badge">Diorama</div>
+        <div style="font-family:'Syne',sans-serif; font-size:24px; font-weight:800; color:#1e293b; letter-spacing:-0.04em; line-height:1.05">Calcs solved with <span style="color:#1d4ed8">Diorama.</span></div>
+        <div class="body-text">The pension calc engine the industry thought couldn't exist.</div>
+        <div class="sub" style="margin-top:8px">Syne — bold distinctive sans</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Syne</h3>
+      <p>Chunky, architectural, very distinctive. Stands out from every other pensions site. High-impact on white.</p>
+    </div>
+  </div>
+
+</div>

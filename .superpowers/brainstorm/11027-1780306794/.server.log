@@ -1,0 +1,9 @@
+{"type":"server-started","port":57136,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:57136","screen_dir":"/Users/admin/Desktop/pensionablesite/.superpowers/brainstorm/11027-1780306794"}
+{"type":"screen-added","file":"/Users/admin/Desktop/pensionablesite/.superpowers/brainstorm/11027-1780306794/palette.html"}
+{"source":"user-event","type":"click","text":"pensionable.ai\n      Calcs solved withDiorama.\n      The pension calc engine the industry thought couldn't exist.\n      \n        Request a demo\n        Solutions\n      \n    \n    \n      Steel & Cobalt\n      Pure white, slate-grey text, dark navy CTA with cobalt accent. Crisp, modern, slightly editorial.","choice":"steel","id":null,"timestamp":1780306853564}
+{"type":"screen-added","file":"/Users/admin/Desktop/pensionablesite/.superpowers/brainstorm/11027-1780306794/hero-layout.html"}
+{"source":"user-event","type":"click","text":"● DIORAMA\n        Calcs solved with Diorama.\n        The pension calc engine the industry thought couldn't exist.\n        Request a demo\n        \n          \n          \n          \n          \n        \n      \n    \n    \n      Centred — same structure as dark version\n      Text centred, audit trail frame below on a slight tilt. Familiar rhythm, clean on white.","choice":"centred","id":null,"timestamp":1780306903514}
+{"type":"screen-added","file":"/Users/admin/Desktop/pensionablesite/.superpowers/brainstorm/11027-1780306794/fonts.html"}
+{"type":"screen-added","file":"/Users/admin/Desktop/pensionablesite/.superpowers/brainstorm/11027-1780306794/cta-section.html"}
+{"type":"screen-added","file":"/Users/admin/Desktop/pensionablesite/.superpowers/brainstorm/11027-1780306794/waiting.html"}
+{"type":"server-stopped","reason":"idle timeout"}
