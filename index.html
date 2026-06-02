@@ -1251,12 +1251,16 @@
       #radar-section { padding: var(--f8) 0; min-height: 0; }
       #halcyon       { padding: var(--f8) 0 var(--f13); }
       #trust         { padding: var(--f8) 0; }
-      #about         { padding: var(--f13) 0 0; overflow: visible; }
+      #about         { padding: var(--f13) 0 0; overflow: hidden; }
       #challenge     { padding: var(--f13) 0; }
       .section-header { margin-bottom: var(--f8); }
 
       /* Globe — visible but cropped tightly */
-      .about-globe { height: 160px; margin-top: var(--f8); margin-bottom: 10px; }
+      .about-globe {
+        height: 160px; margin-top: var(--f8); margin-bottom: 0;
+        -webkit-mask-image: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0) 96%);
+        mask-image: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0) 96%);
+      }
 
       /* Proof / halcyon */
       .halcyon-panel { padding: var(--f8) var(--f5); }
@@ -1294,7 +1298,11 @@
       #challenge { padding: var(--f13) 0; }
 
       .entropy-wrap { margin-top: var(--f5); }
-      .about-globe { height: 300px; margin-top: var(--f5); }
+      .about-globe {
+        height: 160px; margin-top: var(--f5); margin-bottom: 10px;
+        -webkit-mask-image: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0) 96%);
+        mask-image: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0) 96%);
+      }
 
       .challenge-ctas { flex-direction: column; width: 100%; }
       .challenge-ctas a { width: 100%; text-align: center; justify-content: center; }
