@@ -54,12 +54,12 @@
       .nav-cta .btn-primary, .nav-cta .btn-nav-primary { display: none !important; }
       .nav-hamburger { display: flex !important; }
     }
-    .mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: #ffffff !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; border-bottom: 3px solid #e2e8f0; box-shadow: 0 8px 24px rgba(0,20,60,0.08); padding: 1.25rem 1.5rem; flex-direction: column; gap: 0; z-index: 10001; }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a { color: #1e293b; text-decoration: none; font-size: 1.0625rem; font-weight: 500; padding: 0.85rem 0; border-bottom: 1px solid #f1f5f9; transition: color 0.2s; }
-    .mobile-menu a:last-child { border-bottom: none; }
-    .mobile-menu a:hover { color: #2563eb; }
-    .mobile-menu .btn-nav-primary { background: #2563eb; color: #ffffff; border-radius: 8px; text-align: center; margin-top: 0.75rem; }
+    #mobile-nav { display: none; position: fixed; top: 64px; left: 0; right: 0; background: #ffffff; border-bottom: 3px solid #e2e8f0; box-shadow: 0 8px 24px rgba(0,20,60,0.08); padding: 1.25rem 1.5rem; flex-direction: column; gap: 0; z-index: 10001; }
+    #mobile-nav.open { display: flex; }
+    #mobile-nav a { color: #1e293b; text-decoration: none; font-size: 1.0625rem; font-weight: 500; padding: 0.85rem 0; border-bottom: 1px solid #f1f5f9; transition: color 0.2s; }
+    #mobile-nav a:last-child { border-bottom: none; }
+    #mobile-nav a:hover { color: #2563eb; }
+    #mobile-nav .btn-nav-primary { background: #2563eb; color: #ffffff; border-radius: 8px; text-align: center; margin-top: 0.75rem; border: none; }
 
     .container { max-width: 1160px; margin: 0 auto; padding: 0 1.5rem; }
     .container-narrow { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
@@ -204,12 +204,12 @@
     </button>
   </div>
 </nav>
-<nav class="mobile-menu" id="mobile-nav" aria-label="Mobile navigation">
+<div id="mobile-nav" aria-label="Mobile navigation">
   <a href="how-it-works.html">How it works</a>
   <a href="trust-and-safety.html">Trust &amp; Safety</a>
   <a href="index.html#challenge">Contact</a>
   <a href="index.html#challenge" class="btn-nav-primary">Request a demo</a>
-</nav>
+</div>
 
 <main>
 
