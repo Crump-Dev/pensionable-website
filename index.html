@@ -204,21 +204,32 @@
       background: var(--text-muted); border-radius: 2px;
       transition: opacity 0.2s, transform 0.2s;
     }
-    .mobile-menu {
-      display: none; position: fixed; top: 64px; left: 0; right: 0;
+    #mobile-nav {
+      display: none;
+      position: fixed; top: 64px; left: 0; right: 0;
       background: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
-      padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem;
-      z-index: 999;
+      border-bottom: 3px solid #e2e8f0;
+      padding: 1.25rem 1.5rem;
+      flex-direction: column; gap: 0;
+      z-index: 10001;
+      box-shadow: 0 8px 24px rgba(0,20,60,0.08);
     }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      color: #64748b; text-decoration: none; font-size: 1rem;
-      padding: 0.6rem 0; border-bottom: 1px solid #e2e8f0;
-      transition: color 0.2s;
+    #mobile-nav.open { display: flex; }
+    #mobile-nav a {
+      color: #1e293b; text-decoration: none;
+      font-size: 1.0625rem; font-weight: 500;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid #f1f5f9;
+      font-family: var(--font-body);
     }
-    .mobile-menu a:hover { color: #1e293b; }
-    .mobile-menu .btn-primary { margin-top: 0.75rem; width: 100%; }
+    #mobile-nav a:last-child { border-bottom: none; }
+    #mobile-nav .mob-cta {
+      margin-top: 0.75rem;
+      background: #2563eb; color: #ffffff;
+      border: none; border-radius: 8px;
+      text-align: center; font-weight: 600;
+      padding: 0.75rem 1rem;
+    }
 
     /* ─── LOGO OVERRIDES (light theme) ─── */
     .nav-logo { color: var(--text); }
@@ -1191,16 +1202,16 @@
     /* ── 768px: mobile ───────────────────────────────────────────────── */
     @media (max-width: 768px) {
       .nav-links { display: none; }
-      .nav-hamburger { display: flex; }
-      .nav-cta .btn-primary { display: none; }
-      .nav-cta .btn-nav-primary { font-size: 0.72rem; padding: 0.3rem 0.75rem; margin-right: -13px; }
+      .nav-cta { display: flex !important; }
+      .nav-cta .btn-nav-primary { display: none !important; }
+      .nav-hamburger { display: flex !important; }
 
       /* Hero */
       #hero { padding: 100px 0 var(--f13); min-height: auto; }
-      .bh-video-layer { width: 680px; top: 275px; }
+      .bh-video-layer { width: 680px; top: 280px; }
       .hero-aurora { opacity: 0.5; }
       .hero-headline { white-space: normal; font-size: clamp(1.75rem, 7vw, 2.6rem); }
-      .hero-desc { white-space: normal; font-size: 0.875rem; max-width: 100%; }
+      .hero-desc { white-space: normal; font-size: 0.875rem; max-width: 100%; line-height: 1.4; letter-spacing: -0.01em; font-weight: 400; }
       .hero-sub { font-size: 0.875rem; white-space: normal; }
       .hero-ctas { flex-direction: column; width: 100%; gap: var(--f3); }
       .hero-ctas a { width: 100%; text-align: center; justify-content: center; }
@@ -1208,7 +1219,7 @@
       /* Audit trail — flatten tilt, full width, horizontal scroll */
       .hero-frame-wrap {
         width: calc(100vw - 2rem);
-        margin-top: calc(var(--f8) + 35px);
+        margin-top: calc(var(--f8) + 60px);
         perspective: none;
       }
       .hero-frame {
@@ -1327,13 +1338,13 @@
     </button>
   </div>
 </nav>
-<nav class="mobile-menu" id="mobile-nav" aria-label="Mobile navigation">
+<div id="mobile-nav" role="navigation" aria-label="Mobile navigation">
   <a href="solutions.html">Solutions</a>
   <a href="intelligence/index.html">Intelligence</a>
   <a href="trust-and-safety.html">Trust &amp; Safety</a>
   <a href="#challenge">Contact</a>
-  <a href="#challenge" class="btn-nav-primary">Request a demo</a>
-</nav>
+  <a href="#challenge" class="mob-cta">Request a demo</a>
+</div>
 
 <main id="main">
 
