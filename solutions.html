@@ -128,9 +128,10 @@
     }
     .btn-nav-primary:hover { background: #1d4ed8; border-color: #1d4ed8; box-shadow: 0 4px 20px rgba(37,99,235,0.4); }
     .nav-hamburger span { background: #64748b; }
-    .mobile-menu { background: rgba(255,255,255,0.97); border-bottom: 1px solid #e2e8f0; }
-    .mobile-menu a { color: #64748b; border-bottom-color: #e2e8f0; }
-    .mobile-menu a:hover { color: #1e293b; }
+    .mobile-menu { background: #ffffff !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; border-bottom: 3px solid #e2e8f0 !important; box-shadow: 0 8px 24px rgba(0,20,60,0.08) !important; z-index: 10001 !important; }
+    .mobile-menu a { color: #1e293b !important; border-bottom: 1px solid #f1f5f9 !important; font-size: 1.0625rem !important; font-weight: 500 !important; padding: 0.85rem 0 !important; }
+    .mobile-menu a:hover { color: #2563eb !important; }
+    .mobile-menu .btn-nav-primary { background: #2563eb !important; color: #ffffff !important; border-radius: 8px !important; text-align: center !important; margin-top: 0.75rem !important; }
 
     /* ── NAV ── */
     nav {
@@ -497,7 +498,7 @@
   <a href="#main" class="skip-link">Skip to content</a>
 
   <nav aria-label="Main navigation">
-    <a href="index.html" class="nav-logo"><svg class="logo-hex" viewBox="-1 -1 26 26" fill="none" aria-hidden="true"><polygon points="12,1.5 21,6.5 21,17.5 12,22.5 3,17.5 3,6.5" stroke="url(#lhg)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><defs><linearGradient id="lhg" x1="3" y1="1.5" x2="21" y2="22.5" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#1d4ed8"/></linearGradient></defs></svg><span class="logo-word"><span class="logo-text">pensionable</span><span class="logo-ai">.ai</span></span></a>
+    <a href="index.html" class="nav-logo"><svg class="logo-hex" viewBox="-1 -1 26 26" fill="none" aria-hidden="true"><polygon points="12,1.5 21,6.5 21,17.5 12,22.5 3,17.5 3,6.5" stroke="url(#lhg)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><defs><linearGradient id="lhg" x1="3" y1="1.5" x2="21" y2="22.5" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#1d4ed8"/></linearGradient></defs></svg><span class="logo-word"><span class="logo-text">PensionAble</span><span class="logo-ai">.ai</span></span></a>
     <ul class="nav-links" role="list">
       <li><a href="solutions.html" aria-current="page">Solutions</a></li>
       <li><a href="intelligence/index.html">Intelligence</a></li>
@@ -701,7 +702,7 @@
   <footer>
     <div class="container">
       <div class="footer-inner">
-        <a href="index.html" class="footer-logo">pensionable<span>.ai</span></a>
+        <a href="index.html" class="footer-logo">PensionAble<span>.ai</span></a>
         <ul class="footer-links" role="list">
           <li><a href="solutions.html">Solutions</a></li>
           <li><a href="intelligence/index.html">Intelligence</a></li>
