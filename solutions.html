@@ -474,9 +474,11 @@
       .sol-visual { min-height: auto; }
     }
     @media (max-width: 768px) {
+      nav { padding: 0 1rem; }
       .nav-links { display: none; }
-      .nav-hamburger { display: flex; }
-      .nav-cta .btn-primary { display: none; }
+      .nav-cta { display: flex !important; }
+      .nav-cta .btn-primary, .nav-cta .btn-nav-primary { display: none !important; }
+      .nav-hamburger { display: flex !important; }
       .audience-grid { grid-template-columns: 1fr; }
       .hero-headline { font-size: clamp(1.8rem, 7vw, 2.6rem); }
       .solution-row { padding: var(--f8) var(--f5); }

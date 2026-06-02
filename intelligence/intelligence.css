@@ -131,9 +131,11 @@ footer {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
-  .nav-links { display: none; }
-  .nav-hamburger { display: flex; }
-  .nav-cta .btn-primary { display: none; }
+  nav, nav.site-nav { padding: 0 1rem !important; }
+  .nav-links { display: none !important; }
+  .nav-cta { display: flex !important; }
+  .nav-cta .btn-primary, .nav-cta .btn-nav-primary { display: none !important; }
+  .nav-hamburger { display: flex !important; }
   .container { padding: 0 1rem; }
 }
 @media (max-width: 480px) {
