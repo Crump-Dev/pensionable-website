@@ -568,6 +568,62 @@
       animation: pulse-dot 2s ease-in-out infinite;
     }
 
+    /* ─── WEBINAR ─── */
+    #webinar { padding: var(--f21) 0; background: #ffffff; border-bottom: 1px solid #e2e8f0; }
+    .webinar-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: var(--f21); align-items: center;
+    }
+    .webinar-text { display: flex; flex-direction: column; gap: var(--f5); }
+    .webinar-title {
+      font-family: var(--font-head); font-weight: 800;
+      font-size: clamp(1.75rem, 3.5vw, 2.625rem);
+      line-height: 1.1; letter-spacing: -0.04em; color: var(--text);
+    }
+    .webinar-title .grad { background: var(--accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .webinar-desc { color: var(--text-muted); line-height: 1.8; font-size: 1rem; max-width: 480px; }
+    .webinar-speaker { font-size: var(--t-sm); color: var(--text-caption); font-family: var(--font-mono); display: flex; align-items: center; gap: 0.5rem; }
+    .webinar-speaker svg { flex-shrink: 0; }
+    .webinar-meta { display: flex; align-items: center; gap: var(--f3); flex-wrap: wrap; }
+    .webinar-meta-item { font-family: var(--font-mono); font-size: var(--t-sm); color: var(--text-caption); display: flex; align-items: center; gap: 0.35rem; }
+    .webinar-sep { color: #e2e8f0; }
+    .webinar-cta {
+      display: inline-flex; align-items: center; gap: 0.5rem; align-self: flex-start;
+      background: #2563eb; color: #fff;
+      padding: 0.7rem 1.5rem; border-radius: var(--r-btn);
+      text-decoration: none; font-size: 0.9375rem; font-weight: 600;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+      box-shadow: 0 2px 8px rgba(37,99,235,0.25), 0 6px 20px rgba(37,99,235,0.15);
+    }
+    .webinar-cta:hover { background: #1d4ed8; box-shadow: 0 4px 16px rgba(37,99,235,0.4); transform: translateY(-1px); }
+    .webinar-cta:focus-visible { outline: 2px solid #2563eb; outline-offset: 3px; }
+    .webinar-cta svg { width: 14px; height: 14px; }
+    .webinar-thumb-link {
+      display: block; position: relative; border-radius: var(--r-panel); overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,20,60,0.1), 0 20px 60px rgba(37,99,235,0.12);
+      border: 1px solid #e2e8f0;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .webinar-thumb-link:hover { box-shadow: 0 8px 40px rgba(0,20,60,0.14), 0 24px 64px rgba(37,99,235,0.18); transform: translateY(-3px); }
+    .webinar-thumb-link:focus-visible { outline: 2px solid #2563eb; outline-offset: 4px; }
+    .webinar-thumb-link img { width: 100%; height: auto; display: block; }
+    .webinar-play-overlay {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.22); transition: background 0.25s;
+    }
+    .webinar-thumb-link:hover .webinar-play-overlay { background: rgba(0,0,0,0.38); }
+    .play-circle {
+      width: 68px; height: 68px; border-radius: 50%;
+      background: rgba(255,255,255,0.95); display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .webinar-thumb-link:hover .play-circle { transform: scale(1.1); box-shadow: 0 8px 36px rgba(0,0,0,0.4); }
+    .play-circle svg { width: 26px; height: 26px; fill: #2563eb; margin-left: 4px; }
+    .webinar-hosted { font-size: var(--t-xs); color: var(--text-caption); font-family: var(--font-mono); letter-spacing: 0.04em; text-transform: uppercase; text-align: center; margin-top: 0.75rem; }
+    @media (max-width: 900px) { .webinar-grid { grid-template-columns: 1fr; gap: var(--f8); } }
+    @media (max-width: 640px) { #webinar { padding: var(--f13) 0; } }
+
     /* ─── RADAR SECTION ─── */
     #radar-section {
       padding: var(--f13) 0;
@@ -1484,6 +1540,59 @@
     </div>
   </section>
 
+  <!-- ─── WEBINAR ─── -->
+  <section id="webinar" aria-labelledby="webinar-title">
+    <div class="container">
+      <div class="webinar-grid">
+
+        <div class="webinar-text fade-up">
+          <div class="badge-pill" style="align-self:flex-start">
+            <span class="dot" aria-hidden="true"></span>
+            Featured Webinar
+          </div>
+          <h2 id="webinar-title" class="webinar-title">Beyond the Hype —<br><span class="grad">AI delivering real value</span></h2>
+          <p class="webinar-desc">PRT calculation work has historically taken months, or even years. Combining data expertise with AI across benefit audits, calculations and revaluations is opening new ways to improve efficiency, reduce costs and increase transparency — with measurable outcomes today, not speculation.</p>
+          <div class="webinar-speaker">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="5.5" r="2.5"/><path d="M2.5 14c0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5"/></svg>
+            Mark Crump, CEO · Pensionable.ai &nbsp;·&nbsp; with David Rich, CDO · PensionAble.ai and MM
+          </div>
+          <div class="webinar-meta">
+            <span class="webinar-meta-item">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M8 4.5v3.5l2.5 1.5" stroke-linecap="round"/></svg>
+              55 mins
+            </span>
+            <span class="webinar-sep" aria-hidden="true">·</span>
+            <span class="webinar-meta-item">03 June 2026</span>
+            <span class="webinar-sep" aria-hidden="true">·</span>
+            <span class="webinar-meta-item">PMI BrightTALK</span>
+          </div>
+          <a href="https://www.brighttalk.com/webcast/17145/668942?utm_source=PMI&utm_medium=brighttalk&utm_campaign=668942"
+             target="_blank" rel="noopener noreferrer" class="webinar-cta">
+            Watch on BrightTALK
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+        </div>
+
+        <div class="fade-up" style="transition-delay:0.1s">
+          <a href="https://www.brighttalk.com/webcast/17145/668942?utm_source=PMI&utm_medium=brighttalk&utm_campaign=668942"
+             target="_blank" rel="noopener noreferrer" class="webinar-thumb-link"
+             aria-label="Watch Beyond the Hype webinar on BrightTALK (opens in new tab)">
+            <img src="assets/images/webinar-beyond-the-hype.png"
+                 alt="Beyond the Hype — AI delivering real value webinar, hosted by PMI on BrightTALK"
+                 loading="lazy" />
+            <div class="webinar-play-overlay" aria-hidden="true">
+              <div class="play-circle">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l9 5-9 5V3z"/></svg>
+              </div>
+            </div>
+          </a>
+          <p class="webinar-hosted">Hosted by the Pensions Management Institute</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ─── PARADIGM SHIFT ─── -->
   <section id="paradigm" aria-labelledby="paradigm-title">
     <div class="radial-bleed rb-left" aria-hidden="true"></div>
@@ -1617,7 +1726,7 @@
         <div class="col-text fade-up">
           <div class="section-header">
             <div class="badge-pill">Defensible by design</div>
-            <h2 id="trust-title" class="section-title">Some standards we adhere to.</h2>
+            <h2 id="trust-title" class="section-title">Some standards we adhere to:</h2>
           </div>
           <div class="trust-checklist">
 
