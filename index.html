@@ -621,14 +621,13 @@
     .webinar-thumb-link:hover .play-circle { transform: scale(1.1); box-shadow: 0 8px 36px rgba(0,0,0,0.4); }
     .play-circle svg { width: 26px; height: 26px; fill: #2563eb; margin-left: 4px; }
     .webinar-pmi-badge {
-      display: inline-flex; align-items: center; gap: 0.5rem; align-self: flex-start;
-      background: #f0f4ff; border: 1px solid #c7d7fc;
-      border-radius: 6px; padding: 0.45rem 0.85rem;
-      font-family: var(--font-mono); font-size: var(--t-sm);
-      color: #1e40af; letter-spacing: 0.01em; font-weight: 600;
+      display: inline-flex; align-items: center; align-self: flex-start;
+      background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 6px; padding: 0.35rem 0.75rem;
     }
-    .webinar-pmi-badge svg { flex-shrink: 0; opacity: 0.75; }
-    .webinar-hosted { font-size: var(--t-xs); color: var(--text-caption); font-family: var(--font-mono); letter-spacing: 0.04em; text-transform: uppercase; text-align: center; margin-top: 0.75rem; }
+    .webinar-pmi-badge img { height: 28px; width: auto; display: block; }
+    .webinar-hosted { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 0.875rem; font-size: var(--t-xs); color: var(--text-caption); font-family: var(--font-mono); letter-spacing: 0.04em; text-transform: uppercase; }
+    .webinar-hosted img { height: 18px; width: auto; display: block; opacity: 0.7; }
     @media (max-width: 900px) { .webinar-grid { grid-template-columns: 1fr; gap: var(--f8); } }
     @media (max-width: 640px) { #webinar { padding: var(--f13) 0; } }
 
@@ -1560,8 +1559,7 @@
               Featured Webinar
             </div>
             <div class="webinar-pmi-badge">
-              <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 13V5l6-3 6 3v8"/><rect x="5" y="8" width="2.5" height="5"/><rect x="8.5" y="8" width="2.5" height="5"/></svg>
-              Pensions Management Institute
+              <img src="assets/images/pmi-logo.png" alt="Pensions Management Institute" />
             </div>
           </div>
           <h2 id="webinar-title" class="webinar-title">Beyond the Hype —<br><span class="grad">AI delivering real value</span></h2>
@@ -1600,7 +1598,10 @@
               </div>
             </div>
           </a>
-          <p class="webinar-hosted">Official PMI webinar &nbsp;·&nbsp; Pensions Management Institute</p>
+          <p class="webinar-hosted">
+            Hosted by
+            <img src="assets/images/pmi-logo.png" alt="Pensions Management Institute" />
+          </p>
         </div>
 
       </div>
