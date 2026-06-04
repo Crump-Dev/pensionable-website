@@ -620,6 +620,14 @@
     }
     .webinar-thumb-link:hover .play-circle { transform: scale(1.1); box-shadow: 0 8px 36px rgba(0,0,0,0.4); }
     .play-circle svg { width: 26px; height: 26px; fill: #2563eb; margin-left: 4px; }
+    .webinar-pmi-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem; align-self: flex-start;
+      background: #f0f4ff; border: 1px solid #c7d7fc;
+      border-radius: 6px; padding: 0.45rem 0.85rem;
+      font-family: var(--font-mono); font-size: var(--t-sm);
+      color: #1e40af; letter-spacing: 0.01em; font-weight: 600;
+    }
+    .webinar-pmi-badge svg { flex-shrink: 0; opacity: 0.75; }
     .webinar-hosted { font-size: var(--t-xs); color: var(--text-caption); font-family: var(--font-mono); letter-spacing: 0.04em; text-transform: uppercase; text-align: center; margin-top: 0.75rem; }
     @media (max-width: 900px) { .webinar-grid { grid-template-columns: 1fr; gap: var(--f8); } }
     @media (max-width: 640px) { #webinar { padding: var(--f13) 0; } }
@@ -1546,9 +1554,15 @@
       <div class="webinar-grid">
 
         <div class="webinar-text fade-up">
-          <div class="badge-pill" style="align-self:flex-start">
-            <span class="dot" aria-hidden="true"></span>
-            Featured Webinar
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center">
+            <div class="badge-pill" style="align-self:flex-start">
+              <span class="dot" aria-hidden="true"></span>
+              Featured Webinar
+            </div>
+            <div class="webinar-pmi-badge">
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 13V5l6-3 6 3v8"/><rect x="5" y="8" width="2.5" height="5"/><rect x="8.5" y="8" width="2.5" height="5"/></svg>
+              Pensions Management Institute
+            </div>
           </div>
           <h2 id="webinar-title" class="webinar-title">Beyond the Hype —<br><span class="grad">AI delivering real value</span></h2>
           <p class="webinar-desc">PRT calculation work has historically taken months, or even years. Combining data expertise with AI across benefit audits, calculations and revaluations is opening new ways to improve efficiency, reduce costs and increase transparency — with measurable outcomes today, not speculation.</p>
@@ -1564,7 +1578,7 @@
             <span class="webinar-sep" aria-hidden="true">·</span>
             <span class="webinar-meta-item">03 June 2026</span>
             <span class="webinar-sep" aria-hidden="true">·</span>
-            <span class="webinar-meta-item">PMI BrightTALK</span>
+            <span class="webinar-meta-item">BrightTALK</span>
           </div>
           <a href="https://www.brighttalk.com/webcast/17145/668942?utm_source=PMI&utm_medium=brighttalk&utm_campaign=668942"
              target="_blank" rel="noopener noreferrer" class="webinar-cta">
@@ -1586,7 +1600,7 @@
               </div>
             </div>
           </a>
-          <p class="webinar-hosted">Hosted by the Pensions Management Institute</p>
+          <p class="webinar-hosted">Official PMI webinar &nbsp;·&nbsp; Pensions Management Institute</p>
         </div>
 
       </div>
